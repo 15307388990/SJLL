@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="txt_title">#333</color>
+    <color name="txt_right">#666</color>
+    <color name="white">#FFFFFF</color>
+
+
+    <color name="bg_titleBar">#fff</color>
+    <color name="LL_6277FF">#6277FF</color>
+    <color name="LL_D8D8D8">#D8D8D8</color>
+    <color name="LL_999999">#999999</color>
+    <color name="LL_F0F0F0">#F0F0F0</color>
+    <color name="LL_626262">#626262</color>
+    <color name="LL_EEEEEE">#EEEEEE</color>
+    <color name="LL_9B9B9B">#9B9B9B</color>
+    <color name="LL_E3E6FF">#E3E6FF</color>
+    <color name="LL_888888">#888888</color>
+    <color name="LL_F2F2F2">#F2F2F2</color>
+
+</resources>
