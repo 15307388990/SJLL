@@ -20,7 +20,7 @@ public class ShowFragemt extends MvpFragment<ShowView, ShowPresenter> implements
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
         super.onCreateView(savedInstanceState);
-        setContentView(R.layout.fragemt_project);
+        setContentView(R.layout.fragemt_order);
     }
 
     @Override

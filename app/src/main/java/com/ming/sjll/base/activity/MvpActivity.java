@@ -2,7 +2,11 @@ package com.ming.sjll.base.activity;
 
 import android.os.Bundle;
 
+import com.ming.sjll.MainActivity;
+import com.ming.sjll.R;
 import com.ming.sjll.base.presenter.MvpPresenter;
+import com.ming.sjll.base.utils.AppUtils;
+import com.ming.sjll.base.utils.StatusBarUtil;
 import com.ming.sjll.base.view.MvpView;
 
 import org.greenrobot.eventbus.EventBus;
@@ -28,6 +32,8 @@ public abstract class MvpActivity<V extends MvpView, P extends MvpPresenter<V>>
         // 初始化presenter并绑定view
         mPresenter = createPresenter();
         mPresenter.attachView((V) this);
+        StatusBarUtil.setColor(MvpActivity.this, AppUtils.getColor(R.color.white));
+        StatusBarUtil.setDarkMode(this);
 
     }
 

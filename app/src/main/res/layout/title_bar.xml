@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/title_bar_contentView"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="@dimen/title_bar_height">
 
     <ImageView

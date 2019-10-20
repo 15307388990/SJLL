@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.ming.sjll.projectmanage.view.CustomRoundAngleImageView
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:src="@color/LL_0A3FFF"
+                custom:radius="15dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_fabu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/ic_fabu"
+                    android:drawablePadding="3dp"
+                    android:gravity="center"
+                    android:text="项目发布"
+                    android:textColor="@color/LL_000000"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_zhaoren"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/ic_zhaoren"
+                    android:drawablePadding="3dp"
+                    android:gravity="center"
+                    android:text="图片找人"
+                    android:textColor="@color/LL_000000"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_guangli"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/ic_guanli"
+                    android:drawablePadding="3dp"
+                    android:gravity="center"
+                    android:text="项目管理"
+                    android:textColor="@color/LL_000000"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_shuoming"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/ic_shuoming"
+                    android:drawablePadding="3dp"
+                    android:gravity="center"
+                    android:text="采购说明"
+                    android:textColor="@color/LL_000000"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp">
+
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="8dp"
+                    android:layout_alignBottom="@+id/tv_fuwu"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/ic_angle" />
+
+                <TextView
+                    android:id="@+id/tv_fuwu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="37dp"
+                    android:text="综合服务"
+                    android:textColor="@color/LL_000000"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="17dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1">
+
+                    <com.ming.sjll.projectmanage.view.CustomRoundAngleImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="#F7FBF2"
+                        custom:radius="6dp" />
+
+                    <TextView
+                        android:layout_width="3dp"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="11dp"
+                        android:layout_marginTop="24dp"
+                        android:background="@color/LL_9DC46C" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="30dp"
+                        android:text="静物拍摄"
+                        android:textColor="@color/LL_9DC46C" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="12dp"
+                        android:src="@mipmap/ic_jingwu" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1">
+
+                    <com.ming.sjll.projectmanage.view.CustomRoundAngleImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="#F4F9FF"
+                        custom:radius="6dp" />
+
+                    <TextView
+                        android:layout_width="3dp"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="11dp"
+                        android:layout_marginTop="24dp"
+                        android:background="@color/LL_367DD8" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="30dp"
+                        android:text="人像拍摄"
+                        android:textColor="@color/LL_367DD8" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="12dp"
+                        android:src="@mipmap/ic_renxiang" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1">
+
+                    <com.ming.sjll.projectmanage.view.CustomRoundAngleImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="#FFFAFA"
+                        custom:radius="6dp" />
+
+                    <TextView
+                        android:layout_width="3dp"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="11dp"
+                        android:layout_marginTop="24dp"
+                        android:background="#E42C2C" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="30dp"
+                        android:text="视频拍摄"
+                        android:textColor="#E42C2C" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="12dp"
+                        android:src="@mipmap/ic_shiping" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1">
+
+                    <com.ming.sjll.projectmanage.view.CustomRoundAngleImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="#FEF6FF"
+                        custom:radius="6dp" />
+
+                    <TextView
+                        android:layout_width="3dp"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="11dp"
+                        android:layout_marginTop="24dp"
+                        android:background="#D081DB" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="30dp"
+                        android:text="活动走秀"
+                        android:textColor="#D081DB" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="12dp"
+                        android:src="@mipmap/ic_zouxiu" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp">
+
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="8dp"
+                    android:layout_alignBottom="@+id/tv_zhaor"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/ic_angle" />
+
+                <TextView
+                    android:id="@+id/tv_zhaor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="37dp"
+                    android:text="我想找人"
+                    android:textColor="@color/LL_000000"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_zhaoren"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp">
+
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="8dp"
+                    android:layout_alignBottom="@+id/tv_jiewu"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/ic_angle" />
+
+                <TextView
+                    android:id="@+id/tv_jiewu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="37dp"
+                    android:text="我想借物"
+                    android:textColor="@color/LL_000000"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_jiewu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

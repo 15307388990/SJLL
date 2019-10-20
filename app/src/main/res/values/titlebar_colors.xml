@@ -3,7 +3,8 @@
     <color name="txt_title">#333</color>
     <color name="txt_right">#666</color>
     <color name="white">#FFFFFF</color>
-
+    <!-- 薄荷色 -->
+    <color name="whitesmoke">#DFDFDF</color>
 
     <color name="bg_titleBar">#fff</color>
     <color name="LL_6277FF">#6277FF</color>
@@ -16,5 +17,12 @@
     <color name="LL_E3E6FF">#E3E6FF</color>
     <color name="LL_888888">#888888</color>
     <color name="LL_F2F2F2">#F2F2F2</color>
+    <color name="LL_0A3FFF">#0A3FFF</color>
+    <color name="LL_000000">#000000</color>
+    <color name="LL_C7CCDE">#C7CCDE</color>
+    <color name="LL_9DC46C">#9DC46C</color>
+    <color name="LL_367DD8">#367DD8</color>
+    <color name="LL_B2B2B2">#B2B2B2</color>
+    <color name="LL_80000000">#80000000</color>
 
 </resources>

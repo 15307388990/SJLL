@@ -5,11 +5,11 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/view_pager"
+    <FrameLayout
+        android:id="@+id/framelayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:layout_height="match_parent" />
 
     <RadioGroup
         android:id="@+id/radio_group"
@@ -36,30 +36,16 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:paddingBottom="4dp"
             android:button="@null"
             android:drawableTop="@drawable/tab_hanging_btn"
             android:gravity="center"
+            android:paddingBottom="4dp"
             android:text="SHOW"
             android:textColor="@color/selector_tab_text_color"
             android:textSize="10sp" />
 
         <RadioButton
             android:id="@+id/rb_3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:button="@null"
-            android:drawableTop="@mipmap/label_ranking_a"
-            android:gravity="center"
-            android:text="排行榜"
-            android:paddingBottom="4dp"
-            android:drawablePadding="11dp"
-            android:textColor="@color/selector_tab_text_color"
-            android:textSize="10sp" />
-
-        <RadioButton
-            android:id="@+id/rb_4"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
@@ -72,15 +58,15 @@
             android:textSize="10sp" />
 
         <RadioButton
-            android:id="@+id/rb_5"
+            android:id="@+id/rb_4"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
             android:button="@null"
             android:drawableTop="@drawable/tab_my_btn"
             android:gravity="center"
-            android:text="我的"
             android:paddingBottom="4dp"
+            android:text="我的"
             android:textColor="@color/selector_tab_text_color"
             android:textSize="10sp" />
     </RadioGroup>

@@ -56,22 +56,22 @@ public class BaseActivity extends BasePermissionAty {
 
     private void setContentViews(int layoutId, String title) {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-        LinearLayout parentView = (LinearLayout) inflater.inflate(R.layout.activity_base, null);
+        LinearLayout parentView = (LinearLayout) inflater.inflate(layoutId, null);
         super.setContentView(parentView);
         setContentView(parentView);
 
         mContext = this;
 
-        mViewContainer = (LinearLayout) parentView.findViewById(R.id.ll_container);
-        mTitleBar = (TitleBar) parentView.findViewById(R.id.titleBar);
-        if (!TextUtils.isEmpty(title)) {
-            mTitleBar.setVisibility(View.VISIBLE);
-            mTitleBar.setTitle(title);
-        } else {
-            mTitleBar.setVisibility(View.GONE);
-        }
-        View childView = inflater.inflate(layoutId, null);
-        mViewContainer.addView(childView);
+//        mViewContainer = (LinearLayout) parentView.findViewById(R.id.ll_container);
+//        mTitleBar = (TitleBar) parentView.findViewById(R.id.titleBar);
+//        if (!TextUtils.isEmpty(title)) {
+//            mTitleBar.setVisibility(View.VISIBLE);
+//            mTitleBar.setTitle(title);
+//        } else {
+//            mTitleBar.setVisibility(View.GONE);
+//        }
+//        View childView = inflater.inflate(layoutId, null);
+//        mViewContainer.addView(childView);
         mUnbinder = ButterKnife.bind(this);
     }
 
