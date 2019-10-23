@@ -4,8 +4,6 @@ import android.os.Bundle;
 
 import com.ming.sjll.R;
 import com.ming.sjll.base.fragment.MvpFragment;
-import com.ming.sjll.projectmanage.presenter.ProjectPresenter;
-import com.ming.sjll.projectmanage.view.ProjectView;
 import com.ming.sjll.show.presenter.ShowPresenter;
 import com.ming.sjll.show.view.ShowView;
 

@@ -16,26 +16,13 @@ public class RespErrorAction {
      */
     public static boolean isSuccess(int respCode){
         switch (respCode){
-            case RespCode.CODE_SUCCESS:
+            case RespCode.WXCODE_SUCCESS:
                 return true;
             default:
                 return false;
         }
     }
 
-    /**
-     * 是否登录异常
-     * @param respCode
-     * @return
-     */
-    public static boolean isLoginError(int respCode){
-        switch (respCode){
-            case RespCode.CODE_TOKEN_VERIFY_FAIL:
-                return true;
-            default:
-                return false;
-        }
-    }
 
 
     public static String getMsgByCode(int respCode){

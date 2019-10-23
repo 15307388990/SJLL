@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.ming.sjll.projectmanage.view.CustomRoundAngleImageView
+            <com.ming.sjll.purchaser.view.CustomRoundAngleImageView
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:layout_marginLeft="15dp"
@@ -115,7 +115,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_weight="1">
 
-                    <com.ming.sjll.projectmanage.view.CustomRoundAngleImageView
+                    <com.ming.sjll.purchaser.view.CustomRoundAngleImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="#F7FBF2"
@@ -152,7 +152,7 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1">
 
-                    <com.ming.sjll.projectmanage.view.CustomRoundAngleImageView
+                    <com.ming.sjll.purchaser.view.CustomRoundAngleImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="#F4F9FF"
@@ -196,7 +196,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_weight="1">
 
-                    <com.ming.sjll.projectmanage.view.CustomRoundAngleImageView
+                    <com.ming.sjll.purchaser.view.CustomRoundAngleImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="#FFFAFA"
@@ -233,7 +233,7 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1">
 
-                    <com.ming.sjll.projectmanage.view.CustomRoundAngleImageView
+                    <com.ming.sjll.purchaser.view.CustomRoundAngleImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="#FEF6FF"

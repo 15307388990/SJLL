@@ -15,13 +15,12 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 
 import com.ming.sjll.R;
-import com.ming.sjll.projectmanage.adapter.NiceSpinnerAdapter;
-import com.ming.sjll.projectmanage.adapter.NiceSpinnerBaseAdapter;
+import com.ming.sjll.purchaser.adapter.NiceSpinnerAdapter;
+import com.ming.sjll.purchaser.adapter.NiceSpinnerBaseAdapter;
 
 import org.angmarch.views.SimpleSpinnerTextFormatter;
 import org.angmarch.views.SpinnerTextFormatter;

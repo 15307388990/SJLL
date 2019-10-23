@@ -72,11 +72,7 @@ public abstract class ApiObserver<T> extends DisposableObserver<T> {
          */
         Object data = e.getObject();
 
-        if (RespErrorAction.isLoginError(respCode)) {//登录问题
-            onLoginExpired(respCode, msg, data);
-        } else {
-            onFailure(respCode, msg);//数据异常
-        }
+        onFailure(respCode, msg);//数据异常
     }
 
     public void onLoginExpired(int code, String msg, Object data) {

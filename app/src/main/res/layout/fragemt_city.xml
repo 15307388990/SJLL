@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -47,17 +48,21 @@
                 android:textColor="@color/LL_000000"
                 android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/tv_shen"
+            <com.ming.sjll.view.SpinnerView
+                android:id="@+id/ns_shen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:background="@null" />
+                android:gravity="left"
+                android:textColor="@color/LL_000000"
+                android:textSize="14sp"
+                app:popupTextAlignment="start" />
+
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@+id/tv_shen"
+                android:layout_below="@+id/ns_shen"
                 android:layout_marginTop="4dp"
                 android:background="#C7CCDE" />
 
@@ -82,11 +87,18 @@
                 android:textColor="@color/LL_000000"
                 android:textSize="14sp" />
 
-            <TextView
+            <com.ming.sjll.view.SpinnerView
+                android:id="@+id/ns_shi"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@null" />
-
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:gravity="left"
+                android:layout_marginRight="10dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="@color/LL_000000"
+                android:textSize="14sp"
+                app:popupTextAlignment="start" />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -123,17 +135,23 @@
                 android:textColor="@color/LL_000000"
                 android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/tv_qu"
+            <com.ming.sjll.view.SpinnerView
+                android:id="@+id/ns_qu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:background="@null" />
+                android:gravity="left"
+                android:layout_marginRight="10dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="@color/LL_000000"
+                android:textSize="14sp"
+                app:popupTextAlignment="start" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@+id/tv_qu"
+                android:layout_below="@+id/ns_qu"
                 android:layout_marginTop="4dp"
                 android:background="#C7CCDE" />
 
@@ -206,10 +224,14 @@
             android:layout_marginLeft="38dp"
             android:layout_marginRight="30dp">
 
-            <TextView
+            <com.ming.sjll.view.SpinnerView
+                android:id="@+id/ns_tongcheng"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@null" />
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:textColor="@color/LL_000000"
+                android:textSize="14sp"
+                app:popupTextAlignment="start" />
 
             <View
                 android:layout_width="match_parent"

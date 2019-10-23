@@ -7,18 +7,15 @@ import android.widget.RadioGroup;
 
 import com.ming.sjll.base.activity.MvpActivity;
 import com.ming.sjll.base.fragment.MvpFragment;
-import com.ming.sjll.base.utils.AppUtils;
-import com.ming.sjll.base.utils.StatusBarUtil;
 import com.ming.sjll.message.fragment.MessageFragemt;
 import com.ming.sjll.my.fragment.MyFragemt;
-import com.ming.sjll.projectmanage.fragment.ProjectFragemt;
+import com.ming.sjll.purchaser.fragment.ProjectFragemt;
 import com.ming.sjll.show.fragment.ShowFragemt;
 
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MainActivity extends MvpActivity<MainView, MainPresenter> {
 

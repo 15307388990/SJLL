@@ -31,7 +31,7 @@
         </activity>
 
         <activity
-            android:name=".projectmanage.activity.PublishProjectAcitivity"
+            android:name=".purchaser.activity.PublishProjectAcitivity"
             android:windowSoftInputMode="stateHidden" /><!--发布项目-->
     </application>
 
