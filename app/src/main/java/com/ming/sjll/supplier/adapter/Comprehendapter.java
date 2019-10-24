@@ -32,14 +32,14 @@ public class Comprehendapter extends BaseQuickAdapter<ComprehenBean.DataBeanX.Da
     protected void convert(BaseViewHolder baseViewHolder, ComprehenBean.DataBeanX.DataBean dataBean) {
         baseViewHolder.setText(R.id.tv_title, dataBean.getDemand());
         ImageHelper.displayBackground((ImageView) baseViewHolder.getView(R.id.iv_img), Constant.BASE_API + dataBean.getBackground_image(),R.drawable.ic_launcher_background);
-       // Glide.with(mContext).load(Constant.BASE_API + dataBean.getBackground_image()).into((ImageView) baseViewHolder.getView(R.id.iv_img));
         baseViewHolder.setText(R.id.tv_city, dataBean.getArea_name());
         baseViewHolder.setText(R.id.tv_timer, Tools.getDateformat(dataBean.getClosing_time()));
         baseViewHolder.setText(R.id.tv_pinpai, dataBean.getBrand());
         baseViewHolder.setText(R.id.tv_price, dataBean.getBudget());
         if (TextUtil.isEquals(dataBean.getTags(), "")) {
-            baseViewHolder.setText(R.id.tv_tag, "");
+            baseViewHolder.setVisible(R.id.tv_tag,false);
         } else {
+            baseViewHolder.setVisible(R.id.tv_tag,true);
             baseViewHolder.setText(R.id.tv_tag, dataBean.getTags());
         }
 

@@ -5,19 +5,20 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 import com.ming.sjll.R;
+import com.ming.sjll.api.Constant;
 import com.ming.sjll.base.fragment.MvpFragment;
+import com.ming.sjll.base.utils.ImageHelper;
+import com.ming.sjll.base.utils.ImageLoaderUtil;
 import com.ming.sjll.base.utils.Tools;
-import com.ming.sjll.purchaser.activity.PublishProjectAcitivity;
-import com.ming.sjll.purchaser.bean.AreaBean;
-import com.ming.sjll.purchaser.fragment.CityFragemt;
-import com.ming.sjll.purchaser.fragment.GeneralSituationFragemt;
-import com.ming.sjll.purchaser.fragment.IntroductionFragemt;
-import com.ming.sjll.purchaser.fragment.TimerFragemt;
-import com.ming.sjll.purchaser.presenter.PurchaserHomePresenter;
-import com.ming.sjll.purchaser.view.PurchaserHomeView;
+import com.ming.sjll.purchaser.view.CustomRoundAngleImageView;
+import com.ming.sjll.supplier.adapter.SupplierHomeAdapter;
+import com.ming.sjll.supplier.bean.HomeAdsBean;
+import com.ming.sjll.supplier.bean.HomeColumBean;
+import com.ming.sjll.supplier.presenter.SupplierHomePresenter;
+import com.ming.sjll.supplier.view.SupplierHomeView;
 import com.ming.sjll.view.WrapContentHeightViewPager;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -32,9 +33,11 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorT
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 
@@ -43,7 +46,7 @@ import butterknife.BindView;
  * created at 2019-10-14 10:32
  * 供应商首页
  */
-public class SupplierHomeFragemt extends MvpFragment<PurchaserHomeView, PurchaserHomePresenter> implements PurchaserHomeView {
+public class SupplierHomeFragemt extends MvpFragment<SupplierHomeView, SupplierHomePresenter> implements SupplierHomeView {
 
 
     @BindView(R.id.magic_indicator)
@@ -51,6 +54,10 @@ public class SupplierHomeFragemt extends MvpFragment<PurchaserHomeView, Purchase
     @BindView(R.id.viewpager)
     WrapContentHeightViewPager viewpager;
     List<Fragment> fragmentList;
+    @BindView(R.id.recyclerview)
+    RecyclerView recyclerview;
+    @BindView(R.id.iv_img)
+    CustomRoundAngleImageView ivImg;
 
     public static SupplierHomeFragemt newInstance() {
         return new SupplierHomeFragemt();
@@ -63,6 +70,13 @@ public class SupplierHomeFragemt extends MvpFragment<PurchaserHomeView, Purchase
         initEvent();
 
     }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mPresenter.showDate();
+    }
+
     public void initEvent() {
         fragmentList = new ArrayList<>();
         fragmentList.add(ComprehensiveFragemt.newInstance());
@@ -110,8 +124,8 @@ public class SupplierHomeFragemt extends MvpFragment<PurchaserHomeView, Purchase
     }
 
     @Override
-    protected PurchaserHomePresenter createPresenter() {
-        return new PurchaserHomePresenter();
+    protected SupplierHomePresenter createPresenter() {
+        return new SupplierHomePresenter();
     }
 
     @Override
@@ -135,9 +149,24 @@ public class SupplierHomeFragemt extends MvpFragment<PurchaserHomeView, Purchase
     }
 
     @Override
-    public void ShowDate(List<AreaBean> list) {
+    public void ShowDate(HomeColumBean homeColumBean) {
+        recyclerview.setLayoutManager(new GridLayoutManager(getActivity(), 4));
+        recyclerview.setAdapter(new SupplierHomeAdapter(homeColumBean.getData()));
+    }
+
+    @Override
+    public void ShowImg(HomeAdsBean bean) {
+        if (bean.getData() != null) {
+            ivImg.setVisibility(View.VISIBLE);
+            ImageHelper.displayBackground((ivImg), Constant.BASE_API + bean.getData().getBanner_img(), R.drawable.ic_launcher_background);
+
+        } else {
+            ivImg.setVisibility(View.GONE);
+        }
+
 
     }
+
     class Adaper extends FragmentStatePagerAdapter {
         public Adaper(FragmentManager fm) {
             super(fm);

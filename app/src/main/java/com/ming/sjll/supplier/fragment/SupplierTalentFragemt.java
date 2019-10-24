@@ -1,29 +1,21 @@
 package com.ming.sjll.supplier.fragment;
 
-import android.annotation.SuppressLint;
-import android.graphics.pdf.PdfRenderer;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.ming.sjll.R;
 import com.ming.sjll.base.fragment.MvpFragment;
 import com.ming.sjll.base.widget.ToastShow;
-import com.ming.sjll.purchaser.bean.AreaBean;
-import com.ming.sjll.purchaser.presenter.PurchaserHomePresenter;
-import com.ming.sjll.purchaser.view.PurchaserHomeView;
-import com.ming.sjll.view.WrapContentHeightViewPager;
+import com.ming.sjll.supplier.adapter.MaybeLikedapter;
+import com.ming.sjll.supplier.adapter.Talentdapter;
+import com.ming.sjll.supplier.bean.MaybeLikBean;
+import com.ming.sjll.supplier.bean.TalentPushBean;
+import com.ming.sjll.supplier.presenter.TalentPresenter;
+import com.ming.sjll.supplier.view.TalentView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.databinding.adapters.CardViewBindingAdapter;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager.widget.PagerAdapter;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 
 /**
@@ -31,7 +23,13 @@ import butterknife.BindView;
  * created at 2019-10-14 10:32
  * 供应商达人
  */
-public class SupplierTalentFragemt extends MvpFragment<PurchaserHomeView, PurchaserHomePresenter> implements PurchaserHomeView {
+public class SupplierTalentFragemt extends MvpFragment<TalentView, TalentPresenter> implements TalentView {
+
+
+    @BindView(R.id.recyclerview)
+    RecyclerView recyclerview;
+    @BindView(R.id.recyclerview2)
+    RecyclerView recyclerview2;
 
 
     public static SupplierTalentFragemt newInstance() {
@@ -46,16 +44,20 @@ public class SupplierTalentFragemt extends MvpFragment<PurchaserHomeView, Purcha
 
     }
 
-    private void initViewpage() {
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mPresenter.talentPush();
     }
 
     @Override
-    protected PurchaserHomePresenter createPresenter() {
-        return new PurchaserHomePresenter();
+    protected TalentPresenter createPresenter() {
+        return new TalentPresenter();
     }
 
     @Override
     public void showLoading(String msg) {
+
 
     }
 
@@ -74,33 +76,20 @@ public class SupplierTalentFragemt extends MvpFragment<PurchaserHomeView, Purcha
         super.onDestroyView();
     }
 
-    @Override
-    public void ShowDate(List<AreaBean> list) {
 
+    @Override
+    public void talentPush(TalentPushBean bean) {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        recyclerview.setLayoutManager(linearLayoutManager);
+        recyclerview.setAdapter(new Talentdapter(bean.getData()));
     }
 
-    class Adaper extends PagerAdapter {
-        private List<CardView> cardViewList;
-
-        public Adaper(FragmentManager fm, List<CardView> cardViewList) {
-            this.cardViewList = cardViewList;
-        }
-
-        @Override
-        public int getCount() {
-            return cardViewList.size();
-        }
-
-        @Override
-        public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-            return view == object;
-        }
-
-        @NonNull
-        @Override
-        public Object instantiateItem(@NonNull ViewGroup container, int position) {
-
-            return super.instantiateItem(container, position);
-        }
+    @Override
+    public void maybeLike(MaybeLikBean bean) {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        recyclerview2.setLayoutManager(linearLayoutManager);
+        recyclerview2.setAdapter(new MaybeLikedapter(bean.getData().getData()));
     }
 }

@@ -23,4 +23,22 @@ public class Constant {
      * 通告
      */
     public static final String GETNOTICE = "/api/project/projectNotice";
+
+    /**
+     *  达人
+     */
+    public static final String TABLENTPUSH = "/api/home/talentPush";
+    /**
+     *  可能感兴趣的用户
+     */
+    public static final String MAYBELIKE = "/api/show/maybeLike";
+    /**
+     *  首页功能栏目
+     */
+    public static final String HOMECOLUM = "/api/home/getHomeColunm";
+
+    /**
+     *  首页功能栏目
+     */
+    public static final String HOMEADS = "/api/home/homeAds";
 }
