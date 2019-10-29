@@ -16,73 +16,26 @@
             android:orientation="vertical">
 
             <com.ming.sjll.purchaser.view.CustomRoundAngleImageView
+                android:id="@+id/iv_img"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:src="@color/LL_0A3FFF"
+                android:visibility="gone"
                 custom:radius="15dp" />
 
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginRight="15dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_fabu"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:drawableTop="@mipmap/ic_fabu"
-                    android:drawablePadding="3dp"
-                    android:gravity="center"
-                    android:text="项目发布"
-                    android:textColor="@color/LL_000000"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tv_zhaoren"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:drawableTop="@mipmap/ic_zhaoren"
-                    android:drawablePadding="3dp"
-                    android:gravity="center"
-                    android:text="图片找人"
-                    android:textColor="@color/LL_000000"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tv_guangli"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:drawableTop="@mipmap/ic_guanli"
-                    android:drawablePadding="3dp"
-                    android:gravity="center"
-                    android:text="项目管理"
-                    android:textColor="@color/LL_000000"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tv_shuoming"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:drawableTop="@mipmap/ic_shuoming"
-                    android:drawablePadding="3dp"
-                    android:gravity="center"
-                    android:text="采购说明"
-                    android:textColor="@color/LL_000000"
-                    android:textSize="14sp" />
-            </LinearLayout>
+                android:layout_marginTop="20dp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="15dp">
 
                 <TextView
@@ -97,7 +50,6 @@
                     android:id="@+id/tv_fuwu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="37dp"
                     android:text="综合服务"
                     android:textColor="@color/LL_000000"
                     android:textSize="18sp" />
@@ -288,12 +240,18 @@
                     android:textSize="18sp" />
             </RelativeLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_zhaoren"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_zhaoren"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginRight="15dp" />
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -312,7 +270,6 @@
                     android:id="@+id/tv_jiewu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="37dp"
                     android:text="我想借物"
                     android:textColor="@color/LL_000000"
                     android:textSize="18sp" />
@@ -320,10 +277,12 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_jiewu"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp" />
+                android:layout_marginTop="17dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="20dp" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

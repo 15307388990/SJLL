@@ -23,16 +23,24 @@
             android:value="667" />
 
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
             android:name=".purchaser.activity.PublishProjectAcitivity"
             android:windowSoftInputMode="stateHidden" /><!--发布项目-->
+        <activity
+            android:name=".loginreg.acitivity.LoginAcitivity"
+            android:windowSoftInputMode="stateHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity><!--登录-->
+        <activity
+            android:name=".loginreg.acitivity.VerificationCodeAcitivity"
+            android:windowSoftInputMode="stateHidden" /><!--验证码-->
     </application>
 
 </manifest>

@@ -77,8 +77,8 @@ public class ProjectPurchaserFragemt extends MvpFragment<PurchaserView, ProjectP
         });
         fragmentList = new ArrayList<>();
         fragmentList.add(PurchaserHomeFragemt.newInstance());
-        fragmentList.add(PurchaserHomeFragemt.newInstance());
         fragmentList.add(PurchaserVisualFragemt.newInstance());
+        fragmentList.add(PuchaserTalentFragemt.newInstance());
         viewpager.setAdapter(new Adaper(getChildFragmentManager()));
         viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

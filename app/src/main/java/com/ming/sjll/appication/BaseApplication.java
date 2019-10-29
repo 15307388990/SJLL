@@ -85,4 +85,5 @@ public class BaseApplication extends Application {
         registerActivityLifecycleCallbacks(lifecycleCallbacks);
     }
 
+
 }

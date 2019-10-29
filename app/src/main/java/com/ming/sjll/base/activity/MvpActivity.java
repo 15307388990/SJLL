@@ -6,6 +6,7 @@ import com.ming.sjll.MainActivity;
 import com.ming.sjll.R;
 import com.ming.sjll.base.presenter.MvpPresenter;
 import com.ming.sjll.base.utils.AppUtils;
+import com.ming.sjll.base.utils.SavePreferencesData;
 import com.ming.sjll.base.utils.StatusBarUtil;
 import com.ming.sjll.base.view.MvpView;
 
@@ -22,6 +23,7 @@ import androidx.annotation.Nullable;
 public abstract class MvpActivity<V extends MvpView, P extends MvpPresenter<V>>
         extends BaseActivity implements MvpView {
     protected P mPresenter;
+    public SavePreferencesData mSavePreferencesData;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public abstract class MvpActivity<V extends MvpView, P extends MvpPresenter<V>>
         // 初始化presenter并绑定view
         mPresenter = createPresenter();
         mPresenter.attachView((V) this);
+        mSavePreferencesData = new SavePreferencesData(this);
         StatusBarUtil.setColor(MvpActivity.this, AppUtils.getColor(R.color.white));
         StatusBarUtil.setDarkMode(this);
 

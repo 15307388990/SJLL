@@ -6,84 +6,52 @@ import java.util.List;
 
 public class MaybeLikBean extends BaseBean {
 
-    /**
-     * data : {"total":1,"per_page":"10","current_page":1,"last_page":1,"data":[{"id":2,"name":"superMan","default_avatar":"/uploads/20191009/005157f90de59fb769effb7c7258e546.jpg","cover_img":"/uploads/20191009/005157f90de59fb769effb7c7258e546.jpg","is_sign":0,"collect_num":2,"occupation":["摄影师","直播达人"],"is_focus":1}]}
-     */
 
-    private DataBeanX data;
+    private List<DataBean> data;
 
-    public DataBeanX getData() {
+    public List<DataBean> getData() {
         return data;
     }
 
-    public void setData(DataBeanX data) {
+    public void setData(List<DataBean> data) {
         this.data = data;
     }
 
-    public static class DataBeanX {
+    public static class DataBean {
         /**
-         * total : 1
-         * per_page : 10
-         * current_page : 1
-         * last_page : 1
-         * data : [{"id":2,"name":"superMan","default_avatar":"/uploads/20191009/005157f90de59fb769effb7c7258e546.jpg","cover_img":"/uploads/20191009/005157f90de59fb769effb7c7258e546.jpg","is_sign":0,"collect_num":2,"occupation":["摄影师","直播达人"],"is_focus":1}]
+         * title : 可能感兴趣的模特
+         * list : [{"id":2,"name":"superMan","default_avatar":"/uploads/20191009/005157f90de59fb769effb7c7258e546.jpg","cover_img":"/uploads/20191009/005157f90de59fb769effb7c7258e546.jpg","is_sign":0,"is_approve":1,"collect_num":2,"occupation":["摄影师","直播达人","模特"],"is_focus":1},{"id":4,"name":"star","default_avatar":"/uploads/20191009/ce29bca2d40a283d605f1fae75914919.jpg","cover_img":"/uploads/20191009/005157f90de59fb769effb7c7258e546.jpg","is_sign":0,"is_approve":1,"collect_num":1,"occupation":["模特","摄影师","直播达人"],"is_focus":0}]
          */
 
-        private int total;
-        private String per_page;
-        private int current_page;
-        private int last_page;
-        private List<DataBean> data;
+        private String title;
+        private List<ListBean> list;
 
-        public int getTotal() {
-            return total;
+        public String getTitle() {
+            return title;
         }
 
-        public void setTotal(int total) {
-            this.total = total;
+        public void setTitle(String title) {
+            this.title = title;
         }
 
-        public String getPer_page() {
-            return per_page;
+        public List<ListBean> getList() {
+            return list;
         }
 
-        public void setPer_page(String per_page) {
-            this.per_page = per_page;
+        public void setList(List<ListBean> list) {
+            this.list = list;
         }
 
-        public int getCurrent_page() {
-            return current_page;
-        }
-
-        public void setCurrent_page(int current_page) {
-            this.current_page = current_page;
-        }
-
-        public int getLast_page() {
-            return last_page;
-        }
-
-        public void setLast_page(int last_page) {
-            this.last_page = last_page;
-        }
-
-        public List<DataBean> getData() {
-            return data;
-        }
-
-        public void setData(List<DataBean> data) {
-            this.data = data;
-        }
-
-        public static class DataBean {
+        public static class ListBean {
             /**
              * id : 2
              * name : superMan
              * default_avatar : /uploads/20191009/005157f90de59fb769effb7c7258e546.jpg
              * cover_img : /uploads/20191009/005157f90de59fb769effb7c7258e546.jpg
              * is_sign : 0
+             * is_approve : 1
              * collect_num : 2
-             * occupation : ["摄影师","直播达人"]
+             * occupation : ["摄影师","直播达人","模特"]
              * is_focus : 1
              */
 
@@ -92,6 +60,7 @@ public class MaybeLikBean extends BaseBean {
             private String default_avatar;
             private String cover_img;
             private int is_sign;
+            private int is_approve;
             private int collect_num;
             private int is_focus;
             private List<String> occupation;
@@ -134,6 +103,14 @@ public class MaybeLikBean extends BaseBean {
 
             public void setIs_sign(int is_sign) {
                 this.is_sign = is_sign;
+            }
+
+            public int getIs_approve() {
+                return is_approve;
+            }
+
+            public void setIs_approve(int is_approve) {
+                this.is_approve = is_approve;
             }
 
             public int getCollect_num() {

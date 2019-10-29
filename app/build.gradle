@@ -62,4 +62,7 @@ dependencies {
     //下拉选择框
     implementation 'com.github.arcadefire:nice-spinner:1.4.3'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.5.0'
+    //卡片滑动
+    //implementation 'com.github.zhuchen1109:Swipe-cards:18df0b545b'
+    implementation 'me.yuqirong:cardswipelayout:1.0.0'
 }

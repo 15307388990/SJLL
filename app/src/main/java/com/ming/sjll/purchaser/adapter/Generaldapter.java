@@ -14,8 +14,9 @@ import java.util.List;
 import androidx.annotation.Nullable;
 
 /**
- * Created by HanHailong on 15/10/19.
- */
+ * @author luoming
+ *created at 2019-10-27 16:08
+*/
 public class Generaldapter extends BaseQuickAdapter<OccupationBean.DataBean, BaseViewHolder> {
 
     public Generaldapter(@Nullable List<OccupationBean.DataBean> data) {

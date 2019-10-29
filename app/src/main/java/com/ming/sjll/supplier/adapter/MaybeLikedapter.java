@@ -19,14 +19,14 @@ import androidx.annotation.Nullable;
  * created at 2019-10-22 17:01
  * 达人
  */
-public class MaybeLikedapter extends BaseQuickAdapter<MaybeLikBean.DataBeanX.DataBean, BaseViewHolder> {
+public class MaybeLikedapter extends BaseQuickAdapter<MaybeLikBean.DataBean.ListBean, BaseViewHolder> {
 
-    public MaybeLikedapter(@Nullable List<MaybeLikBean.DataBeanX.DataBean> data) {
+    public MaybeLikedapter(@Nullable List<MaybeLikBean.DataBean.ListBean> data) {
         super(R.layout.maybelike_item, data);
     }
 
     @Override
-    protected void convert(BaseViewHolder baseViewHolder, MaybeLikBean.DataBeanX.DataBean dataBean) {
+    protected void convert(BaseViewHolder baseViewHolder, MaybeLikBean.DataBean.ListBean dataBean) {
         ImageHelper.displayBackground((ImageView) baseViewHolder.getView(R.id.iv_img), Constant.BASE_API + dataBean.getCover_img(), R.drawable.ic_launcher_background);
 
         StringBuilder name = new StringBuilder(dataBean.getName());
@@ -36,7 +36,6 @@ public class MaybeLikedapter extends BaseQuickAdapter<MaybeLikBean.DataBeanX.Dat
         }
         baseViewHolder.setText(R.id.tv_name, name);
         baseViewHolder.setText(R.id.tv_text, dataBean.getCollect_num()+"粉丝");
-
 
     }
 

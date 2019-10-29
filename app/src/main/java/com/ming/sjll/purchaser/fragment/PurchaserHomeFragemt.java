@@ -4,16 +4,28 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.ming.sjll.R;
+import com.ming.sjll.api.Constant;
 import com.ming.sjll.base.fragment.MvpFragment;
+import com.ming.sjll.base.utils.ImageHelper;
 import com.ming.sjll.base.utils.Tools;
 import com.ming.sjll.purchaser.activity.PublishProjectAcitivity;
 import com.ming.sjll.purchaser.bean.AreaBean;
 import com.ming.sjll.purchaser.presenter.PurchaserHomePresenter;
+import com.ming.sjll.purchaser.view.CustomRoundAngleImageView;
 import com.ming.sjll.purchaser.view.PurchaserHomeView;
+import com.ming.sjll.supplier.adapter.JieWuAdapter;
+import com.ming.sjll.supplier.adapter.SupplierHomeAdapter;
+import com.ming.sjll.supplier.adapter.ZharRenAdapter;
+import com.ming.sjll.supplier.bean.CikunmBean;
+import com.ming.sjll.supplier.bean.HomeAdsBean;
+import com.ming.sjll.supplier.bean.HomeColumBean;
 
 import java.util.List;
 
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 
@@ -24,15 +36,6 @@ import butterknife.BindView;
  */
 public class PurchaserHomeFragemt extends MvpFragment<PurchaserHomeView, PurchaserHomePresenter> implements PurchaserHomeView {
 
-
-    @BindView(R.id.tv_fabu)
-    TextView tvFabu;
-    @BindView(R.id.tv_zhaoren)
-    TextView tvZhaoren;
-    @BindView(R.id.tv_guangli)
-    TextView tvGuangli;
-    @BindView(R.id.tv_shuoming)
-    TextView tvShuoming;
     @BindView(R.id.tv_fuwu)
     TextView tvFuwu;
     @BindView(R.id.tv_zhaor)
@@ -43,6 +46,10 @@ public class PurchaserHomeFragemt extends MvpFragment<PurchaserHomeView, Purchas
     TextView tvJiewu;
     @BindView(R.id.rv_jiewu)
     RecyclerView rvJiewu;
+    @BindView(R.id.iv_img)
+    CustomRoundAngleImageView ivImg;
+    @BindView(R.id.recyclerview)
+    RecyclerView recyclerview;
 
     public static PurchaserHomeFragemt newInstance() {
         return new PurchaserHomeFragemt();
@@ -52,13 +59,13 @@ public class PurchaserHomeFragemt extends MvpFragment<PurchaserHomeView, Purchas
     protected void onCreateView(Bundle savedInstanceState) {
         super.onCreateView(savedInstanceState);
         setContentView(R.layout.fragemt_purchaser_home);
-        tvFabu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Tools.jump(getActivity(),PublishProjectAcitivity.class,false);
-            }
-        });
 
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mPresenter.showDate();
     }
 
     @Override
@@ -86,8 +93,45 @@ public class PurchaserHomeFragemt extends MvpFragment<PurchaserHomeView, Purchas
         super.onDestroyView();
     }
 
+
     @Override
-    public void ShowDate(List<AreaBean> list) {
+    public void ShowDate(HomeColumBean homeColumBean) {
+        recyclerview.setLayoutManager(new GridLayoutManager(getActivity(), 4));
+        SupplierHomeAdapter supplierHomeAdapter = new SupplierHomeAdapter(homeColumBean.getData());
+        recyclerview.setAdapter(supplierHomeAdapter);
+        supplierHomeAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                if (homeColumBean.getData().get(position).getTitle().equals("发布项目")){
+                    Tools.jump(getActivity(), PublishProjectAcitivity.class,false);
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public void ShowImg(HomeAdsBean bean) {
+        if (bean.getData().getBanner_img() != null) {
+            ivImg.setVisibility(View.VISIBLE);
+            ImageHelper.displayBackground((ivImg), Constant.BASE_API + bean.getData().getBanner_img(), R.drawable.ic_launcher_background);
+
+        } else {
+            ivImg.setVisibility(View.GONE);
+        }
+
+    }
+
+    @Override
+    public void ShowCikunm(CikunmBean bean) {
+        rvZhaoren.setLayoutManager(new GridLayoutManager(getActivity(), 4));
+        ZharRenAdapter zharRenAdapter=new ZharRenAdapter(bean.getData().getPerson());
+        rvZhaoren.setAdapter(zharRenAdapter);
+        rvJiewu.setLayoutManager(new GridLayoutManager(getActivity(), 4));
+        JieWuAdapter jieWuAdapter=new JieWuAdapter(bean.getData().getThings());
+        rvJiewu.setAdapter(jieWuAdapter);
+
+
 
     }
 }

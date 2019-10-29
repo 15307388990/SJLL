@@ -41,4 +41,64 @@ public class Constant {
      *  首页功能栏目
      */
     public static final String HOMEADS = "/api/home/homeAds";
+
+    /**
+     *  置顶文章
+     */
+    public static final String TOPARTICLE = "/api/home/topArticle";
+
+    /**
+     *  热门文章
+     */
+    public static final String HOTARTICLE = "/api/home/hotArticle";
+
+    /**
+     *  热门作者
+     */
+    public static final String HOTAUTHOR = "/api/home/hotAuthor";
+
+    /**
+     *  文章列表
+     */
+    public static final String ARTICLELIST = "/api/home/articleList";
+
+    /**
+     *  文章列表
+     */
+    public static final String GETCOLUMCHILD = "api/home/getColunmChild";
+
+    /**
+     *  show 列表
+     */
+    public static final String WORK = "/api/show/work";
+
+    /**
+     *  收藏
+     */
+    public static final String WORKCOLLECT = "/api/show/workCollect";
+
+    /**
+     *  注册
+     */
+    public static final String REGISTER = "api/user/register";
+
+    /**
+     *  发送验证码
+     */
+    public static final String SENDCODE = "/api/user/sendCode";
+
+    /**
+     *  登录
+     */
+    public static final String LOGIN = "/api/user/login";
+
+    /**
+     * 快速登录
+     */
+    public static final String QUICKLOGIN = "/api/user/quickLogin";
+
+
+
+
+
 }

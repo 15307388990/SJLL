@@ -8,6 +8,7 @@ import com.ming.sjll.base.fragment.MvpFragment;
 import com.ming.sjll.base.widget.ToastShow;
 import com.ming.sjll.supplier.adapter.MaybeLikedapter;
 import com.ming.sjll.supplier.adapter.Talentdapter;
+import com.ming.sjll.supplier.adapter.XinquAdapter;
 import com.ming.sjll.supplier.bean.MaybeLikBean;
 import com.ming.sjll.supplier.bean.TalentPushBean;
 import com.ming.sjll.supplier.presenter.TalentPresenter;
@@ -47,7 +48,7 @@ public class SupplierTalentFragemt extends MvpFragment<TalentView, TalentPresent
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mPresenter.talentPush();
+        mPresenter.talentPush("2");
     }
 
     @Override
@@ -87,9 +88,7 @@ public class SupplierTalentFragemt extends MvpFragment<TalentView, TalentPresent
 
     @Override
     public void maybeLike(MaybeLikBean bean) {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        recyclerview2.setLayoutManager(linearLayoutManager);
-        recyclerview2.setAdapter(new MaybeLikedapter(bean.getData().getData()));
+        recyclerview2.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerview2.setAdapter(new XinquAdapter(bean.getData()));
     }
 }

@@ -266,6 +266,30 @@ public class Tools {
         return "";
     }
 
+    /**格式化手机号码   153  0738  8990
+     * @param
+     * @return
+     */
+    public static String formatPhone(String pNumber) {
+        if (!TextUtils.isEmpty(pNumber) && pNumber.length() > 6) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < pNumber.length(); i++) {
+                char c = pNumber.charAt(i);
+                if (i == 3) {
+                    sb.append("  ");
+                }
+                if (i==7){
+                    sb.append("  ");
+                }
+                sb.append(c);
+
+            }
+
+            return sb.toString();
+        }
+        return "";
+    }
+
     /**
      * @param pNumber 银行卡号隐藏中间8位数字
      * @return
@@ -772,6 +796,6 @@ public class Tools {
     public static String Date() {
         Date date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        return  dateFormat.format(date);
+        return dateFormat.format(date);
     }
 }

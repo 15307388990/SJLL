@@ -156,7 +156,7 @@ public class SupplierHomeFragemt extends MvpFragment<SupplierHomeView, SupplierH
 
     @Override
     public void ShowImg(HomeAdsBean bean) {
-        if (bean.getData() != null) {
+        if (bean.getData().getBanner_img() != null) {
             ivImg.setVisibility(View.VISIBLE);
             ImageHelper.displayBackground((ivImg), Constant.BASE_API + bean.getData().getBanner_img(), R.drawable.ic_launcher_background);
 
