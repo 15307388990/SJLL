@@ -63,7 +63,7 @@ public class BaseActivity extends BasePermissionAty {
         mContext = this;
 
 //        mViewContainer = (LinearLayout) parentView.findViewById(R.id.ll_container);
-//        mTitleBar = (TitleBar) parentView.findViewById(R.id.titleBar);
+       // mTitleBar = (TitleBar) parentView.findViewById(R.id.titleBar);
 //        if (!TextUtils.isEmpty(title)) {
 //            mTitleBar.setVisibility(View.VISIBLE);
 //            mTitleBar.setTitle(title);

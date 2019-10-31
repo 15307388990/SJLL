@@ -116,7 +116,11 @@ public class ShowFragemt extends MvpFragment<ShowView, ShowPresenter> implements
 
     @Override
     public void workCollect(BaseBean bean) {
-        showWorkBean.getData().get(index).setIs_like(1);
+        if (showWorkBean.getData().get(index).getIs_like() == 1) {
+            showWorkBean.getData().get(index).setIs_like(0);
+        } else {
+            showWorkBean.getData().get(index).setIs_like(1);
+        }
         if (mAdapter != null) {
             mAdapter.setData(index, showWorkBean.getData().get(index));
         }

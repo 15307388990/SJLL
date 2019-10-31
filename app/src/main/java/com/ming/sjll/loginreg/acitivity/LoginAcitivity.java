@@ -1,5 +1,6 @@
 package com.ming.sjll.loginreg.acitivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -83,6 +84,12 @@ public class LoginAcitivity extends MvpActivity<LoginView, LoginPresenter> imple
 
             }
         });
+        tvZhuce.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Tools.jump(LoginAcitivity.this, RegisteredAcitivity.class, true);
+            }
+        });
     }
 
     @Override
@@ -113,6 +120,8 @@ public class LoginAcitivity extends MvpActivity<LoginView, LoginPresenter> imple
 
     @Override
     public void returnCode(BaseBean baseBean) {
-        Tools.jump(LoginAcitivity.this, VerificationCodeAcitivity.class, false);
+        Intent intent = new Intent(LoginAcitivity.this, VerificationCodeAcitivity.class);
+        intent.putExtra("iphone", etPhone.getText().toString().trim());
+        startActivity(intent);
     }
 }

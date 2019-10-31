@@ -43,6 +43,6 @@ public class MyCountTimer extends CountDownTimer {
             btn.setTextColor( mContext.getResources().getColor( timingColor ) );
         }
         btn.setEnabled( false );
-        btn.setText( millisUntilFinished / 1000 + "s" );
+        btn.setText("重新发送\n剩余" +millisUntilFinished / 1000 + "s" );
     }
 }

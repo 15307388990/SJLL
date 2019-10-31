@@ -2,287 +2,167 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/LL_F0F0F0"
+    android:background="@color/white"
     android:orientation="vertical">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:background="@color/LL_6277FF"
-        android:gravity="center"
-        android:text="我的"
-        android:textColor="@color/white"
-        android:textSize="21sp" />
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_bg"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="fitXY" />
+
+        <com.ming.sjll.view.CircleImageView
+            android:id="@+id/iv_head"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/iv_bg"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-50dp" />
+
+        <ImageView
+            android:id="@+id/iv_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_head"
+            android:layout_marginLeft="-24dp"
+            android:layout_marginTop="-24dp"
+            android:layout_toRightOf="@+id/iv_head"
+            android:src="@mipmap/ic_sex_girl" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_head"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="-27dp"
+            android:layout_marginRight="15dp"
+            android:src="@mipmap/ic_share" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:text="Dan Gartman"
+        android:textColor="@color/LL_000000"
+        android:textSize="25sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:background="@color/LL_6277FF"
-        android:gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/iv_certification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:src="@mipmap/wd_pic_b" />
+            android:src="@mipmap/ic_my_dui" />
 
-        <LinearLayout
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/tv_certification"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="会员名称"
-                android:textColor="@color/white"
-                android:textSize="17sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="额度：1500"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
-        </LinearLayout>
+            android:layout_marginLeft="2dp"
+            android:text="平台认证"
+            android:textColor="#ffc7ccde"
+            android:textSize="14sp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/wd_pic_a" />
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/ic_my_heart" />
+
+        <TextView
+            android:id="@+id/tv_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:text="306"
+            android:textColor="#ffc7ccde"
+            android:textSize="14sp" />
+
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@color/white"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:text="抽成"
-            android:textColor="@color/LL_626262" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_marginTop="10dp"
-            android:background="@color/LL_EEEEEE" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="支付宝固码：100%"
-                android:textColor="@color/LL_626262"
-                android:textSize="13sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="微信固码：100%"
-                android:textColor="@color/LL_626262"
-                android:textSize="13sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="云闪付：100%"
-                android:textColor="@color/LL_626262"
-                android:textSize="13sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="银行固码：100%"
-                android:textColor="@color/LL_626262"
-                android:textSize="13sp" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/white"
-        android:gravity="center_vertical"
+        android:layout_marginTop="40dp"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_work"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
             android:layout_weight="1"
-            android:text="充值记录"
-            android:textColor="@color/txt_title"
-            android:textSize="13sp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
-            android:src="@mipmap/icon_a" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginLeft="15dp"
-        android:background="@color/LL_EEEEEE" />
-
-    <LinearLayout
-        android:id="@+id/ll_change_login"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+            android:drawableTop="@mipmap/ic_my_work"
+            android:drawablePadding="3dp"
+            android:gravity="center"
+            android:text="工作"
+            android:textColor="#CC000000"
+            android:textSize="14sp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_personal"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
             android:layout_weight="1"
-            android:text="修改登录密码"
-            android:textColor="@color/txt_title"
-            android:textSize="13sp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
-            android:src="@mipmap/icon_a" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginLeft="15dp"
-        android:background="@color/LL_EEEEEE" />
-
-    <LinearLayout
-        android:id="@+id/ll_change_pay"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+            android:drawableTop="@mipmap/ic_my_personal"
+            android:drawablePadding="3dp"
+            android:gravity="center"
+            android:text="个人"
+            android:textColor="#CC000000"
+            android:textSize="14sp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_company"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
             android:layout_weight="1"
-            android:text="修改支付密码"
-            android:textColor="@color/txt_title"
-            android:textSize="13sp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
-            android:src="@mipmap/icon_a" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginLeft="15dp"
-        android:background="@color/LL_EEEEEE" />
-
-    <LinearLayout
-        android:id="@+id/ll_check_update"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+            android:drawableTop="@mipmap/ic_my_company"
+            android:drawablePadding="3dp"
+            android:gravity="center"
+            android:text="公司"
+            android:textColor="#CC000000"
+            android:textSize="14sp"
+            android:visibility="gone" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_collection"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
             android:layout_weight="1"
-            android:text="检查更新"
-            android:textColor="@color/txt_title"
-            android:textSize="13sp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="当前版本 1.0"
-            android:layout_marginRight="10dp"
-            android:textSize="13sp"
-            android:textColor="@color/LL_9B9B9B"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
-            android:src="@mipmap/icon_a" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginLeft="15dp"
-        android:background="@color/LL_EEEEEE" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+            android:drawableTop="@mipmap/ic_my_collection"
+            android:drawablePadding="3dp"
+            android:gravity="center"
+            android:text="收藏"
+            android:textColor="#CC000000"
+            android:textSize="14sp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/tv_wallet"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
             android:layout_weight="1"
-            android:text="退出账户"
-            android:textColor="@color/txt_title"
-            android:textSize="13sp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
-            android:src="@mipmap/icon_a" />
+            android:drawableTop="@mipmap/ic_my_wallet"
+            android:drawablePadding="3dp"
+            android:gravity="center"
+            android:text="钱包"
+            android:textColor="#CC000000"
+            android:textSize="14sp" />
     </LinearLayout>
 
-    <View
+    <FrameLayout
+        android:id="@+id/framelayout"
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginLeft="15dp"
-        android:background="@color/LL_EEEEEE" />
+        android:layout_height="match_parent" />
 </LinearLayout>

@@ -14,7 +14,6 @@
     <RadioGroup
         android:id="@+id/radio_group"
         android:layout_width="match_parent"
-        android:background="@mipmap/ic_main_bg"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
@@ -54,7 +53,7 @@
             android:drawableTop="@drawable/tab_oder_btn"
             android:gravity="center"
             android:paddingBottom="4dp"
-            android:text="订单"
+            android:text="消息"
             android:textColor="@color/selector_tab_text_color"
             android:textSize="10sp" />
 

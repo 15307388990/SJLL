@@ -23,7 +23,11 @@
             android:value="667" />
 
         <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity
@@ -32,15 +36,18 @@
         <activity
             android:name=".loginreg.acitivity.LoginAcitivity"
             android:windowSoftInputMode="stateHidden" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity><!--登录-->
         <activity
             android:name=".loginreg.acitivity.VerificationCodeAcitivity"
             android:windowSoftInputMode="stateHidden" /><!--验证码-->
+        <activity
+            android:name=".loginreg.acitivity.RegisteredAcitivity"
+            android:windowSoftInputMode="stateHidden" /><!--注册-->
+        <activity
+            android:name=".loginreg.acitivity.InitPasswordAcitivity"
+            android:windowSoftInputMode="stateHidden" /><!--初始化密码-->
+
     </application>
 
 </manifest>

@@ -2,6 +2,8 @@ package com.ming.sjll.api;
 
 import com.ming.sjll.base.bean.BaseBean;
 import com.ming.sjll.loginreg.bean.LoginBean;
+import com.ming.sjll.loginreg.bean.RegistereBean;
+import com.ming.sjll.my.bean.CompanyBean;
 import com.ming.sjll.purchaser.bean.AreaBean;
 import com.ming.sjll.purchaser.bean.OccupationBean;
 import com.ming.sjll.show.bean.ShowWorkBean;
@@ -98,21 +100,22 @@ public interface ApiService {
     //注册
     @FormUrlEncoded
     @POST(Constant.REGISTER)
-    Observable<BaseBean> register(@Field("phone") String phone, @Field("password") String password, @Field("code") String code, @Field("repassword") String repassword);
+    Observable<RegistereBean> register(@Field("phone") String phone, @Field("password") String password, @Field("code") String code, @Field("repassword") String repassword);
 
 
     /**
      * 发送验证码
+     *
      * @param phone
-     * @param type type   类型
-     * *                      loginCode :  快速登陆验证码
-     * *                      registerCode :  注册验证码
-     * *                      ChangeLoginPwd : 忘记密码
+     * @param type  type   类型
+     *              *                      loginCode :  快速登陆验证码
+     *              *                      registerCode :  注册验证码
+     *              *                      ChangeLoginPwd : 忘记密码
      * @return
      */
     @FormUrlEncoded
     @POST(Constant.SENDCODE)
-    Observable<BaseBean> sendcode(@Field("phone") String phone,@Field("type") String type);
+    Observable<BaseBean> sendcode(@Field("phone") String phone, @Field("type") String type);
 
     //登录
     @FormUrlEncoded
@@ -125,5 +128,10 @@ public interface ApiService {
     @POST(Constant.QUICKLOGIN)
     Observable<LoginBean> quickLogin(@Field("phone") String phone, @Field("code") String code);
 
+
+    //判断用户认证类型(基础资料)
+    @FormUrlEncoded
+    @POST(Constant.ISAPPROVECOMPANY)
+    Observable<CompanyBean> getIsApprove(@Field("token") String token);
 
 }

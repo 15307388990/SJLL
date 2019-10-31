@@ -97,6 +97,11 @@ public class Constant {
      */
     public static final String QUICKLOGIN = "/api/user/quickLogin";
 
+    /**
+     * 判断用户认证类型(基础资料)
+     */
+    public static final String ISAPPROVECOMPANY = "/api/personal_center/isApproveCompany";
+
 
 
 

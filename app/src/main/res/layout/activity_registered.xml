@@ -74,6 +74,7 @@
                 android:background="#FFE3E5EE" />
 
             <EditText
+                android:id="@+id/et_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -104,25 +105,25 @@
             android:id="@+id/iv_passwrod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_login_pssword" />
+            android:src="@mipmap/ic_code" />
 
 
         <EditText
-            android:id="@+id/et_pssword"
+            android:id="@+id/et_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_toRightOf="@+id/iv_passwrod"
             android:background="@null"
             android:hint="请输入验证码"
-            android:inputType="textPassword"
+            android:inputType="phone"
             android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tv_line"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@+id/et_pssword"
+            android:layout_below="@+id/et_code"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="6dp"
             android:layout_marginRight="110dp"
