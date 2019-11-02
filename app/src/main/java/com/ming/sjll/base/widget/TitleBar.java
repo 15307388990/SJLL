@@ -4,6 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorInt;
+import android.support.annotation.DrawableRes;
+import android.support.annotation.IdRes;
+import android.support.annotation.IntRange;
+import android.support.annotation.StringRes;
+import android.support.v4.view.ViewCompat;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.SparseArray;
@@ -16,14 +23,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ming.sjll.R;
-
-import androidx.annotation.ColorInt;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.IdRes;
-import androidx.annotation.IntRange;
-import androidx.annotation.StringRes;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.ViewCompat;
 
 
 /**

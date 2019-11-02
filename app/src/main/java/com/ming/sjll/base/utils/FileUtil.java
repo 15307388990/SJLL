@@ -13,6 +13,8 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.support.annotation.RequiresApi;
+import android.support.v4.content.CursorLoader;
 import android.text.TextUtils;
 import android.text.format.Formatter;
 import android.webkit.MimeTypeMap;
@@ -45,8 +47,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import androidx.annotation.RequiresApi;
-import androidx.loader.content.CursorLoader;
 
 /**
  * 文件操作类

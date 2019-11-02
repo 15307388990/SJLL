@@ -1,6 +1,9 @@
 package com.ming.sjll.purchaser.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
@@ -11,7 +14,6 @@ import com.ming.sjll.base.fragment.MvpFragment;
 import com.ming.sjll.base.utils.ImageHelper;
 import com.ming.sjll.base.utils.Tools;
 import com.ming.sjll.purchaser.activity.PublishProjectAcitivity;
-import com.ming.sjll.purchaser.bean.AreaBean;
 import com.ming.sjll.purchaser.presenter.PurchaserHomePresenter;
 import com.ming.sjll.purchaser.view.CustomRoundAngleImageView;
 import com.ming.sjll.purchaser.view.PurchaserHomeView;
@@ -22,11 +24,6 @@ import com.ming.sjll.supplier.bean.CikunmBean;
 import com.ming.sjll.supplier.bean.HomeAdsBean;
 import com.ming.sjll.supplier.bean.HomeColumBean;
 
-import java.util.List;
-
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 
 /**

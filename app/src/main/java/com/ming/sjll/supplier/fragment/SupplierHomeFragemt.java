@@ -3,15 +3,19 @@ package com.ming.sjll.supplier.fragment;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.View;
-import android.widget.ImageView;
 
 import com.ming.sjll.R;
 import com.ming.sjll.api.Constant;
 import com.ming.sjll.base.fragment.MvpFragment;
 import com.ming.sjll.base.utils.ImageHelper;
-import com.ming.sjll.base.utils.ImageLoaderUtil;
 import com.ming.sjll.base.utils.Tools;
 import com.ming.sjll.purchaser.view.CustomRoundAngleImageView;
 import com.ming.sjll.supplier.adapter.SupplierHomeAdapter;
@@ -33,12 +37,6 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorT
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 
 /**

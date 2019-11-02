@@ -5,6 +5,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
+import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -20,8 +22,7 @@ import com.bumptech.glide.request.target.Target;
 import java.io.File;
 import java.util.concurrent.ExecutionException;
 
-import androidx.annotation.DrawableRes;
-import androidx.fragment.app.Fragment;
+
 
 /**
  * Created by Nowy on 2018/5/24.

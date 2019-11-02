@@ -40,7 +40,7 @@
 
     </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_marginLeft="15dp"
         android:layout_width="match_parent"

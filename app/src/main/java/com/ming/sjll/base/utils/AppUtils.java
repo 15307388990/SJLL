@@ -6,12 +6,12 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.annotation.ArrayRes;
+import android.support.annotation.StringRes;
+import android.support.v4.content.ContextCompat;
 
 import java.util.Locale;
 
-import androidx.annotation.ArrayRes;
-import androidx.annotation.StringRes;
-import androidx.core.content.ContextCompat;
 
 /**
  * @author：created by leaf on 2019-05-08

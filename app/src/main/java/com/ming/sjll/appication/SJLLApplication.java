@@ -2,6 +2,7 @@ package com.ming.sjll.appication;
 
 
 import com.ming.sjll.base.utils.AppUtils;
+import com.ming.sjll.message.utils.RongIMUtils;
 
 
 /**
@@ -16,6 +17,8 @@ public class SJLLApplication extends BaseApplication {
 		mInstance = this;
 		//颜色
 		AppUtils.init(this);
+		//融云初始化
+		RongIMUtils.INSTANCE.init(this);
 
 	}
 

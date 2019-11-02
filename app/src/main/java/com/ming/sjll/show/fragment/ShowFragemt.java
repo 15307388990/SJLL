@@ -1,6 +1,9 @@
 package com.ming.sjll.show.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -13,9 +16,6 @@ import com.ming.sjll.show.bean.ShowWorkBean;
 import com.ming.sjll.show.presenter.ShowPresenter;
 import com.ming.sjll.show.view.ShowView;
 
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import me.yuqirong.cardswipelayout.CardItemTouchHelperCallback;
 import me.yuqirong.cardswipelayout.CardLayoutManager;

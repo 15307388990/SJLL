@@ -1,6 +1,9 @@
 package com.ming.sjll.supplier.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.ming.sjll.R;
@@ -8,13 +11,9 @@ import com.ming.sjll.base.fragment.MvpFragment;
 import com.ming.sjll.base.widget.ToastShow;
 import com.ming.sjll.supplier.adapter.Comprehendapter;
 import com.ming.sjll.supplier.bean.ComprehenBean;
-import com.ming.sjll.supplier.presenter.ComprehensivePresenter;
 import com.ming.sjll.supplier.presenter.NoticePresenter;
 import com.ming.sjll.supplier.view.ComprehensiveView;
 
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 
 /**

@@ -2,19 +2,18 @@ package com.ming.sjll.purchaser.adapter;
 
 import android.content.Context;
 import android.os.Build;
+import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-
 import com.ming.sjll.R;
 import com.ming.sjll.view.PopUpTextAlignment;
 
 import org.angmarch.views.SpinnerTextFormatter;
 
-import androidx.core.content.ContextCompat;
 import io.reactivex.annotations.Nullable;
 
 public abstract class NiceSpinnerBaseAdapter<T> extends BaseAdapter {

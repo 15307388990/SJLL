@@ -2,6 +2,7 @@ package com.ming.sjll.loginreg.acitivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -10,15 +11,12 @@ import android.widget.TextView;
 import com.ming.sjll.R;
 import com.ming.sjll.base.activity.MvpActivity;
 import com.ming.sjll.base.bean.BaseBean;
-import com.ming.sjll.base.utils.MyCountTimer;
 import com.ming.sjll.base.utils.Tools;
 import com.ming.sjll.base.widget.ToastShow;
-import com.ming.sjll.loginreg.bean.LoginBean;
 import com.ming.sjll.loginreg.bean.RegistereBean;
 import com.ming.sjll.loginreg.presenter.InitPasswordPresenter;
 import com.ming.sjll.loginreg.view.InitPasswordView;
 
-import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

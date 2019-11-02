@@ -3,11 +3,12 @@ package com.ming.sjll.base.permission;
 import android.Manifest;
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 
 import com.ming.sjll.base.activity.BasePermissionAty;
 import com.ming.sjll.base.widget.ToastShow;
 
-import androidx.appcompat.app.AlertDialog;
+
 
 
 /**

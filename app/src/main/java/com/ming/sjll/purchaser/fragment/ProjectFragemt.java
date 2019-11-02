@@ -1,6 +1,8 @@
 package com.ming.sjll.purchaser.fragment;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.widget.FrameLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -11,8 +13,6 @@ import com.ming.sjll.purchaser.presenter.ProjectPresenter;
 import com.ming.sjll.purchaser.view.ProjectView;
 import com.ming.sjll.supplier.fragment.ProjectSupplierFragemt;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import butterknife.BindView;
 
 

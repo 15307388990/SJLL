@@ -12,7 +12,7 @@
         android:layout_marginTop="20dp"
         android:src="@mipmap/ic_show" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

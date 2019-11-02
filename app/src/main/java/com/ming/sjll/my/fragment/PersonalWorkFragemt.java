@@ -1,6 +1,7 @@
 package com.ming.sjll.my.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.ming.sjll.R;
@@ -9,7 +10,6 @@ import com.ming.sjll.my.bean.CompanyBean;
 import com.ming.sjll.my.presenter.MyPresenter;
 import com.ming.sjll.my.view.MyView;
 
-import androidx.annotation.Nullable;
 
 /**
  * @author luoming

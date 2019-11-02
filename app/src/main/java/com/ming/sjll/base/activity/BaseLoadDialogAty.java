@@ -2,15 +2,14 @@ package com.ming.sjll.base.activity;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.text.TextUtils;
 
 import com.ming.sjll.base.manager.LoadManager;
 import com.ming.sjll.base.widget.ToastShow;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 /**
  * @author luoming

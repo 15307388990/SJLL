@@ -1,10 +1,11 @@
 package com.ming.sjll.base.utils;
 
 import android.content.Context;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+
 
 public class FullLinearLayout extends LinearLayoutManager {
     private int[] mMeasuredDimension = new int[2];

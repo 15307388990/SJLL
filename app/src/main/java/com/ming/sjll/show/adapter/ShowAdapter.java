@@ -1,20 +1,18 @@
 package com.ming.sjll.show.adapter;
 
-import android.widget.Adapter;
+import android.support.annotation.Nullable;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.ming.sjll.R;
 import com.ming.sjll.api.Constant;
 import com.ming.sjll.base.utils.ImageHelper;
-import com.ming.sjll.purchaser.bean.OccupationBean;
 import com.ming.sjll.show.bean.ShowWorkBean;
 
 import java.util.List;
 
-import androidx.annotation.Nullable;
+
 
 /**
  * Created by HanHailong on 15/10/19.

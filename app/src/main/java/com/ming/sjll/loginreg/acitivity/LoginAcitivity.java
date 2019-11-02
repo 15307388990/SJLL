@@ -2,6 +2,7 @@ package com.ming.sjll.loginreg.acitivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -17,7 +18,6 @@ import com.ming.sjll.loginreg.bean.LoginBean;
 import com.ming.sjll.loginreg.presenter.LoginPresenter;
 import com.ming.sjll.loginreg.view.LoginView;
 
-import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

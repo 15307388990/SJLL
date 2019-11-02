@@ -1,6 +1,10 @@
 package com.ming.sjll.supplier.fragment;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.TypedValue;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -8,9 +12,6 @@ import android.widget.RadioGroup;
 
 import com.ming.sjll.R;
 import com.ming.sjll.base.fragment.MvpFragment;
-import com.ming.sjll.purchaser.fragment.ProjectPurchaserFragemt;
-import com.ming.sjll.purchaser.fragment.PurchaserHomeFragemt;
-import com.ming.sjll.purchaser.fragment.PurchaserVisualFragemt;
 import com.ming.sjll.purchaser.presenter.ProjectSupplierPresenter;
 import com.ming.sjll.purchaser.view.ProjectView;
 import com.ming.sjll.purchaser.view.SupplierView;
@@ -18,10 +19,6 @@ import com.ming.sjll.purchaser.view.SupplierView;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 
 /**

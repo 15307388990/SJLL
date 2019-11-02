@@ -1,6 +1,7 @@
 package com.ming.sjll.purchaser.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.ming.sjll.R;
@@ -16,7 +17,6 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import androidx.annotation.Nullable;
 import butterknife.BindView;
 
 /**

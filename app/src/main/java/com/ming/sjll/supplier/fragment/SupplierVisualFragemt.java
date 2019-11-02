@@ -1,6 +1,13 @@
 package com.ming.sjll.supplier.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -10,10 +17,7 @@ import com.ming.sjll.api.Constant;
 import com.ming.sjll.base.fragment.MvpFragment;
 import com.ming.sjll.base.utils.ImageHelper;
 import com.ming.sjll.purchaser.fragment.HotArticleFragemt;
-import com.ming.sjll.purchaser.presenter.PurchaserVisualPresenter;
 import com.ming.sjll.purchaser.view.CustomRoundAngleImageView;
-import com.ming.sjll.purchaser.view.PurchaserVisualView;
-import com.ming.sjll.purchaser.view.SupplierView;
 import com.ming.sjll.supplier.adapter.Visualdapter;
 import com.ming.sjll.supplier.bean.ArticleListBean;
 import com.ming.sjll.supplier.bean.TopArticleBean;
@@ -23,13 +27,6 @@ import com.ming.sjll.supplier.view.SupplierVisualView;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 
 /**

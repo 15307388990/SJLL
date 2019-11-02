@@ -1,20 +1,19 @@
 package com.ming.sjll;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.ming.sjll.base.activity.MvpActivity;
 import com.ming.sjll.base.fragment.MvpFragment;
-import com.ming.sjll.message.fragment.MessageFragemt;
+import com.ming.sjll.message.fragment.MessageFragment;
 import com.ming.sjll.my.fragment.MyFragemt;
 import com.ming.sjll.purchaser.fragment.ProjectFragemt;
 import com.ming.sjll.show.fragment.ShowFragemt;
 
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import butterknife.BindView;
 
 public class MainActivity extends MvpActivity<MainView, MainPresenter> {
@@ -36,7 +35,7 @@ public class MainActivity extends MvpActivity<MainView, MainPresenter> {
     private Fragment[] mFragments;
     private ProjectFragemt projectFragemt;
     private ShowFragemt showFragemt;
-    private MessageFragemt messageFragemt;
+    private MessageFragment messageFragemt;
     private MyFragemt myFragemt;
 
     @Override
@@ -50,7 +49,7 @@ public class MainActivity extends MvpActivity<MainView, MainPresenter> {
     private void initView() {
         projectFragemt = ProjectFragemt.newInstance();
         showFragemt = ShowFragemt.newInstance();
-        messageFragemt = MessageFragemt.newInstance();
+        messageFragemt = MessageFragment.newInstance();
         myFragemt = MyFragemt.newInstance();
         mFragments = new Fragment[]{projectFragemt, showFragemt, messageFragemt, myFragemt};
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

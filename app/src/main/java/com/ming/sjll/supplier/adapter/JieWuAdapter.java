@@ -1,5 +1,6 @@
 package com.ming.sjll.supplier.adapter;
 
+import android.support.annotation.Nullable;
 import android.widget.ImageView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -11,7 +12,6 @@ import com.ming.sjll.supplier.bean.CikunmBean;
 
 import java.util.List;
 
-import androidx.annotation.Nullable;
 
 /**
  * @author luoming

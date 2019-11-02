@@ -1,8 +1,8 @@
 package com.ming.sjll.base.activity;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 
-import com.ming.sjll.MainActivity;
 import com.ming.sjll.R;
 import com.ming.sjll.base.presenter.MvpPresenter;
 import com.ming.sjll.base.utils.AppUtils;
@@ -11,8 +11,6 @@ import com.ming.sjll.base.utils.StatusBarUtil;
 import com.ming.sjll.base.view.MvpView;
 
 import org.greenrobot.eventbus.EventBus;
-
-import androidx.annotation.Nullable;
 
 
 /**
@@ -40,11 +38,7 @@ public abstract class MvpActivity<V extends MvpView, P extends MvpPresenter<V>>
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
 
-    }
 
     @Override
     protected void onDestroy() {

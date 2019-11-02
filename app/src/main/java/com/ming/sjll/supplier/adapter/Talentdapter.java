@@ -1,5 +1,6 @@
 package com.ming.sjll.supplier.adapter;
 
+import android.support.annotation.Nullable;
 import android.widget.ImageView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -7,14 +8,10 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.ming.sjll.R;
 import com.ming.sjll.api.Constant;
 import com.ming.sjll.base.utils.ImageHelper;
-import com.ming.sjll.base.utils.TextUtil;
-import com.ming.sjll.base.utils.Tools;
-import com.ming.sjll.supplier.bean.ComprehenBean;
 import com.ming.sjll.supplier.bean.TalentPushBean;
 
 import java.util.List;
 
-import androidx.annotation.Nullable;
 
 /**
  * @author luoming

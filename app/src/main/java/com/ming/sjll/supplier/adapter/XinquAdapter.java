@@ -1,19 +1,16 @@
 package com.ming.sjll.supplier.adapter;
 
-import android.widget.ImageView;
+import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.ming.sjll.R;
-import com.ming.sjll.api.Constant;
-import com.ming.sjll.base.utils.ImageHelper;
 import com.ming.sjll.supplier.bean.MaybeLikBean;
 
 import java.util.List;
 
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * @author luoming

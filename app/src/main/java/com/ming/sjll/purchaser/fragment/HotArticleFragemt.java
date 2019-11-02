@@ -1,6 +1,7 @@
 package com.ming.sjll.purchaser.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -13,7 +14,6 @@ import com.ming.sjll.purchaser.presenter.HotArticlePresenter;
 import com.ming.sjll.purchaser.view.HotArticleView;
 import com.ming.sjll.supplier.bean.HotArticleBean;
 
-import androidx.annotation.Nullable;
 import butterknife.BindView;
 
 /**

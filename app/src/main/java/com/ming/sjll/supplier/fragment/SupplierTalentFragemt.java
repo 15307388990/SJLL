@@ -1,12 +1,14 @@
 package com.ming.sjll.supplier.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.ming.sjll.R;
 import com.ming.sjll.base.fragment.MvpFragment;
 import com.ming.sjll.base.widget.ToastShow;
-import com.ming.sjll.supplier.adapter.MaybeLikedapter;
 import com.ming.sjll.supplier.adapter.Talentdapter;
 import com.ming.sjll.supplier.adapter.XinquAdapter;
 import com.ming.sjll.supplier.bean.MaybeLikBean;
@@ -14,9 +16,6 @@ import com.ming.sjll.supplier.bean.TalentPushBean;
 import com.ming.sjll.supplier.presenter.TalentPresenter;
 import com.ming.sjll.supplier.view.TalentView;
 
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 
 /**

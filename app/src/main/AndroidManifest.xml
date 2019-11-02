@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.ming.sjll">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -14,7 +15,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:appComponentFactory="@string/app_name"
+        tools:replace="android:appComponentFactory"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <meta-data
+            tools:replace="android:value"
+            android:name="RONG_CLOUD_APP_KEY"
+            android:value="kj7swf8ok3ob2" />
         <meta-data
             android:name="design_width_in_dp"
             android:value="375" />
@@ -47,6 +56,38 @@
         <activity
             android:name=".loginreg.acitivity.InitPasswordAcitivity"
             android:windowSoftInputMode="stateHidden" /><!--初始化密码-->
+
+
+
+        <!--   聊天界面-->
+        <activity
+            android:name=".message.fragment.MessageChatActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="${applicationId}"
+                    android:pathPrefix="/conversation/"
+                    android:scheme="rong" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".message.activity.UploadPdfMessageActivity" />
+
+        <receiver
+            android:name=".message.receiver.SealNotificationReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="io.rong.push.intent.MESSAGE_ARRIVED" />
+                <action android:name="io.rong.push.intent.MESSAGE_CLICKED" />
+                <action android:name="io.rong.push.intent.THIRD_PARTY_PUSH_STATE" />
+            </intent-filter>
+        </receiver>
+
+
 
     </application>
 

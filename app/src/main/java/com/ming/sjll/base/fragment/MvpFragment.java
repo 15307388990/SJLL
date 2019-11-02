@@ -1,12 +1,12 @@
 package com.ming.sjll.base.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.ming.sjll.base.presenter.MvpPresenter;
 import com.ming.sjll.base.view.MvpView;
 
-import androidx.annotation.Nullable;
 
 /**
  * MVP模式Fragment基类

@@ -1,10 +1,10 @@
 package com.ming.sjll.base.http;
 
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.google.gson.stream.MalformedJsonException;
 import com.ming.sjll.BuildConfig;
-import com.ming.sjll.base.constants.RespErrorAction;
 import com.ming.sjll.base.exp.ApiException;
 import com.ming.sjll.base.exp.NetResultException;
 import com.ming.sjll.base.widget.ToastShow;
@@ -14,7 +14,6 @@ import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.util.Locale;
 
-import androidx.annotation.NonNull;
 import io.reactivex.observers.DisposableObserver;
 import retrofit2.HttpException;
 

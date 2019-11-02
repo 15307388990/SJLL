@@ -19,3 +19,31 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keepattributes Exceptions,InnerClasses
+
+-keepattributes Signature
+
+ //RongCloud SDK
+-keep class io.rong.** {*;}
+-keep class cn.rongcloud.** {*;}
+-keep class * implements io.rong.imlib.model.MessageContent {*;}
+-dontwarn io.rong.push.**
+-dontnote com.xiaomi.**
+-dontnote com.google.android.gms.gcm.**
+-dontnote io.rong.**
+
+ //VoIP
+-keep class io.agora.rtc.** {*;}
+
+//红包
+-keep class com.google.gson.** { *; }
+-keep class com.uuhelper.Application.** {*;}
+-keep class net.sourceforge.zbar.** { *; }
+-keep class com.google.android.gms.** { *; }
+-keep class com.alipay.** {*;}
+-keep class com.jrmf360.rylib.** {*;}
+
+-ignorewarnings
+
+-keep class com.ming.sjll.message.receiver.SealNotificationReceiver {*;}

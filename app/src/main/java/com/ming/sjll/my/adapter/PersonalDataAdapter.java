@@ -1,19 +1,15 @@
 package com.ming.sjll.my.adapter;
 
-import android.widget.ImageView;
+import android.support.annotation.Nullable;
 
-import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.ming.sjll.R;
-import com.ming.sjll.api.Constant;
 import com.ming.sjll.base.utils.Tools;
 import com.ming.sjll.my.bean.PersonalDateBean;
-import com.ming.sjll.purchaser.bean.OccupationBean;
 
 import java.util.List;
 
-import androidx.annotation.Nullable;
 
 /**
  * @author luoming

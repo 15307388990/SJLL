@@ -1,13 +1,14 @@
 package com.ming.sjll.base.activity;
 
 
+import android.support.annotation.NonNull;
+
 import com.ming.sjll.base.netstate.NetChangeObserver;
 import com.ming.sjll.base.netstate.NetWorkUtil;
 import com.ming.sjll.base.permission.XPermissionUtils;
 import com.ming.sjll.base.widget.ToastShow;
 import com.orhanobut.logger.Logger;
 
-import androidx.annotation.NonNull;
 
 
 /**

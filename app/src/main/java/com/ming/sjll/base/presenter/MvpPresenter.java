@@ -1,11 +1,13 @@
 package com.ming.sjll.base.presenter;
 
 
+import android.support.annotation.IntDef;
+
 import com.ming.sjll.base.view.MvpView;
 
 import java.lang.ref.WeakReference;
 
-import androidx.annotation.IntDef;
+
 
 /**
  * MVP模式Presenter基类

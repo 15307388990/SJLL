@@ -1,5 +1,6 @@
 package com.ming.sjll.purchaser.adapter;
 
+import android.support.annotation.Nullable;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -11,7 +12,6 @@ import com.ming.sjll.purchaser.bean.OccupationBean;
 
 import java.util.List;
 
-import androidx.annotation.Nullable;
 
 /**
  * @author luoming

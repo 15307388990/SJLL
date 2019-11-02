@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="212dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/message_visitcard_bg"
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingTop="10dp"
+    android:paddingRight="15dp"
+    android:paddingBottom="10dp">
+
+    <com.ming.sjll.view.CircleImageView
+        android:id="@+id/header"
+        android:layout_width="60dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="60dp" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/header"
+        android:layout_toRightOf="@+id/header"
+        android:paddingTop="8dp"
+        android:textColor="#ff000000"
+        android:textSize="14sp"
+        tools:text="Abby Katheryn" />
+
+    <TextView
+        android:id="@+id/profession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/header"
+        android:layout_toRightOf="@+id/header"
+        android:paddingBottom="7dp"
+        android:textColor="#ff000000"
+        android:textSize="14sp"
+        tools:text="摄影师·化妆师" />
+</RelativeLayout>
