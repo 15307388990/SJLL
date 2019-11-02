@@ -73,6 +73,7 @@ public class ComprehensiveFragemt extends MvpFragment<ComprehensiveView, Compreh
 
     @Override
     public void setProjectIntegrated(ComprehenBean bean) {
+        recyclerview.setNestedScrollingEnabled(false);
         recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerview.setAdapter(new Comprehendapter(bean.getData().getData()));
 

@@ -102,6 +102,11 @@ public class Constant {
      */
     public static final String ISAPPROVECOMPANY = "/api/personal_center/isApproveCompany";
 
+    /**
+     *个人(公司)作品列表
+     */
+    public static final String GETWORKSLIST = "/api/personal_center/getWorksList";
+
 
 
 

@@ -656,11 +656,11 @@ public class Tools {
     /**
      * 时间戳转时间
      */
-    public static String getDateformat3(long time) {
+    public static String getDateformat3(long time,String dataformat) {
         if (time == 0) {
             return "";
         }
-        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat format = new SimpleDateFormat(dataformat);
         return format.format(time);
 
     }
@@ -789,7 +789,7 @@ public class Tools {
      * @return
      */
     public static int getDay() {
-        Calendar cd = Calendar.getInstance();
+        Calendar cd =Calendar.getInstance();
         return cd.get(Calendar.DATE);
     }
 

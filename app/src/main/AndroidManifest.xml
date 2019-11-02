@@ -32,7 +32,7 @@
 
         <activity
             android:name=".purchaser.activity.PublishProjectAcitivity"
-            android:windowSoftInputMode="stateHidden" /><!--发布项目-->
+            android:windowSoftInputMode="adjustResize|stateHidden" /><!--发布项目-->
         <activity
             android:name=".loginreg.acitivity.LoginAcitivity"
             android:windowSoftInputMode="stateHidden" >

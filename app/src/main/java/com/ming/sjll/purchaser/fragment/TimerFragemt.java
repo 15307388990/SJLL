@@ -27,7 +27,7 @@ import butterknife.BindView;
 /**
  * @author luoming
  * created at 2019-10-14 10:32
- * 概况
+ * 时间
  */
 public class TimerFragemt extends MvpFragment<SupplierView, ProjectSupplierPresenter> implements ProjectView {
 

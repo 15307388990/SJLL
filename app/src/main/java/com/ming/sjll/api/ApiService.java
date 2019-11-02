@@ -4,6 +4,7 @@ import com.ming.sjll.base.bean.BaseBean;
 import com.ming.sjll.loginreg.bean.LoginBean;
 import com.ming.sjll.loginreg.bean.RegistereBean;
 import com.ming.sjll.my.bean.CompanyBean;
+import com.ming.sjll.my.bean.PersonalDateBean;
 import com.ming.sjll.purchaser.bean.AreaBean;
 import com.ming.sjll.purchaser.bean.OccupationBean;
 import com.ming.sjll.show.bean.ShowWorkBean;
@@ -133,5 +134,10 @@ public interface ApiService {
     @FormUrlEncoded
     @POST(Constant.ISAPPROVECOMPANY)
     Observable<CompanyBean> getIsApprove(@Field("token") String token);
+
+    //个人(公司)作品列表
+    @FormUrlEncoded
+    @POST(Constant.GETWORKSLIST)
+    Observable<PersonalDateBean> getWorksList(@Field("token") String token);
 
 }

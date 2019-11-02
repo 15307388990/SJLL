@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ming.sjll.R;
@@ -14,12 +16,15 @@ import com.ming.sjll.my.bean.CompanyBean;
 import com.ming.sjll.my.presenter.MyPresenter;
 import com.ming.sjll.my.view.MyView;
 import com.ming.sjll.view.CircleImageView;
+import com.ming.sjll.view.HoldTabScrollView;
 
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import butterknife.BindView;
 
 
-public class MyFragemt extends MvpFragment<MyView, MyPresenter> implements MyView {
+public class MyFragemt extends MvpFragment<MyView, MyPresenter> implements MyView, HoldTabScrollView.OnHoldTabScrollViewScrollChanged {
 
 
     @BindView(R.id.iv_bg)
@@ -48,6 +53,21 @@ public class MyFragemt extends MvpFragment<MyView, MyPresenter> implements MyVie
     ImageView ivCertification;
     @BindView(R.id.tv_certification)
     TextView tvCertification;
+    @BindView(R.id.ll_center)
+    LinearLayout llCenter;
+    @BindView(R.id.rl_center)
+    RelativeLayout rlCenter;
+    @BindView(R.id.rl_top)
+    RelativeLayout rlTop;
+    @BindView(R.id.scroll_view)
+    HoldTabScrollView scrollView;
+
+
+    private PersonalWorkFragemt personalWorkFragemt;
+    private PersonalDataFragemt personalDataFragemt;
+    private Fragment[] mFragments;
+
+    private boolean canJump = true;
 
     public static MyFragemt newInstance() {
         return new MyFragemt();
@@ -57,12 +77,14 @@ public class MyFragemt extends MvpFragment<MyView, MyPresenter> implements MyVie
     protected void onCreateView(Bundle savedInstanceState) {
         super.onCreateView(savedInstanceState);
         setContentView(R.layout.fragemt_my);
+        initView();
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mPresenter.getIsApprove();
+        scrollView.setOnObservableScrollViewScrollChanged(this);
     }
 
     @Override
@@ -121,5 +143,94 @@ public class MyFragemt extends MvpFragment<MyView, MyPresenter> implements MyVie
             ivSex.setImageResource(R.mipmap.ic_sex_man);
         }
 
+
+    }
+
+//    @Override
+//    public void setUserVisibleHint(boolean isVisibleToUser) {
+//        super.setUserVisibleHint(isVisibleToUser);
+//        if (isVisibleToUser) {
+//            //获取HeaderView的高度，当滑动大于等于这个高度的时候，需要把tabView移除当前布局，放入到外层布局
+//            mHeight = rlCenter.getTop();
+//        }
+//    }
+
+    private void initView() {
+        personalWorkFragemt = PersonalWorkFragemt.newInstance();
+        personalDataFragemt = PersonalDataFragemt.newInstance();
+        mFragments = new Fragment[]{personalWorkFragemt, personalDataFragemt};
+        showFragment(personalWorkFragemt);
+        tvWork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showFragment(personalWorkFragemt);
+            }
+        });
+        tvPersonal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showFragment(personalDataFragemt);
+            }
+        });
+        tvCompany.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showFragment(personalDataFragemt);
+            }
+        });
+    }
+
+    /**
+     * 显示fragment
+     */
+    private void showFragment(MvpFragment fragment) {
+        if (!fragment.isAdded()) {
+            getChildFragmentManager().beginTransaction().remove(fragment).commitAllowingStateLoss();
+            FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+            transaction.add(R.id.framelayout, fragment, fragment.getClass().getName()).commitAllowingStateLoss();
+            for (Fragment f : mFragments) {
+                FragmentTransaction transaction2 = getChildFragmentManager().beginTransaction();
+                if (f == fragment) {
+                    if (fragment.isHidden()) {
+                        transaction2.show(f).commitAllowingStateLoss();
+                    }
+                } else {
+                    if (f.isAdded()) {
+                        transaction2.hide(f).commitAllowingStateLoss();
+                    }
+                }
+            }
+        } else {
+            for (Fragment f : mFragments) {
+                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                if (f == fragment) {
+                    if (fragment.isHidden()) {
+                        transaction.show(f).commitAllowingStateLoss();
+                    }
+                } else {
+                    if (f.isAdded()) {
+                        transaction.hide(f).commitAllowingStateLoss();
+                    }
+                }
+            }
+
+        }
+    }
+
+    @Override
+    public void onObservableScrollViewScrollChanged(int l, int t, int oldl, int oldt) {
+        if (t >= 1000) {
+            if (llCenter.getParent() != rlTop) {
+                rlCenter.removeView(llCenter);
+                rlTop.addView(llCenter);
+                canJump = false;
+            }
+        } else {
+            if (llCenter.getParent() != rlCenter) {
+                rlTop.removeView(llCenter);
+                rlCenter.addView(llCenter);
+                canJump = true;
+            }
+        }
     }
 }
