@@ -1,12 +1,14 @@
 package com.ming.sjll.base.presenter;
 
 
+import android.app.Activity;
+import android.os.Bundle;
 import android.support.annotation.IntDef;
+import android.support.v4.app.Fragment;
 
 import com.ming.sjll.base.view.MvpView;
 
 import java.lang.ref.WeakReference;
-
 
 
 /**
@@ -49,6 +51,11 @@ public class MvpPresenter<V extends MvpView> extends BaseNetPresenter {
         onViewAttached();
     }
 
+    public void attachView(V view, Bundle bundle) {
+        this.bundle = bundle;
+        attachView(view);
+    }
+
     /**
      * 销毁
      */
@@ -88,5 +95,30 @@ public class MvpPresenter<V extends MvpView> extends BaseNetPresenter {
      */
     protected void onViewDetached() {
 
+    }
+
+    public Bundle getBundle() {
+
+        if (bundle == null) {
+            bundle = new Bundle();
+        }
+        return bundle;
+    }
+
+    private Bundle bundle;
+
+    public String getToken() {
+        return "";
+    }
+
+    public Activity getActivity() {
+        if (getView() instanceof Activity) {
+            return (Activity) getView();
+        }
+
+        if (getView() instanceof Fragment) {
+            return ((Fragment) getView()).getActivity();
+        }
+        return null;
     }
 }

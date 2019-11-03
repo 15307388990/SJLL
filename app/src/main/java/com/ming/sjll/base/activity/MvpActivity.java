@@ -12,6 +12,8 @@ import com.ming.sjll.base.view.MvpView;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.lang.reflect.ParameterizedType;
+
 
 /**
  * @author luoming
@@ -23,6 +25,18 @@ public abstract class MvpActivity<V extends MvpView, P extends MvpPresenter<V>>
     protected P mPresenter;
     public SavePreferencesData mSavePreferencesData;
 
+
+    @SuppressWarnings("unchecked")
+    public P autoCreatePresenter() {
+        try {
+            Class<P> clz = (Class<P>) (((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[1]);
+            return clz.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return createPresenter();
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,14 +44,13 @@ public abstract class MvpActivity<V extends MvpView, P extends MvpPresenter<V>>
             EventBus.getDefault().register(this);
         }
         // 初始化presenter并绑定view
-        mPresenter = createPresenter();
-        mPresenter.attachView((V) this);
+        mPresenter = autoCreatePresenter();
+        mPresenter.attachView((V) this, getIntent().getExtras());
         mSavePreferencesData = new SavePreferencesData(this);
         StatusBarUtil.setColor(MvpActivity.this, AppUtils.getColor(R.color.white));
         StatusBarUtil.setDarkMode(this);
 
     }
-
 
 
     @Override
@@ -63,7 +76,23 @@ public abstract class MvpActivity<V extends MvpView, P extends MvpPresenter<V>>
         return true;
     }
 
-    protected abstract P createPresenter();
+    protected P createPresenter() {
+        return null;
+    }
 
 
+    @Override
+    public void showLoading(String msg) {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
+
+    @Override
+    public void showError(String msg) {
+
+    }
 }

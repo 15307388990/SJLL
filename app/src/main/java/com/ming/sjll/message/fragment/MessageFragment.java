@@ -41,31 +41,11 @@ public class MessageFragment extends MvpFragment<MessageView, MessagePresenter> 
             e.printStackTrace();
         }
 
-    }
-
-    @Override
-    protected MessagePresenter createPresenter() {
-        return new MessagePresenter();
-    }
-
-    @Override
-    public void showLoading(String msg) {
 
     }
 
-    @Override
-    public void hideLoading() {
 
-    }
 
-    @Override
-    public void showError(String msg) {
 
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-    }
 
 }

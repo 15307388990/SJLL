@@ -13,15 +13,13 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
-
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -609,7 +607,12 @@ public class Tools {
      * 跳转
      */
     public static void jump(Activity context, Class<?> cls, boolean afterFinish) {
+       jump(context,cls,new Bundle(),afterFinish);
+    }
+
+    public static void jump(Activity context, Class<?> cls, Bundle bundle, boolean afterFinish) {
         Intent intent = new Intent(context, cls);
+        intent.putExtras(bundle);
         context.startActivity(intent);
         if (afterFinish)
             context.finish();

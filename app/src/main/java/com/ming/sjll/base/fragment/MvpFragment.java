@@ -2,10 +2,13 @@ package com.ming.sjll.base.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 
 import com.ming.sjll.base.presenter.MvpPresenter;
 import com.ming.sjll.base.view.MvpView;
+
+import java.lang.reflect.ParameterizedType;
 
 
 /**
@@ -18,18 +21,29 @@ public abstract class MvpFragment<V extends MvpView, P extends MvpPresenter<V>> 
         implements MvpView {
     protected P mPresenter;
 
-    protected abstract P createPresenter();
+    protected   P createPresenter(){
+        return null;
+    }
 
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mPresenter = createPresenter();
-        mPresenter.attachView((V) this);
-
-
+        mPresenter = autoCreatePresenter();
+        mPresenter.attachView((V) this, getArguments());
     }
 
+    @SuppressWarnings("unchecked")
+    public P autoCreatePresenter() {
+        try {
+            Class<P> clz = (Class<P>) (((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[1]);
+            Log.i("MvpFragment", "autocreate preseter" + clz);
+            return clz.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return createPresenter();
+    }
 
 
     @Override
@@ -43,4 +57,18 @@ public abstract class MvpFragment<V extends MvpView, P extends MvpPresenter<V>> 
     }
 
 
+    @Override
+    public void showLoading(String msg) {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
+
+    @Override
+    public void showError(String msg) {
+
+    }
 }

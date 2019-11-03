@@ -25,70 +25,70 @@ public class Constant {
     public static final String GETNOTICE = "/api/project/projectNotice";
 
     /**
-     *  达人
+     * 达人
      */
     public static final String TABLENTPUSH = "/api/home/talentPush";
     /**
-     *  可能感兴趣的用户
+     * 可能感兴趣的用户
      */
     public static final String MAYBELIKE = "/api/show/maybeLike";
     /**
-     *  首页功能栏目
+     * 首页功能栏目
      */
     public static final String HOMECOLUM = "/api/home/getHomeColunm";
 
     /**
-     *  首页功能栏目
+     * 首页功能栏目
      */
     public static final String HOMEADS = "/api/home/homeAds";
 
     /**
-     *  置顶文章
+     * 置顶文章
      */
     public static final String TOPARTICLE = "/api/home/topArticle";
 
     /**
-     *  热门文章
+     * 热门文章
      */
     public static final String HOTARTICLE = "/api/home/hotArticle";
 
     /**
-     *  热门作者
+     * 热门作者
      */
     public static final String HOTAUTHOR = "/api/home/hotAuthor";
 
     /**
-     *  文章列表
+     * 文章列表
      */
     public static final String ARTICLELIST = "/api/home/articleList";
 
     /**
-     *  文章列表
+     * 文章列表
      */
     public static final String GETCOLUMCHILD = "api/home/getColunmChild";
 
     /**
-     *  show 列表
+     * show 列表
      */
     public static final String WORK = "/api/show/work";
 
     /**
-     *  收藏
+     * 收藏
      */
     public static final String WORKCOLLECT = "/api/show/workCollect";
 
     /**
-     *  注册
+     * 注册
      */
     public static final String REGISTER = "api/user/register";
 
     /**
-     *  发送验证码
+     * 发送验证码
      */
     public static final String SENDCODE = "/api/user/sendCode";
 
     /**
-     *  登录
+     * 登录
      */
     public static final String LOGIN = "/api/user/login";
 
@@ -103,12 +103,14 @@ public class Constant {
     public static final String ISAPPROVECOMPANY = "/api/personal_center/isApproveCompany";
 
     /**
-     *个人(公司)作品列表
+     * 个人(公司)作品列表
      */
     public static final String GETWORKSLIST = "/api/personal_center/getWorksList";
 
-
-
+    /**
+     * 项目详情
+     */
+    public static final String PROJECTINFO = "/api/project/projectInfo";
 
 
 }

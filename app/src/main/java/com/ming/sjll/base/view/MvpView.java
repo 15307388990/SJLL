@@ -25,4 +25,6 @@ public interface MvpView {
      * @param msg 错误提示
      */
     void showError(String msg);
+
+
 }

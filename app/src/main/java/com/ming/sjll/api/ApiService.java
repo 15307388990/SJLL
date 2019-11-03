@@ -3,6 +3,7 @@ package com.ming.sjll.api;
 import com.ming.sjll.base.bean.BaseBean;
 import com.ming.sjll.loginreg.bean.LoginBean;
 import com.ming.sjll.loginreg.bean.RegistereBean;
+import com.ming.sjll.message.viewmodel.ActivityUploadMessageViewModel;
 import com.ming.sjll.my.bean.CompanyBean;
 import com.ming.sjll.my.bean.PersonalDateBean;
 import com.ming.sjll.purchaser.bean.AreaBean;
@@ -139,5 +140,10 @@ public interface ApiService {
     @FormUrlEncoded
     @POST(Constant.GETWORKSLIST)
     Observable<PersonalDateBean> getWorksList(@Field("token") String token);
+
+    //项目详情
+    @FormUrlEncoded
+    @POST(Constant.PROJECTINFO)
+    Observable<ActivityUploadMessageViewModel> getProjectInfo(@Field("token") String token, @Field("project_id") String project_id);
 
 }

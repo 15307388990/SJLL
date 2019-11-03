@@ -26,7 +26,6 @@ import butterknife.BindView;
  */
 public class CityFragemt extends MvpFragment<CityView, CityPresenter> implements CityView {
 
-
     @BindView(R.id.ns_shen)
     SpinnerView nsShen;
     @BindView(R.id.ns_shi)

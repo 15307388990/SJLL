@@ -1,4 +1,4 @@
-package com.ming.sjll.message.fragment;
+package com.ming.sjll.message.activity;
 
 import android.net.Uri;
 import android.os.Bundle;
