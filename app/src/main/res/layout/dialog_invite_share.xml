@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_round_bottom_white_bg"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="成员邀请"
+            android:textColor="#ff000000"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="9dp"
+            android:padding="15dp"
+            android:src="@mipmap/icon_dialog_close" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_close"
+            android:orientation="horizontal"
+            android:paddingTop="30dp"
+            android:paddingBottom="60dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/dialog_invite_share_inner"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="站内搜索"
+                android:textColor="#ff000000"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/dialog_invite_share_friends"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="微信好友"
+                android:textColor="#ff000000"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/dialog_invite_share_moment"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="朋友圈"
+                android:textColor="#ff000000"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/dialog_invite_share_colleague"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="我的同事"
+                android:textColor="#ff000000"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="212dp"
     android:layout_height="wrap_content"
-    android:background="@drawable/message_pdf_bg"
+    android:background="@drawable/message_custom_bg_left"
     android:orientation="vertical"
     android:paddingLeft="15dp"
     android:paddingTop="10dp"

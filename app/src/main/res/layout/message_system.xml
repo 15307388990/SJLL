@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingTop="20dp"
+    android:paddingRight="15dp"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ff000000"
+        android:textSize="14sp"
+        tools:text="您的项目：Lucas Wakamatsu 新品摄影 已付全款，请及时跟进。" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="345dp"
+        android:layout_height="17dp"
+        android:layout_below="@+id/content"
+        android:textColor="#B2B2B2"
+        android:textSize="12sp"
+        tools:text="2019/10/15 12:46:50" />
+
+    <View
+
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/time"
+        android:layout_marginTop="30dp"
+        android:background="#B2B2B2" />
+</RelativeLayout>

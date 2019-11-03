@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/white"
+            bind:cardCornerRadius="6dp"
+            bind:cardElevation="20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingTop="20dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="20dp">
+
+                <TextView
+                    android:id="@+id/tv_operation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="申请加入Lucas Wakamatsu 新品拍摄"
+                    android:textColor="#ff000000"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_invite_position"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_operation"
+                    android:layout_marginTop="20dp"
+                    android:text="邀请职位"
+                    android:textColor="#7F7F7F" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_operation"
+                    android:layout_alignBottom="@+id/tv_invite_position"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    tools:text="设计师" />
+
+
+                <TextView
+                    android:id="@+id/tv_invite_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_invite_position"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="邀请人"
+                    android:textColor="#7F7F7F" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_invite_position"
+                    android:layout_alignBottom="@+id/tv_invite_user"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    tools:text="Riley Catherine" />
+
+
+                <RelativeLayout
+                    android:id="@+id/ll_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_invite_user"
+                    android:layout_marginTop="10dp"
+
+                    android:orientation="vertical">
+
+                    <View
+                        android:id="@+id/gap_top"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+
+                        android:background="#ffc7ccde" />
+
+                    <TextView
+                        android:id="@+id/tv_label1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/gap_top"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/message_member_info_label_bg"
+                        android:textColor="#ff0a3fff"
+                        android:textSize="12sp"
+                        tools:text="科技风" />
+
+                    <TextView
+                        android:id="@+id/tv_label2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/gap_top"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_toRightOf="@+id/tv_label1"
+                        android:background="@drawable/message_member_info_label_bg"
+                        android:textColor="#ff0a3fff"
+                        android:textSize="12sp"
+                        tools:text="品牌升级" />
+
+                    <TextView
+                        android:id="@+id/tv_label3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/gap_top"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_toRightOf="@+id/tv_label2"
+                        android:background="@drawable/message_member_info_label_bg"
+                        android:textColor="#ff0a3fff"
+                        android:textSize="12sp"
+                        tools:text="塞伯朋克" />
+
+
+                    <TextView
+                        android:id="@+id/tv_brand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_label1"
+                        android:layout_marginTop="20dp"
+                        android:text="品牌"
+                        android:textColor="#7F7F7F" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_label1"
+                        android:layout_alignBottom="@+id/tv_brand"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="20dp"
+                        android:textColor="#000000"
+                        tools:text="Lucas Wakamatsu" />
+
+
+                    <TextView
+                        android:id="@+id/tv_budget"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_brand"
+                        android:layout_marginTop="20dp"
+                        android:text="预算"
+                        android:textColor="#7F7F7F" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_brand"
+                        android:layout_alignBottom="@+id/tv_budget"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="20dp"
+                        android:textColor="#000000"
+                        tools:text="¥ 30,000" />
+
+                    <TextView
+                        android:id="@+id/tv_runtime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_budget"
+                        android:layout_marginTop="20dp"
+                        android:text="预算"
+                        android:textColor="#7F7F7F" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_budget"
+                        android:layout_alignBottom="@+id/tv_runtime"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="20dp"
+                        android:textColor="#000000"
+                        tools:text="2019/09/20 - 2019/10/13" />
+
+
+                    <View
+                        android:id="@+id/gap_bottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_below="@+id/tv_runtime"
+                        android:layout_marginTop="20dp"
+                        android:background="#ffc7ccde" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_down"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll_content"
+                    android:layout_marginTop="15dp"
+
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lines="1"
+                        android:text="展开需求"
+                        android:textColor="#B2B2B2"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/coodinate_down" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_apply"
+                        android:layout_toLeftOf="@+id/tv_receive"
+                        android:background="@drawable/message_refuse_bg"
+                        android:text="拒绝"
+                        android:textColor="#ff0a3fff"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_receive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_apply"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/message_receive_bg"
+                        android:text="接受"
+                        android:textColor="#ffffffff"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_receive_gray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_apply"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/message_outdate_bg"
+                        android:textColor="#ff8c92a7"
+                        android:textSize="14sp"
+                        tools:text="已过期" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/white"
+            bind:cardCornerRadius="6dp"
+            bind:cardElevation="20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingTop="20dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="20dp">
+
+
+
+                <com.ming.sjll.view.CircleImageView
+                    android:id="@+id/header"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/tv_operation"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/header"
+                    android:layout_marginTop="8dp"
+                    android:layout_toRightOf="@+id/header"
+                    android:lines="1"
+                    android:textColor="#ff000000"
+                    android:textSize="14sp"
+                    tools:text="Riley Catherine" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/header"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_toRightOf="@+id/header"
+                    android:lines="1"
+                    android:textColor="#7F7F7F"
+                    android:textSize="14sp"
+
+                    tools:text="摄影师·化妆师" />
+
+
+
+
+
+
+
+                <LinearLayout
+                    android:id="@+id/ll_down"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/header"
+                    android:layout_marginTop="15dp"
+
+                    android:gravity="center_vertical">
+
+
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_apply"
+                        android:layout_toLeftOf="@+id/tv_receive"
+                        android:background="@drawable/message_refuse_bg"
+                        android:text="忽略"
+                        android:textColor="#ff0a3fff"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_receive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_apply"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/message_receive_bg"
+                        android:text="通过"
+                        android:textColor="#ffffffff"
+                        android:textSize="14sp" />
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+</layout>

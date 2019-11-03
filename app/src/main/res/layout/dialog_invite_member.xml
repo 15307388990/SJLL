@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_round_bottom_white_bg"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="成员邀请"
+            android:textColor="#ff000000"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="9dp"
+            android:padding="15dp"
+            android:src="@mipmap/icon_dialog_close" />
+
+
+        <LinearLayout
+            android:id="@+id/ll_project"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_close"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="30dp"
+            android:paddingTop="30dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/dialog_invite_member_porject"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="项目"
+                android:textColor="#ff000000"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1">
+
+                <com.ming.sjll.view.SpinnerView
+                    android:id="@+id/ns_shen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="left"
+                    android:textColor="@color/LL_000000"
+                    android:textSize="14sp"
+                    bind:popupTextAlignment="start" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/ns_shen"
+                    android:layout_marginTop="4dp"
+                    android:background="#C7CCDE" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="6dp"
+                    android:src="@mipmap/ic_release_san" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/LL_000000"
+                    android:textSize="14sp"
+                    tools:text="我想做一个衣服广告" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_position"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_project"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="30dp"
+            android:paddingTop="30dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/dialog_invite_member_position"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="职位"
+                android:textColor="#ff000000"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1">
+
+                <com.ming.sjll.view.SpinnerView
+                    android:id="@+id/ns_position"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="left"
+                    android:textColor="@color/LL_000000"
+                    android:textSize="14sp"
+                    bind:popupTextAlignment="start" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/ns_position"
+                    android:layout_marginTop="4dp"
+                    android:background="#C7CCDE" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="6dp"
+                    android:src="@mipmap/ic_release_san" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/LL_000000"
+                    android:textSize="14sp"
+                    tools:text="摄影师" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/gap"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/ll_position"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="30dp"
+            android:background="#ffc7ccde" />
+
+        <TextView
+            android:layout_width="345dp"
+            android:layout_height="47dp"
+            android:layout_below="@+id/gap"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/btn_blue_bg"
+            android:gravity="center"
+            android:text="发送邀请"
+            android:textColor="#ffffffff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+</layout>

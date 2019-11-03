@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="212dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:background="@drawable/message_bg_right"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffffff"
+            android:textSize="14sp"
+            tools:text="确认了项目之后，会新建一个群聊" />
+
+    </LinearLayout>
+</layout>

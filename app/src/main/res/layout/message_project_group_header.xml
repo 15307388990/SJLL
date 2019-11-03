@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/message_chat_header_bg"
+            android:orientation="horizontal"
+            android:paddingLeft="26dp"
+            android:paddingTop="7dp"
+            android:paddingRight="26dp"
+            android:paddingBottom="7dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="23dp"
+                android:text="项目\n管理"
+                android:textColor="#ff0a3fff"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="23dp"
+                android:text="项目\n进程"
+                android:textColor="#ff0a3fff"
+                android:textSize="12sp" />
+
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/gap"
+            android:layout_width="0.5dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/ll_left"
+            android:layout_alignBottom="@+id/ll_left"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_toRightOf="@+id/ll_left"
+            android:background="#ffc7ccde" />
+
+
+        <!--        bind:pileImages="@{viewModel.headUrl}"-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/add"
+            android:layout_toRightOf="@+id/gap"
+            android:gravity="center">
+
+            <com.ming.sjll.view.PileAvertView
+                android:layout_width="wrap_content"
+                android:layout_height="42dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/add"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10dp" />
+
+
+        <View
+            android:layout_below="@+id/ll_left"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#C7CCDE"/>
+    </RelativeLayout>
+</layout>

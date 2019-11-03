@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:background="@drawable/dialog_round_center_white_bg"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="提示"
+            android:textColor="#ff000000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_marginTop="10dp"
+            android:textColor="#ff000000"
+            android:textSize="14sp"
+            tools:text="你是否确定跟 Abby Katheryn 合作 Lucas Wakamatsu 新品拍摄吗？" />
+
+        <View
+            android:id="@+id/gap"
+            android:layout_below="@+id/content"
+            android:layout_width="match_parent"
+            android:background="#ffc7ccde"
+            android:layout_marginTop="20dp"
+            android:layout_height="0.5dp"/>
+
+        <LinearLayout
+            android:layout_below="@+id/gap"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:text="否"
+                android:textColor="#ffff598a"
+                android:textSize="14sp"
+                />
+            <View
+                android:layout_width="0.5dp"
+                android:background="#ffc7ccde"
+                android:layout_height="43dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:text="是"
+                android:textColor="#ff0a3fff"
+                android:textSize="14sp"
+                />
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

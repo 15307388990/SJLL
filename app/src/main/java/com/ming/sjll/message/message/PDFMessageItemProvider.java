@@ -25,7 +25,7 @@ public class PDFMessageItemProvider extends IContainerItemProvider.MessageProvid
 
     @Override
     public View newView(Context context, ViewGroup group) {
-        View view = LayoutInflater.from(context).inflate(R.layout.fragemt_message_visitcard, null);
+        View view = LayoutInflater.from(context).inflate(R.layout.message_visitcard, null);
         ViewHolder holder = new ViewHolder();
         holder.message = (TextView) view.findViewById(android.R.id.text1);
         view.setTag(holder);
