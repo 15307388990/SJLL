@@ -8,9 +8,10 @@
     </data>
 
     <LinearLayout
+        android:id="@id/rc_item_conversation"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -19,13 +20,18 @@
             android:orientation="vertical"
             android:padding="15dp">
 
-            <com.ming.sjll.view.CircleImageView
+            <io.rong.imkit.widget.AsyncImageView
                 android:id="@+id/header"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginRight="15dp" />
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                bind:RCShape="circle"
+                android:layout_marginRight="15dp"
+                bind:RCDefDrawable="@drawable/rc_default_portrait" />
 
             <ImageView
+                android:id="@+id/rc_unread_message_icon"
                 android:layout_width="8dp"
                 android:layout_height="8dp"
                 android:layout_alignTop="@+id/header"
@@ -33,7 +39,16 @@
                 android:layout_margin="5dp"
                 android:src="@drawable/message_bg_red" />
 
-            <TextView
+
+            <io.rong.imkit.widget.ProviderContainerView
+                android:id="@+id/rc_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/header"
+                android:background="@android:color/transparent" />
+
+           <!-- <TextView
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,7 +83,7 @@
                 android:layout_marginLeft="5dp"
                 android:textColor="#B2B2B2"
                 android:textSize="12sp"
-                tools:text="16:42" />
+                tools:text="16:42" />-->
         </RelativeLayout>
     </LinearLayout>
 </layout>

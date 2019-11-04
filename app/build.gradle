@@ -73,14 +73,16 @@ dependencies {
     implementation 'me.yuqirong:cardswipelayout:1.0.0'
 
 
-    api 'cn.rongcloud.sdk:im_kit:2.9.25'
-    api 'cn.rongcloud.sdk:im_lib:2.9.25'
+//    api 'cn.rongcloud.sdk:im_kit:2.9.25'
+//    api 'cn.rongcloud.sdk:im_lib:2.9.25'
 
 //    api 'cn.rongcloud.sdk:call_lib:2.9.25'
 //    api 'cn.rongcloud.sdk:call_kit:2.9.25'
 //    api 'cn.rongcloud.sdk:sight:2.9.25'
 //    api 'cn.rongcloud.sdk:rcsticker:2.9.17'
 //    api 'cn.rongcloud.sdk:redpacket:2.9.17'
+
+    api project(":IMKit")
 
     //kotlin标准库
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"

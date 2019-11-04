@@ -1,2 +1,4 @@
 include ':app'
+include ':IMKit'
+include ':IMLib'
 rootProject.name='SJLL'
