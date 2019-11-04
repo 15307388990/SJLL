@@ -85,6 +85,10 @@ dependencies {
     //kotlin标准库
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 //    implementation 'androidx.core:core-ktx:1.1.0'
+    //吸顶
+    implementation 'com.android.support:design:28.0.1'
+    //标签库 https://www.jianshu.com/p/3a1031f9a92d
+    implementation 'com.jetlee:FlowTagLayout:1.0.1'
 
 }
 

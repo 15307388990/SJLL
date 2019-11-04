@@ -19,7 +19,7 @@ import butterknife.BindView;
 /**
  * @author luoming
  * created at 2019-10-14 10:32
- * 通过
+ * 通告
  */
 public class NoticeFragemt extends MvpFragment<ComprehensiveView, NoticePresenter> implements ComprehensiveView {
 
