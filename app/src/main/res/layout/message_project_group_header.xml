@@ -70,12 +70,20 @@
             <com.ming.sjll.view.PileAvertView
                 android:layout_width="wrap_content"
                 android:layout_height="42dp" />
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@mipmap/message_group_header_more"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dp" />
+
         </LinearLayout>
 
         <ImageView
             android:id="@+id/add"
             android:layout_width="42dp"
             android:layout_height="42dp"
+            android:src="@mipmap/message_group_header_add"
             android:layout_alignParentRight="true"
             android:layout_marginLeft="10dp" />
 

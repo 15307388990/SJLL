@@ -40,7 +40,7 @@ public class ActivityUploadMessageViewModel extends BaseObservable {
 
     public void setProjectVisible(int projectVisible) {
         this.projectVisible = projectVisible;
-        notifyPropertyChanged(BR.projectVisible);
+        notifyPropertyChanged(com.ming.sjll.BR.projectVisible);
     }
 
     @Bindable
