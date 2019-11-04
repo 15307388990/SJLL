@@ -177,8 +177,8 @@
                     </LinearLayout>
                 </RelativeLayout>
 
-                <FrameLayout
-                    android:id="@+id/framelayout"
+                <com.ming.sjll.view.WrapContentHeightViewPager
+                    android:id="@+id/viewpager"
                     android:layout_marginTop="37dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />

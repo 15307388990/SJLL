@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginBottom="20dp"
     android:orientation="vertical">
 
@@ -63,11 +64,27 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="78dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="18dp" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerview2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <com.jet.flowtaglayout.FlowTagLayout
+        android:id="@+id/flowTagLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="78dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="20dp"
+        app:item_background="@drawable/ic_tag_11"
+        app:item_bottomMargin="8dp"
+        app:item_bottomPadding="2dp"
+        app:item_leftMargin="10dp"
+        app:item_leftPadding="12dp"
+        app:item_rightPadding="12dp"
+        app:item_textColor="#FFC7CCDE"
+        app:item_textSize="12sp"
+        app:item_topMargin="8dp"
+        app:item_topPadding="2dp" />
 
 </LinearLayout>

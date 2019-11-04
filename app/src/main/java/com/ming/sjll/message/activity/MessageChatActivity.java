@@ -28,12 +28,12 @@ public class MessageChatActivity extends MvpActivity<MessageView, MessagePresent
             String mtargetId = "";
             Conversation.ConversationType mConversationType = Conversation.ConversationType.APP_PUBLIC_SERVICE;
             FragmentManager fragmentManage = getSupportFragmentManager();
-            ConversationFragment fragement = (ConversationFragment) fragmentManage.findFragmentById(R.id.conversation);
+           // ConversationFragment fragement = (ConversationFragment) fragmentManage.findFragmentById(R.id.conversation);
             Uri uri = Uri.parse("rong://" + getApplicationInfo().packageName).buildUpon()
                     .appendPath("conversation").appendPath(mConversationType.getName().toLowerCase())
                     .appendQueryParameter("targetId", mtargetId).build();
 
-            fragement.setUri(uri);
+            //fragement.setUri(uri);
         } catch (Exception e) {
             e.printStackTrace();
         }

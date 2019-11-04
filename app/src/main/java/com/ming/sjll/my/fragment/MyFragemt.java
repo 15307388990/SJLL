@@ -3,6 +3,8 @@ package com.ming.sjll.my.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -18,8 +20,15 @@ import com.ming.sjll.base.utils.ImageHelper;
 import com.ming.sjll.my.bean.CompanyBean;
 import com.ming.sjll.my.presenter.MyPresenter;
 import com.ming.sjll.my.view.MyView;
+import com.ming.sjll.purchaser.fragment.CityFragemt;
+import com.ming.sjll.purchaser.fragment.GeneralSituationFragemt;
+import com.ming.sjll.purchaser.fragment.TimerFragemt;
 import com.ming.sjll.view.CircleImageView;
 import com.ming.sjll.view.HoldTabScrollView;
+import com.ming.sjll.view.WrapContentHeightViewPager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -35,8 +44,6 @@ public class MyFragemt extends MvpFragment<MyView, MyPresenter> implements MyVie
     ImageView ivSex;
     @BindView(R.id.tv_name)
     TextView tvName;
-    @BindView(R.id.framelayout)
-    FrameLayout framelayout;
     @BindView(R.id.tv_number)
     TextView tvNumber;
     @BindView(R.id.tv_work)
@@ -61,6 +68,9 @@ public class MyFragemt extends MvpFragment<MyView, MyPresenter> implements MyVie
     RelativeLayout rlTop;
     @BindView(R.id.scroll_view)
     HoldTabScrollView scrollView;
+    @BindView(R.id.viewpager)
+    WrapContentHeightViewPager viewpager;
+    List<Fragment> fragmentList;
 
 
     private PersonalWorkFragemt personalWorkFragemt;
@@ -156,66 +166,31 @@ public class MyFragemt extends MvpFragment<MyView, MyPresenter> implements MyVie
 //    }
 
     private void initView() {
-        personalWorkFragemt = PersonalWorkFragemt.newInstance();
-        personalDataFragemt = PersonalDataFragemt.newInstance();
-        mFragments = new Fragment[]{personalWorkFragemt, personalDataFragemt};
-        showFragment(personalWorkFragemt);
+        fragmentList = new ArrayList<>();
+        fragmentList.add(PersonalWorkFragemt.newInstance());
+        fragmentList.add(PersonalDataFragemt.newInstance());
+        viewpager.setAdapter(new Adaper(getChildFragmentManager()));
+
         tvWork.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showFragment(personalWorkFragemt);
+                viewpager.setCurrentItem(0);
             }
         });
         tvPersonal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showFragment(personalDataFragemt);
+                viewpager.setCurrentItem(1);
             }
         });
         tvCompany.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showFragment(personalDataFragemt);
+                viewpager.setCurrentItem(1);
             }
         });
     }
 
-    /**
-     * 显示fragment
-     */
-    private void showFragment(MvpFragment fragment) {
-        if (!fragment.isAdded()) {
-            getChildFragmentManager().beginTransaction().remove(fragment).commitAllowingStateLoss();
-            FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-            transaction.add(R.id.framelayout, fragment, fragment.getClass().getName()).commitAllowingStateLoss();
-            for (Fragment f : mFragments) {
-                FragmentTransaction transaction2 = getChildFragmentManager().beginTransaction();
-                if (f == fragment) {
-                    if (fragment.isHidden()) {
-                        transaction2.show(f).commitAllowingStateLoss();
-                    }
-                } else {
-                    if (f.isAdded()) {
-                        transaction2.hide(f).commitAllowingStateLoss();
-                    }
-                }
-            }
-        } else {
-            for (Fragment f : mFragments) {
-                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                if (f == fragment) {
-                    if (fragment.isHidden()) {
-                        transaction.show(f).commitAllowingStateLoss();
-                    }
-                } else {
-                    if (f.isAdded()) {
-                        transaction.hide(f).commitAllowingStateLoss();
-                    }
-                }
-            }
-
-        }
-    }
 
     @Override
     public void onObservableScrollViewScrollChanged(int l, int t, int oldl, int oldt) {
@@ -231,6 +206,22 @@ public class MyFragemt extends MvpFragment<MyView, MyPresenter> implements MyVie
                 rlCenter.addView(llCenter);
                 canJump = true;
             }
+        }
+    }
+
+    class Adaper extends FragmentStatePagerAdapter {
+        public Adaper(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return fragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return fragmentList.size();
         }
     }
 }
