@@ -41,6 +41,16 @@ public class MessageSytemNotificationListFragment extends BaseV4Fragment {
         data.add(viewModel);
         data.add(viewModel);
         data.add(viewModel);
+        data.add(viewModel);
+        data.add(viewModel);
+        data.add(viewModel);
+        data.add(viewModel);
+        data.add(viewModel);
+        data.add(viewModel);
+        data.add(viewModel);
+        data.add(viewModel);
+        data.add(viewModel);
+        data.add(viewModel);
         dataBinding.rcNotification.setAdapter(new MessageNotifydapter(data));
     }
 

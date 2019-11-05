@@ -1,6 +1,5 @@
 package com.ming.sjll.base.dialog;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
@@ -80,36 +79,40 @@ public abstract class BaseDialog extends DialogFragment {
     }
 
     public void show(Object object, String tag) {
-        if (object instanceof Activity) {
-           FragmentManager manager = ((FragmentActivity) object).getSupportFragmentManager();
+        if (object instanceof FragmentActivity) {
+            FragmentManager manager = ((FragmentActivity) object).getSupportFragmentManager();
             if (isAdded()) {
                 dismiss();
             }
             super.show(manager, tag);
         } else if (object instanceof Fragment) {
-           FragmentManager fragmentManager = ((Fragment) object).getActivity().getSupportFragmentManager();
-            if (isAdded()) {
-                dismiss();
+            if (((Fragment) object).getActivity() instanceof FragmentActivity) {
+                FragmentManager fragmentManager = ((Fragment) object).getActivity().getSupportFragmentManager();
+                if (isAdded()) {
+                    dismiss();
+                }
+                super.show(fragmentManager, tag);
             }
-            super.show(fragmentManager, tag);
 
         }
     }
 
     public void showWithCommit(Object object, String tag) {
-        if (object instanceof Activity) {
+        if (object instanceof FragmentActivity) {
             FragmentManager manager = ((FragmentActivity) object).getSupportFragmentManager();
             if (isAdded()) {
                 dismiss();
             }
             manager.beginTransaction().add(this, tag).commitAllowingStateLoss();
         } else if (object instanceof Fragment) {
-           FragmentManager fragmentManager = ((Fragment) object).getActivity().getSupportFragmentManager();
-            if (isAdded()) {
-                dismiss();
-            }
-            fragmentManager.beginTransaction().add(this, tag).commitAllowingStateLoss();
+            if (((Fragment) object).getActivity() instanceof FragmentActivity) {
 
+                FragmentManager fragmentManager = ((Fragment) object).getActivity().getSupportFragmentManager();
+                if (isAdded()) {
+                    dismiss();
+                }
+                fragmentManager.beginTransaction().add(this, tag).commitAllowingStateLoss();
+            }
         }
     }
 }
