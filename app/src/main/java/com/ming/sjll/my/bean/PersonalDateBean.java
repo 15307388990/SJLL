@@ -2,9 +2,10 @@ package com.ming.sjll.my.bean;
 
 import com.ming.sjll.base.bean.BaseBean;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class PersonalDateBean extends BaseBean {
+public class PersonalDateBean extends BaseBean implements Serializable {
 
     /**
      * data : {"total":7,"per_page":20,"current_page":1,"last_page":1,"data":[{"id":7,"user_id":3,"created_time":1567842025,"title":"very good","describe":"这是个非常好的作品","is_del":0,"imgList":[{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"}],"tagsList":["简约风","复古风"]},{"id":6,"user_id":3,"created_time":1567827636,"title":"very good","describe":"这是个非常好的作品","is_del":0,"imgList":[{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"}],"tagsList":["简约风","复古风"]},{"id":5,"user_id":3,"created_time":1567740624,"title":"very good","describe":"这是个非常好的作品","is_del":0,"imgList":[{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"}],"tagsList":[]},{"id":4,"user_id":3,"created_time":1567740622,"title":"very good","describe":"这是个非常好的作品","is_del":0,"imgList":[{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"}],"tagsList":[]},{"id":3,"user_id":3,"created_time":1567740619,"title":"very good","describe":"这是个非常好的作品","is_del":0,"imgList":[{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"}],"tagsList":[]},{"id":2,"user_id":3,"created_time":1567679805,"title":"very good","describe":"这是个非常好的作品","is_del":0,"imgList":[{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"}],"tagsList":[]},{"id":1,"user_id":3,"created_time":1567679693,"title":"very good","describe":"这是个非常好的作品","is_del":0,"imgList":[{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"},{"img":"/uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg"}],"tagsList":[]}]}
@@ -20,7 +21,7 @@ public class PersonalDateBean extends BaseBean {
         this.data = data;
     }
 
-    public static class DataBeanX {
+    public static class DataBeanX implements Serializable {
         /**
          * total : 7
          * per_page : 20
@@ -75,7 +76,7 @@ public class PersonalDateBean extends BaseBean {
             this.data = data;
         }
 
-        public static class DataBean {
+        public static class DataBean implements Serializable  {
             /**
              * id : 7
              * user_id : 3

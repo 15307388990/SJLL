@@ -22,17 +22,17 @@ import butterknife.BindView;
 /**
  * @author luoming
  * created at 2019-11-01 11:37
- * 个人中心，个人资料
+ * 图片列表
  */
 
-public class PersonalDataFragemt extends MvpFragment<PersonalDataView, PersonalDataPresenter> implements PersonalDataView {
+public class ImageFragemt extends MvpFragment<PersonalDataView, PersonalDataPresenter> implements PersonalDataView {
 
 
     @BindView(R.id.recyclerview)
     RecyclerView recyclerview;
 
-    public static PersonalDataFragemt newInstance() {
-        return new PersonalDataFragemt();
+    public static ImageFragemt newInstance() {
+        return new ImageFragemt();
     }
 
     @Override

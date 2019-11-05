@@ -2,13 +2,14 @@ package com.ming.sjll.base.dialog;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.app.DialogFragment;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -80,13 +81,13 @@ public abstract class BaseDialog extends DialogFragment {
 
     public void show(Object object, String tag) {
         if (object instanceof Activity) {
-            android.app.FragmentManager manager = ((Activity) object).getFragmentManager();
+           FragmentManager manager = ((FragmentActivity) object).getSupportFragmentManager();
             if (isAdded()) {
                 dismiss();
             }
             super.show(manager, tag);
         } else if (object instanceof Fragment) {
-            android.app.FragmentManager fragmentManager = ((Fragment) object).getActivity().getFragmentManager();
+           FragmentManager fragmentManager = ((Fragment) object).getActivity().getSupportFragmentManager();
             if (isAdded()) {
                 dismiss();
             }
@@ -97,13 +98,13 @@ public abstract class BaseDialog extends DialogFragment {
 
     public void showWithCommit(Object object, String tag) {
         if (object instanceof Activity) {
-            android.app.FragmentManager manager = ((Activity) object).getFragmentManager();
+            FragmentManager manager = ((FragmentActivity) object).getSupportFragmentManager();
             if (isAdded()) {
                 dismiss();
             }
             manager.beginTransaction().add(this, tag).commitAllowingStateLoss();
         } else if (object instanceof Fragment) {
-            android.app.FragmentManager fragmentManager = ((Fragment) object).getActivity().getFragmentManager();
+           FragmentManager fragmentManager = ((Fragment) object).getActivity().getSupportFragmentManager();
             if (isAdded()) {
                 dismiss();
             }

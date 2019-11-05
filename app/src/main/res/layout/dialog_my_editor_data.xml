@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_round_bottom_white_bg"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="添加 / 编辑我的作品"
+                android:textColor="#ff000000"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="27dp"
+                android:layout_height="27dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/ic_close" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="29dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="27dp"
+                android:layout_height="27dp"
+                android:layout_marginLeft="30dp"
+                android:src="@mipmap/ic_release_fangan" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="标题"
+                android:textColor="@color/LL_80000000"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/et_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38dp"
+                android:layout_marginRight="30dp"
+                android:gravity="left|top"
+                android:textColor="@color/LL_000000"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="29dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="27dp"
+                android:layout_height="27dp"
+                android:layout_marginLeft="30dp"
+                android:src="@mipmap/ic_release_xuqiu" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="简介"
+                android:textColor="@color/LL_80000000"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/et_ntroduction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38dp"
+                android:layout_marginRight="30dp"
+                android:gravity="left|top"
+                android:textColor="@color/LL_000000"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="186dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="29dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="27dp"
+                android:layout_height="27dp"
+                android:layout_marginLeft="30dp"
+                android:src="@mipmap/ic_biaoqian" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="标签"
+                android:textColor="@color/LL_80000000"
+                android:textSize="14sp" />
+
+            <com.jet.flowtaglayout.FlowTagLayout
+                android:id="@+id/flowtag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                app:item_background="@drawable/round_rectangle_bg"
+                app:item_bottomMargin="8dp"
+                app:item_bottomPadding="5dp"
+                app:item_leftMargin="10dp"
+                app:item_leftPadding="10dp"
+                app:item_rightPadding="10dp"
+                app:item_textColor="@color/LL_000000"
+                app:item_textSize="12sp"
+                app:item_topMargin="8dp"
+                app:item_topPadding="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:layout_marginRight="30dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_biaoqian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="添加其它标签"
+                android:paddingLeft="2dp"
+                android:textColor="@color/LL_000000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_add"
+                android:layout_width="60dp"
+                android:layout_height="24dp"
+                android:background="@drawable/ic_introduction2"
+                android:gravity="center"
+                android:text="添加"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="47dp"
+            android:layout_marginBottom="34dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_white_bg"
+                android:paddingLeft="65dp"
+                android:paddingTop="11dp"
+                android:paddingRight="64dp"
+                android:paddingBottom="11dp"
+                android:text="取消"
+                android:textColor="@color/LL_0A3FFF"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/btn_blue_bg"
+                android:paddingLeft="65dp"
+                android:paddingTop="11dp"
+                android:paddingRight="64dp"
+                android:paddingBottom="11dp"
+                android:text="保存"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

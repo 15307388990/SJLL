@@ -146,4 +146,9 @@ public interface ApiService {
     @POST(Constant.PROJECTINFO)
     Observable<ActivityUploadMessageViewModel> getProjectInfo(@Field("token") String token, @Field("project_id") String project_id);
 
+    //删除作品
+    @FormUrlEncoded
+    @POST(Constant.DELWORK)
+    Observable<BaseBean> delWork(@Field("token") String token, @Field("work_id") String work_id);
+
 }

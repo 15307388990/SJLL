@@ -112,5 +112,12 @@ public class Constant {
      */
     public static final String PROJECTINFO = "/api/project/projectInfo";
 
+    /**
+     * 删除作品
+     */
+    public static final String DELWORK = "/api/personal_center/delWork";
+
+
+
 
 }

@@ -8,8 +8,8 @@
 
     <com.ming.sjll.purchaser.view.CustomRoundAngleImageView
         android:id="@+id/iv_img"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
         android:scaleType="fitXY"
         custom:radius="6dp" />
 
