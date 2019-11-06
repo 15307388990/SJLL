@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.ming.sjll.purchaser.view.CustomRoundAngleImageView
+            android:id="@+id/iv_img"
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="9dp"
+            android:scaleType="fitXY"
+            custom:radius="6dp" />
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="53dp"
+            android:src="@mipmap/ic_delete" />
+    </RelativeLayout>
+
+</LinearLayout>

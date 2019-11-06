@@ -1,5 +1,6 @@
 package com.ming.sjll.my.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
@@ -30,6 +31,8 @@ public class PersonalDataFragemt extends MvpFragment<PersonalDataView, PersonalD
 
     @BindView(R.id.recyclerview)
     RecyclerView recyclerview;
+
+    private EditorDataDialog editorDataDialog;
 
     public static PersonalDataFragemt newInstance() {
         return new PersonalDataFragemt();
@@ -91,7 +94,8 @@ public class PersonalDataFragemt extends MvpFragment<PersonalDataView, PersonalD
                     EditorDialog.newInstance().setOnClickListener(new EditorDialog.OnClickListener() {
                         @Override
                         public void Editor() {
-                            EditorDataDialog.newInstance(pbean.getData().getData().get(position)).setOnClickListener(null).show(getActivity());
+                            editorDataDialog = EditorDataDialog.newInstance(pbean.getData().getData().get(position)).setOnClickListener(null);
+                            editorDataDialog.show(getActivity());
                         }
 
                         @Override
@@ -104,5 +108,13 @@ public class PersonalDataFragemt extends MvpFragment<PersonalDataView, PersonalD
         });
 
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (editorDataDialog != null) {
+            editorDataDialog.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }

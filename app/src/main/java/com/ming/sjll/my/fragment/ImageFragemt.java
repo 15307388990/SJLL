@@ -1,21 +1,30 @@
 package com.ming.sjll.my.fragment;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.luck.picture.lib.PictureSelector;
+import com.luck.picture.lib.config.PictureConfig;
+import com.luck.picture.lib.config.PictureMimeType;
+import com.luck.picture.lib.entity.LocalMedia;
+import com.lzy.okgo.model.Progress;
+import com.lzy.okgo.model.Response;
 import com.ming.sjll.R;
 import com.ming.sjll.base.fragment.MvpFragment;
-import com.ming.sjll.base.utils.FullLinearLayout;
+import com.ming.sjll.base.presenter.MvpPresenter;
+import com.ming.sjll.base.view.MvpView;
 import com.ming.sjll.base.widget.ToastShow;
-import com.ming.sjll.my.adapter.PersonalDataAdapter;
-import com.ming.sjll.my.bean.PersonalDateBean;
-import com.ming.sjll.my.dialog.EditorDataDialog;
-import com.ming.sjll.my.dialog.EditorDialog;
-import com.ming.sjll.my.presenter.PersonalDataPresenter;
-import com.ming.sjll.my.view.PersonalDataView;
+import com.ming.sjll.my.adapter.ImageAdapter;
+import com.ming.sjll.my.presenter.ImagerPresenter;
+
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -25,31 +34,87 @@ import butterknife.BindView;
  * 图片列表
  */
 
-public class ImageFragemt extends MvpFragment<PersonalDataView, PersonalDataPresenter> implements PersonalDataView {
+public class ImageFragemt extends MvpFragment<com.ming.sjll.my.view.ImageView, ImagerPresenter> implements com.ming.sjll.my.view.ImageView {
 
 
     @BindView(R.id.recyclerview)
     RecyclerView recyclerview;
+    List<String> strings;
+    ImageView ivAdd;
+    private boolean isFinal;
+    private ProgressBar progressBar;
+
 
     public static ImageFragemt newInstance() {
         return new ImageFragemt();
+    }
+
+    /**
+     * @param strings
+     * @param isFinal false为最后一页
+     */
+    public ImageFragemt setList(List<String> strings, boolean isFinal) {
+        this.strings = strings;
+        this.isFinal = isFinal;
+        return this;
     }
 
     @Override
     protected void onCreateView(Bundle savedInstanceState) {
         super.onCreateView(savedInstanceState);
         setContentView(R.layout.fragemt_recycle);
+        View view = LinearLayout.inflate(getActivity(), R.layout.add_item, null);
+        ivAdd = view.findViewById(R.id.iv_add);
+        ImageAdapter imageAdapter = new ImageAdapter(strings);
+        recyclerview.setAdapter(imageAdapter);
+        if (!isFinal) {
+            imageAdapter.addFooterView(view, -1, LinearLayout.HORIZONTAL);
+        }
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int i) {
+                return 1;
+            }
+        });
+        recyclerview.setLayoutManager(gridLayoutManager);
+        ivAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PictureSelector.create(getActivity())
+                        .openGallery(PictureMimeType.ofImage()).maxSelectNum(15).isCamera(false)
+                        .forResult(PictureConfig.CHOOSE_REQUEST);
+            }
+        });
+        //初始化进度条
+        progressBar = new ProgressBar(getActivity());
+
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        mPresenter.getWorksList();
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == getActivity().RESULT_OK) {
+            switch (requestCode) {
+                case PictureConfig.CHOOSE_REQUEST:
+                    // 图片、视频、音频选择结果回调
+                    List<LocalMedia> selectList = PictureSelector.obtainMultipleResult(data);
+                    // 例如 LocalMedia 里面返回三种path
+                    // 1.media.getPath(); 为原图path
+                    // 2.media.getCutPath();为裁剪后path，需判断media.isCut();是否为true  注意：音视频除外
+                    // 3.media.getCompressPath();为压缩后path，需判断media.isCompressed();是否为true  注意：音视频除外
+                    // 如果裁剪并压缩了，以取压缩路径为准，因为是先裁剪后压缩的
+                    for (LocalMedia media : selectList) {
+                        mPresenter.uploadFiles(media.getPath());
+                    }
+                    break;
+            }
+        }
     }
 
     @Override
-    protected PersonalDataPresenter createPresenter() {
-        return new PersonalDataPresenter();
+    protected ImagerPresenter createPresenter() {
+        return new ImagerPresenter();
     }
 
     @Override
@@ -75,33 +140,16 @@ public class ImageFragemt extends MvpFragment<PersonalDataView, PersonalDataPres
 
 
     @Override
-    public void ShowData(PersonalDateBean pbean) {
-        recyclerview.setLayoutManager(new FullLinearLayout(getActivity(), 1) {
-            @Override
-            public boolean canScrollVertically() {
-                return false;
-            }
-        });
-        PersonalDataAdapter personalDataAdapter = new PersonalDataAdapter(pbean.getData().getData());
-        recyclerview.setAdapter(personalDataAdapter);
-        personalDataAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
-            @Override
-            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                if (view.getId() == R.id.iv_menu) {
-                    EditorDialog.newInstance().setOnClickListener(new EditorDialog.OnClickListener() {
-                        @Override
-                        public void Editor() {
-                            EditorDataDialog.newInstance(pbean.getData().getData().get(position)).setOnClickListener(null).show(getActivity());
-                        }
+    public void uploadProgress(Progress progress) {
+        progressBar.setVisibility(View.VISIBLE);
+        progressBar.setProgress((int) progress.currentSize);
+        progressBar.setMax((int) progress.totalSize);
 
-                        @Override
-                        public void Delete() {
-                            mPresenter.delWork(pbean.getData().getData().get(position).getId() + "");
-                        }
-                    }).show(getActivity());
-                }
-            }
-        });
+    }
+
+    @Override
+    public void onSuccess(Response<String> response) {
+        progressBar.setVisibility(View.GONE);
 
 
     }

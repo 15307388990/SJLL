@@ -1,6 +1,7 @@
 package com.ming.sjll.appication;
 
 
+import com.lzy.okgo.OkGo;
 import com.ming.sjll.base.utils.AppUtils;
 import com.ming.sjll.message.utils.RongIMUtils;
 
@@ -19,6 +20,8 @@ public class SJLLApplication extends BaseApplication {
 		AppUtils.init(this);
 		//融云初始化
 		RongIMUtils.INSTANCE.init(this);
+		//初始化上传文件
+		OkGo.getInstance().init(this);
 
 	}
 

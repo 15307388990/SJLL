@@ -161,7 +161,7 @@ public class PersonalDateBean extends BaseBean implements Serializable {
                 this.tagsList = tagsList;
             }
 
-            public static class ImgListBean {
+            public static class ImgListBean implements Serializable{
                 /**
                  * img : /uploads/20191010/ff9ac04074337a211ffc7b2a9aa10a03.jpg
                  */

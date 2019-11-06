@@ -5,6 +5,11 @@ public class Constant {
     public static final String BASE_API = "http://www.jietest.site/";
 
     /**
+     * 图片上传
+     */
+    public static final String UPLOAD = "/api/common/upload";
+
+    /**
      * 获取城市
      */
 

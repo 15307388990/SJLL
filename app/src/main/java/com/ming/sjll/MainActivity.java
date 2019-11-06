@@ -1,6 +1,8 @@
 package com.ming.sjll;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.widget.FrameLayout;
@@ -10,6 +12,7 @@ import android.widget.RadioGroup;
 import com.ming.sjll.base.activity.MvpActivity;
 import com.ming.sjll.base.fragment.MvpFragment;
 import com.ming.sjll.message.fragment.MessageFragment;
+import com.ming.sjll.my.dialog.EditorDataDialog;
 import com.ming.sjll.my.fragment.MyFragemt;
 import com.ming.sjll.purchaser.fragment.ProjectFragemt;
 import com.ming.sjll.show.fragment.ShowFragemt;
@@ -135,5 +138,9 @@ public class MainActivity extends MvpActivity<MainView, MainPresenter> {
         }
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        myFragemt.onActivityResult(requestCode, resultCode, data);
+    }
 }

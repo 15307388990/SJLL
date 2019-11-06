@@ -1,5 +1,6 @@
 package com.ming.sjll.my.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -72,10 +73,6 @@ public class MyFragemt extends MvpFragment<MyView, MyPresenter> implements MyVie
     WrapContentHeightViewPager viewpager;
     List<Fragment> fragmentList;
 
-
-    private PersonalWorkFragemt personalWorkFragemt;
-    private PersonalDataFragemt personalDataFragemt;
-    private Fragment[] mFragments;
 
     private boolean canJump = true;
 
@@ -205,6 +202,16 @@ public class MyFragemt extends MvpFragment<MyView, MyPresenter> implements MyVie
                 rlTop.removeView(llCenter);
                 rlCenter.addView(llCenter);
                 canJump = true;
+            }
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (fragmentList != null) {
+            for (Fragment fragment : fragmentList) {
+                fragment.onActivityResult(requestCode, resultCode, data);
             }
         }
     }
