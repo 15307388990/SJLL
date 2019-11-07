@@ -20,15 +20,15 @@ import java.util.List;
  * @author luoming
  * created at 2019-10-27 16:08
  */
-public class PersonalImageAdapter extends BaseQuickAdapter<PersonalDateBean.DataBeanX.DataBean.ImgListBean, BaseViewHolder> {
+public class PersonalImageAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
 
-    public PersonalImageAdapter(@Nullable List<PersonalDateBean.DataBeanX.DataBean.ImgListBean> data) {
+    public PersonalImageAdapter(@Nullable List<String> data) {
         super(R.layout.personal_imgview_item, data);
     }
 
     @Override
-    protected void convert(BaseViewHolder baseViewHolder, PersonalDateBean.DataBeanX.DataBean.ImgListBean dataBean) {
-        ImageHelper.displayBackground((ImageView) baseViewHolder.getView(R.id.iv_img), Constant.BASE_API + dataBean.getImg(), R.mipmap.ic_launcher);
+    protected void convert(BaseViewHolder baseViewHolder, String dataBean) {
+        ImageHelper.displayBackground((ImageView) baseViewHolder.getView(R.id.iv_img), Constant.BASE_API + dataBean, R.mipmap.ic_launcher);
         baseViewHolder.addOnClickListener(R.id.iv_img);
     }
 

@@ -126,7 +126,10 @@ public class Constant {
      */
     public static final String DELWORK = "/api/personal_center/delWork";
 
-
+    /**
+     * 个人主页
+     */
+    public static final String USERCENTER = "/api/personal_center/userCenter";
 
 
 }

@@ -151,4 +151,9 @@ public interface ApiService {
     @POST(Constant.DELWORK)
     Observable<BaseBean> delWork(@Field("token") String token, @Field("work_id") String work_id);
 
+    //个人主页
+    @FormUrlEncoded
+    @POST(Constant.USERCENTER)
+    Observable<BaseBean> usercenter(@Field("token") String token, @Field("work_id") String work_id);
+
 }

@@ -41,8 +41,8 @@ public class PersonalDataAdapter extends BaseQuickAdapter<PersonalDateBean.DataB
         recyclerView.setLayoutManager(new GridLayoutManager(mContext, 3));
         PersonalImageAdapter personalImageAdapter= new PersonalImageAdapter(dataBean.getImgList());
         List<LocalMedia> selectList=new ArrayList<>();
-        for (PersonalDateBean.DataBeanX.DataBean.ImgListBean imgListBean:dataBean.getImgList()){
-            LocalMedia localMedia=new LocalMedia(Constant.BASE_API+imgListBean.getImg(),0,1,"image/jpeg");
+        for (String img :dataBean.getImgList()){
+            LocalMedia localMedia=new LocalMedia(Constant.BASE_API+img,0,1,"image/jpeg");
             selectList.add(localMedia);
         }
         personalImageAdapter.setOnItemChildClickListener(new OnItemChildClickListener() {

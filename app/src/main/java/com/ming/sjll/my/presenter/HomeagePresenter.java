@@ -25,22 +25,20 @@ public class HomeagePresenter extends MvpPresenter<HomeageDataView> {
                     }
                 });
     }
-
-    public void delWork(String work_id) {
-        getNetData(RetrofitManager.get().create(ApiService.class).delWork("2e9f39acab38ffd042c4baf9f8c75cb7f5cecb26",work_id),
+    public void workCollect(int workid) {
+        getNetData(RetrofitManager.get().create(ApiService.class).workCollect("2e9f39acab38ffd042c4baf9f8c75cb7f5cecb26", workid + ""),
                 new ApiObserver<BaseBean>() {
                     @Override
-                    public void onSuccess(BaseBean data) {
-                        //删除成功，重新刷新列表
-                        getView().showLoading(data.getMsg());
-                        getWorksList();
+                    public void onSuccess(BaseBean bean) {
+                        getView().workCollect(bean);
                     }
 
                     @Override
                     public void onFailure(int code, String msg) {
                         getView().showError(msg);
-
                     }
                 });
     }
+
+
 }

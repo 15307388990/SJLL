@@ -59,6 +59,7 @@ public class EditorDataDialog extends BaseDialog implements ImageFragemt.UpdateD
         ViewDataBinding binding = getLayoutBind();
         View view = binding.getRoot();
         initView(binding);
+        initDate();
         return view;
     }
 
@@ -74,8 +75,12 @@ public class EditorDataDialog extends BaseDialog implements ImageFragemt.UpdateD
 
     @Override
     public void initView(ViewDataBinding dataBinding) {
-        dataBean = (PersonalDateBean.DataBeanX.DataBean) getArguments().getSerializable(CONTENT);
         editorBinding = (DialogMyEditorDataBinding) dataBinding;
+
+    }
+
+    private void initDate() {
+        dataBean = (PersonalDateBean.DataBeanX.DataBean) getArguments().getSerializable(CONTENT);
         editorBinding.etTitle.setText(dataBean.getTitle());
         editorBinding.etNtroduction.setText(dataBean.getDescribe());
         editorBinding.flowtag.addTags(dataBean.getTagsList());
@@ -90,7 +95,7 @@ public class EditorDataDialog extends BaseDialog implements ImageFragemt.UpdateD
             public void onClick(View v) {
                 if (!TextUtils.isEmpty(editorBinding.etBiaoqian.getText().toString().trim())) {
                     editorBinding.flowtag.addTag(editorBinding.etBiaoqian.getText().toString().trim());
-                    editorBinding.tvAdd.setText("");
+                    editorBinding.etBiaoqian.setText("");
                 }
             }
         });
@@ -107,13 +112,8 @@ public class EditorDataDialog extends BaseDialog implements ImageFragemt.UpdateD
             }
         });
         //将图片集合转换成字符串集合
-        imageLists = new ArrayList<>();
-        for (PersonalDateBean.DataBeanX.DataBean.ImgListBean imgListBean : dataBean.getImgList()) {
-            imageLists.add(imgListBean.getImg());
-        }
+        imageLists = dataBean.getImgList();
         initViewpage();
-
-
     }
 
     //初始化viewpage

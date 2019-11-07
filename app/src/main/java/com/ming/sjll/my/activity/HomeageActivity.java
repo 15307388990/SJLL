@@ -8,6 +8,7 @@ import android.view.View;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.ming.sjll.R;
 import com.ming.sjll.base.activity.MvpActivity;
+import com.ming.sjll.base.bean.BaseBean;
 import com.ming.sjll.base.utils.FullLinearLayout;
 import com.ming.sjll.base.viewmodel.ToolbarViewModel;
 import com.ming.sjll.databinding.ActivityRecycleBinding;
@@ -23,8 +24,10 @@ import com.ming.sjll.my.view.HomeageDataView;
  * 个人主页
  */
 
-public class HomeageActivity extends MvpActivity<HomeageDataView, HomeagePresenter>implements HomeageDataView {
+public class HomeageActivity extends MvpActivity<HomeageDataView, HomeagePresenter> implements HomeageDataView {
     private ActivityRecycleBinding binding;
+    private int index;
+    private HomePageDataAdapter homePageDataAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,22 +39,34 @@ public class HomeageActivity extends MvpActivity<HomeageDataView, HomeagePresent
 
     @Override
     public void ShowData(PersonalDateBean pBean) {
-        binding.recyclerview.setLayoutManager(new FullLinearLayout( HomeageActivity.this,1) {
+
+
+
+        binding.recyclerview.setLayoutManager(new FullLinearLayout(HomeageActivity.this, 1) {
             @Override
             public boolean canScrollVertically() {
                 return false;
             }
         });
-        HomePageDataAdapter homePageDataAdapter = new HomePageDataAdapter(pBean.getData().getData());
+        homePageDataAdapter = new HomePageDataAdapter(pBean.getData().getData());
         binding.recyclerview.setAdapter(homePageDataAdapter);
         homePageDataAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 if (view.getId() == R.id.ll_heart) {
                     //点赞
+                    index = position;
+                    mPresenter.workCollect(pBean.getData().getData().get(position).getId());
                 }
             }
         });
+
+    }
+
+    @Override
+    public void workCollect(BaseBean bean) {
+        //点赞
+
 
     }
 }

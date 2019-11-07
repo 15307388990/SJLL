@@ -29,7 +29,7 @@ public class ImagerPresenter extends MvpPresenter<ImageView> {
                 //.params("param1", "paramValue1")        // 这里可以上传参数
                 //.params("image", new File(file))   // 可以添加文件上传
                 //.params("file2", new File("filepath2"))     // 支持多文件同时添加上传
-                .addFileParams("image", selectList)    // 这里支持一个key传多个文件
+                .addFileParams("image[]", selectList)    // 这里支持一个key传多个文件
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
