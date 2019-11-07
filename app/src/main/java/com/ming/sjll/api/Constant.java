@@ -8,6 +8,10 @@ public class Constant {
      * 图片上传
      */
     public static final String UPLOAD = "/api/common/upload";
+    /**
+     * 多图片上传
+     */
+    public static final String UPLOADIMG = "/api/common/uploadImg";
 
     /**
      * 获取城市

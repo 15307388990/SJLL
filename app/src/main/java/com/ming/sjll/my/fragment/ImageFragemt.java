@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
@@ -27,10 +28,12 @@ import com.ming.sjll.my.adapter.ImageAdapter;
 import com.ming.sjll.my.presenter.ImagerPresenter;
 
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -120,7 +123,11 @@ public class ImageFragemt extends MvpFragment<com.ming.sjll.my.view.ImageView, I
                     // 2.media.getCutPath();为裁剪后path，需判断media.isCut();是否为true  注意：音视频除外
                     // 3.media.getCompressPath();为压缩后path，需判断media.isCompressed();是否为true  注意：音视频除外
                     // 如果裁剪并压缩了，以取压缩路径为准，因为是先裁剪后压缩的
-                   uploadFiles(selectList);
+                    List<File> fileList = new ArrayList<>();
+                    for (LocalMedia localMedia : selectList) {
+                        fileList.add(new File(localMedia.getPath()));
+                    }
+                    mPresenter.uploadFiles(fileList);
                     break;
             }
         }
@@ -165,7 +172,10 @@ public class ImageFragemt extends MvpFragment<com.ming.sjll.my.view.ImageView, I
     public void onSuccess(Response<String> response) throws JSONException {
         progressBar.setVisibility(View.GONE);
         JSONObject jsonObject = new JSONObject(response.body());
-        strings.add(jsonObject.getString("data"));
+        JSONArray jsonArray = jsonObject.getJSONArray("data");
+        for (int i = 0; i < jsonArray.length(); i++) {
+            strings.add((String) jsonArray.get(i));
+        }
         updateData.add(strings);
     }
 
@@ -173,50 +183,5 @@ public class ImageFragemt extends MvpFragment<com.ming.sjll.my.view.ImageView, I
         void add(List<String> list);
 
     }
-    public void uploadFiles(List<LocalMedia> selectList) {
-        //写一个递归
-        String file = selectList.get(0).getPath();
-        OkGo.<String>post(Constant.BASE_API + Constant.UPLOAD)//
-                .tag(this)//
-                //.isMultipart(true)       // 强制使用 multipart/form-data 表单上传（只是演示，不需要的话不要设置。默认就是false）
-                //.params("param1", "paramValue1")        // 这里可以上传参数
-                .params("image", new File(file))   // 可以添加文件上传
-                //.params("file2", new File("filepath2"))     // 支持多文件同时添加上传
-                //.addFileParams(keyName, (List<File>) file)    // 这里支持一个key传多个文件
-                .execute(new StringCallback() {
-                    @Override
-                    public void onSuccess(Response<String> response) {
-                        try {
-                           ImageFragemt.this.onSuccess(response);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
 
-                    @Override
-                    public void onFinish() {
-                        super.onFinish();
-                        selectList.remove(0);
-                        if (selectList.size() > 0) {
-                            uploadFiles(selectList);
-                        } else {
-                            return;
-                        }
-
-                    }
-
-                    @Override
-                    public void onError(Response<String> response) {
-                        super.onError(response);
-                    }
-
-                    @Override
-                    public void uploadProgress(Progress progress) {
-                        super.uploadProgress(progress);
-                        //getView().uploadProgress(progress);
-
-
-                    }
-                });
-    }
 }

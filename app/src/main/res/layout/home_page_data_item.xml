@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="21"
+            android:textColor="#ff000000"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/tv_moth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="6月"
+            android:textColor="#ff000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Lucas Wakamatsu 新品拍摄"
+            android:textColor="#ff000000"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/iv_menu"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="18dp"
+            android:src="@mipmap/ic_sandian" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_heart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_describe"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="78dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="这是我的第二个作品"
+            android:textColor="#4D000000"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/iv_heard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_home_page_heart" />
+
+        <TextView
+            android:id="@+id/tv_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="18dp"
+            android:text="306"
+            android:textColor="#ffc7ccde"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="78dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="18dp" />
+
+    <com.jet.flowtaglayout.FlowTagLayout
+        android:id="@+id/flowTagLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="78dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="18dp"
+        app:item_background="@drawable/ic_tag_11"
+        app:item_bottomMargin="8dp"
+        app:item_bottomPadding="2dp"
+        app:item_leftMargin="10dp"
+        app:item_leftPadding="12dp"
+        app:item_rightPadding="12dp"
+        app:item_textColor="#FFC7CCDE"
+        app:item_textSize="12sp"
+        app:item_topMargin="8dp"
+        app:item_topPadding="2dp" />
+
+</LinearLayout>

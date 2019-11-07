@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.ming.sjll.R;
-import com.ming.sjll.base.widget.TitleBar;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -17,8 +16,6 @@ public class BaseFragment extends BaseV4Fragment{
 
     private LinearLayout mViewContainer;
     private Unbinder mUnbinder;
-    public TitleBar mTitleBar;
-
 
     public void setContentView(int layoutId, String title) {
         setContentViews(layoutId,title);

@@ -12,7 +12,7 @@ import com.ming.sjll.message.presenter.UploadPdfMessagePresenter;
 import com.ming.sjll.message.view.UploadPdfMessageView;
 import com.ming.sjll.message.viewmodel.ActivityUploadMessageViewModel;
 
-public class UploadPdfMessageActivity extends MvpActivity<UploadPdfMessageView, UploadPdfMessagePresenter> implements UploadPdfMessageView{
+public class UploadPdfMessageActivity extends MvpActivity<UploadPdfMessageView, UploadPdfMessagePresenter> implements UploadPdfMessageView {
     private ActivityUploadPdfBinding viewDataBinding;
 
     @Override
