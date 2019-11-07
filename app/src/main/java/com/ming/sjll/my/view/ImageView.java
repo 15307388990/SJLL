@@ -6,7 +6,9 @@ import com.lzy.okgo.model.Response;
 import com.ming.sjll.base.view.MvpView;
 import com.ming.sjll.my.bean.CompanyBean;
 
+import org.json.JSONException;
+
 public interface ImageView extends MvpView {
     void uploadProgress(Progress progress);
-    void onSuccess(Response<String> response);
+    void onSuccess(Response<String> response) throws JSONException;
 }

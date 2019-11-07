@@ -29,6 +29,16 @@ public class PersonalImageAdapter extends BaseQuickAdapter<PersonalDateBean.Data
     @Override
     protected void convert(BaseViewHolder baseViewHolder, PersonalDateBean.DataBeanX.DataBean.ImgListBean dataBean) {
         ImageHelper.displayBackground((ImageView) baseViewHolder.getView(R.id.iv_img), Constant.BASE_API + dataBean.getImg(), R.mipmap.ic_launcher);
+        baseViewHolder.addOnClickListener(R.id.iv_img);
     }
 
+    @Override
+    public int getItemCount() {
+        if (getData().size() < 6) {
+            return getData().size();
+        } else {
+            return 6;
+        }
+
+    }
 }

@@ -23,12 +23,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EditorDataDialog extends BaseDialog {
+public class EditorDataDialog extends BaseDialog implements ImageFragemt.UpdateData {
 
     private OnClickListener onClickListener;
     private static final String CONTENT = "content";
     private List<Fragment> fragmentList;
     private DialogMyEditorDataBinding editorBinding;
+    private PersonalDateBean.DataBeanX.DataBean dataBean;
+    private Adapter mAdapter;
+    private List<String> imageLists;//中间图片集合
 
     public static EditorDataDialog newInstance(PersonalDateBean.DataBeanX.DataBean dataBean) {
         Bundle args = new Bundle();
@@ -71,7 +74,7 @@ public class EditorDataDialog extends BaseDialog {
 
     @Override
     public void initView(ViewDataBinding dataBinding) {
-        PersonalDateBean.DataBeanX.DataBean dataBean = (PersonalDateBean.DataBeanX.DataBean) getArguments().getSerializable(CONTENT);
+        dataBean = (PersonalDateBean.DataBeanX.DataBean) getArguments().getSerializable(CONTENT);
         editorBinding = (DialogMyEditorDataBinding) dataBinding;
         editorBinding.etTitle.setText(dataBean.getTitle());
         editorBinding.etNtroduction.setText(dataBean.getDescribe());
@@ -103,28 +106,41 @@ public class EditorDataDialog extends BaseDialog {
                 onClickListener.Save(dataBean);
             }
         });
+        //将图片集合转换成字符串集合
+        imageLists = new ArrayList<>();
+        for (PersonalDateBean.DataBeanX.DataBean.ImgListBean imgListBean : dataBean.getImgList()) {
+            imageLists.add(imgListBean.getImg());
+        }
+        initViewpage();
 
+
+    }
+
+    //初始化viewpage
+    private void initViewpage() {
         fragmentList = new ArrayList<>();
-        for (int i = 0; i <= dataBean.getImgList().size() / 6; i++) {
+        for (int i = 0; i <= imageLists.size() / 6; i++) {
             List<String> stringList = new ArrayList<>();
 
-            if (i == dataBean.getImgList().size() / 6) {
+            if (i == imageLists.size() / 6) {
                 //第一页 或者最后一页
-                for (int j = (0 + i) * 6; j < dataBean.getImgList().size(); j++) {
-                    stringList.add(dataBean.getImgList().get(j).getImg());
+                for (int j = (0 + i) * 6; j < imageLists.size(); j++) {
+                    stringList.add(imageLists.get(j));
                 }
-                fragmentList.add(ImageFragemt.newInstance().setList(stringList, false));
+                fragmentList.add(ImageFragemt.newInstance().setList(stringList, false, this));
+                //总集合移除这一段
+                imageLists.removeAll(stringList);
             } else {
                 //其它页
-                for (int j = (0 + i) * 6; j < (5 + i) * 6; j++) {
-                    stringList.add(dataBean.getImgList().get(j).getImg());
+                for (int j = (0 + i) * 6; j < i * 6 + 6; j++) {
+                    stringList.add(imageLists.get(j));
                 }
-                fragmentList.add(ImageFragemt.newInstance().setList(stringList, true));
+                fragmentList.add(ImageFragemt.newInstance().setList(stringList, true, this));
             }
 
-
         }
-        editorBinding.viewpager.setAdapter(new Adapter(getChildFragmentManager(), fragmentList));
+        mAdapter = new Adapter(getChildFragmentManager(), fragmentList);
+        editorBinding.viewpager.setAdapter(mAdapter);
     }
 
 
@@ -138,6 +154,15 @@ public class EditorDataDialog extends BaseDialog {
     @Override
     public boolean isBottom() {
         return true;
+    }
+
+    @Override
+    public void add(List<String> list) {
+        //替换最后的数据
+        for (String img : list) {
+            imageLists.add(img);
+        }
+        initViewpage();
     }
 
     public interface OnClickListener {
@@ -162,6 +187,7 @@ public class EditorDataDialog extends BaseDialog {
         public int getCount() {
             return fragmentList.size();
         }
+
 
     }
 }
