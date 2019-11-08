@@ -14,6 +14,7 @@ import com.luck.picture.lib.entity.LocalMedia;
 import com.ming.sjll.R;
 import com.ming.sjll.api.Constant;
 import com.ming.sjll.base.utils.Tools;
+import com.ming.sjll.my.bean.HomePageBean;
 import com.ming.sjll.my.bean.PersonalDateBean;
 
 import java.util.ArrayList;
@@ -24,14 +25,14 @@ import java.util.List;
  * @author luoming
  * created at 2019-10-27 16:08
  */
-public class HomePageDataAdapter extends BaseQuickAdapter<PersonalDateBean.DataBeanX.DataBean, BaseViewHolder> {
+public class HomePageDataAdapter extends BaseQuickAdapter<HomePageBean.DataBean.WorkBean, BaseViewHolder> {
 
-    public HomePageDataAdapter(@Nullable List<PersonalDateBean.DataBeanX.DataBean> data) {
+    public HomePageDataAdapter(@Nullable List<HomePageBean.DataBean.WorkBean> data) {
         super(R.layout.home_page_data_item, data);
     }
 
     @Override
-    protected void convert(BaseViewHolder baseViewHolder, PersonalDateBean.DataBeanX.DataBean dataBean) {
+    protected void convert(BaseViewHolder baseViewHolder,HomePageBean.DataBean.WorkBean dataBean) {
         baseViewHolder.setText(R.id.tv_title, dataBean.getTitle());
         baseViewHolder.setText(R.id.tv_describe, dataBean.getDescribe());
         baseViewHolder.setText(R.id.tv_day, Tools.getDateformat3(dataBean.getCreated_time(), "dd"));

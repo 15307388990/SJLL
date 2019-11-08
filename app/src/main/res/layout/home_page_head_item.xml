@@ -45,11 +45,11 @@
             <ImageView
                 android:id="@+id/iv_share"
                 android:layout_width="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/iv_head"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
+                android:layout_below="@+id/iv_head"
+                android:layout_alignParentRight="true"
                 android:layout_marginTop="-27dp"
+                android:layout_marginRight="15dp"
                 android:src="@mipmap/ic_share" />
 
         </RelativeLayout>
@@ -111,6 +111,29 @@
             android:layout_gravity="center_horizontal"
             android:background="#FFC7CCDE" />
 
+        <com.jet.flowtaglayout.FlowTagLayout
+            android:id="@+id/flowtag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="38dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            app:item_background="@drawable/ic_upload_pdf_item_bg"
+            app:item_bottomMargin="8dp"
+            app:item_leftMargin="10dp"
+            app:item_textColor="@color/LL_000000"
+            app:item_textSize="12sp"
+            app:item_topMargin="8dp" />
+
+        <include
+            android:id="@+id/ll_user"
+            layout="@layout/home_page_head_user_item"
+            android:visibility="gone"/>
+
+        <include
+            android:id="@+id/ll_user"
+            layout="@layout/home_page_head_user_item" />
     </LinearLayout>
 
 </layout>

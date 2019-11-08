@@ -1,5 +1,6 @@
 package com.ming.sjll.show.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,7 @@ import com.ming.sjll.R;
 import com.ming.sjll.base.bean.BaseBean;
 import com.ming.sjll.base.fragment.MvpFragment;
 import com.ming.sjll.base.widget.ToastShow;
+import com.ming.sjll.my.activity.HomeageActivity;
 import com.ming.sjll.show.adapter.ShowAdapter;
 import com.ming.sjll.show.bean.ShowWorkBean;
 import com.ming.sjll.show.presenter.ShowPresenter;
@@ -81,10 +83,18 @@ public class ShowFragemt extends MvpFragment<ShowView, ShowPresenter> implements
         mAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                if (view.getId() == R.id.iv_like) {
-                    index = position;
-                    mPresenter.workCollect(showWorkBean.getData().get(position).getWork_id());
+                switch (view.getId()) {
+                    case R.id.iv_like:
+                        index = position;
+                        mPresenter.workCollect(showWorkBean.getData().get(position).getWork_id());
+                        break;
+                    case R.id.iv_head:
+                        Intent intent = new Intent(getActivity(), HomeageActivity.class);
+                        intent.putExtra("uid", bean.getData().get(position).getUid() + "");
+                        getActivity().startActivity(intent);
+                        break;
                 }
+
             }
         });
 
