@@ -26,6 +26,7 @@ public class ImageAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
     @Override
     protected void convert(BaseViewHolder baseViewHolder, String dataBean) {
         ImageHelper.displayBackground((ImageView) baseViewHolder.getView(R.id.iv_img), Constant.BASE_API + dataBean, R.mipmap.ic_launcher);
+        baseViewHolder.addOnClickListener(R.id.iv_delete);
     }
 
 }

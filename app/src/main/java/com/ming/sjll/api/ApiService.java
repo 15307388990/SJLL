@@ -157,4 +157,16 @@ public interface ApiService {
     @POST(Constant.USERCENTER)
     Observable<HomePageBean> usercenter(@Field("token") String token, @Field("uid") String uid);
 
+
+    //收藏用户
+    @FormUrlEncoded
+    @POST(Constant.COLLECTUSER)
+    Observable<BaseBean> collectuser(@Field("token") String token, @Field("uid") String uid);
+
+    //举报用户
+    @FormUrlEncoded
+    @POST(Constant.USERREPORT)
+    Observable<BaseBean> userPreport(@Field("token") String token, @Field("report_uid") String uid, @Field("content") String content, @Field("img[]") String img[]);
+
 }
+

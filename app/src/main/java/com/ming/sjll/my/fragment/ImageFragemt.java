@@ -32,7 +32,7 @@ import butterknife.BindView;
  * 图片列表
  */
 
-public class ImageFragemt extends MvpFragment<MvpView, MvpPresenter<MvpView>> implements MvpView {
+public class ImageFragemt extends MvpFragment {
 
 
     @BindView(R.id.recyclerview)
@@ -66,10 +66,6 @@ public class ImageFragemt extends MvpFragment<MvpView, MvpPresenter<MvpView>> im
 
     }
 
-    @Override
-    protected MvpPresenter createPresenter() {
-        return new MvpPresenter();
-    }
 
     private void initView() {
         View view = LinearLayout.inflate(getActivity(), R.layout.add_item, null);

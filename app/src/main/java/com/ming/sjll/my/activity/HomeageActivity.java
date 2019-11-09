@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.view.ViewManager;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.ming.sjll.R;
@@ -12,11 +13,16 @@ import com.ming.sjll.api.Constant;
 import com.ming.sjll.base.activity.MvpActivity;
 import com.ming.sjll.base.bean.BaseBean;
 import com.ming.sjll.base.utils.ImageHelper;
+import com.ming.sjll.base.utils.Tools;
+import com.ming.sjll.base.viewmodel.ToolbarViewModel;
 import com.ming.sjll.databinding.ActivityRecycleBinding;
 import com.ming.sjll.databinding.HomePageHeadItemBinding;
 import com.ming.sjll.my.adapter.Companydapter;
 import com.ming.sjll.my.adapter.HomePageDataAdapter;
 import com.ming.sjll.my.bean.HomePageBean;
+import com.ming.sjll.my.dialog.EditorDialog;
+import com.ming.sjll.my.dialog.HomePageDialog;
+import com.ming.sjll.my.presenter.ComplainPresenter;
 import com.ming.sjll.my.presenter.HomeagePresenter;
 import com.ming.sjll.my.view.HomeageDataView;
 
@@ -39,20 +45,31 @@ public class HomeageActivity extends MvpActivity<HomeageDataView, HomeagePresent
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_recycle);
         //设置标题
+        binding.setTitleViewModel(new ToolbarViewModel());
         binding.titleBar.titleBarContentView.setBackgroundColor(getResources().getColor(R.color.transparent));
-        binding.titleBar.titleBarIvLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                HomeageActivity.this.finish();
-            }
-        });
         binding.titleBar.titleBarIvLeft.setImageResource(R.mipmap.ic_top_with_back);
         binding.titleBar.titleBarIvRight.setImageResource(R.mipmap.ic_top_with_menu);
         binding.titleBar.titleBarIvRight.setVisibility(View.VISIBLE);
         binding.titleBar.titleBarIvRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                HomePageDialog.newInstance().setOnClickListener(new HomePageDialog.OnClickListener() {
+                    @Override
+                    public void Collection() {
+                        if (pBean != null) {
+                            mPresenter.collectuser();
+                        }
 
+                    }
+
+                    @Override
+                    public void Report() {
+                        Bundle bundle = new Bundle();
+                        bundle.putString(ComplainPresenter.REPORTUID, getIntent().getStringExtra("uid"));
+                        Tools.jump(HomeageActivity.this, ComplainActivity.class, bundle, false);
+
+                    }
+                }).show(HomeageActivity.this);
             }
         });
     }
@@ -80,6 +97,8 @@ public class HomeageActivity extends MvpActivity<HomeageDataView, HomeagePresent
         homePageDataAdapter.addHeaderView(headBinding.getRoot());
         //头部信息
         initHead();
+        //收藏
+        initHeart();
         if (pBean.getData().getIs_approve() == 2) {
             headBinding.tvCertification.setText("平台认证");
             headBinding.llCampany.llCampany.setVisibility(View.VISIBLE);
@@ -113,10 +132,19 @@ public class HomeageActivity extends MvpActivity<HomeageDataView, HomeagePresent
         } else {
             headBinding.ivSex.setImageResource(R.mipmap.ic_sex_man);
         }
-        headBinding.tvName.setText(userInfoBean.getCompany_name());
+        headBinding.tvName.setText(userInfoBean.getName());
         headBinding.tvNumber.setText(userInfoBean.getCollect_num() + "");
         headBinding.flowtag.addTags(userInfoBean.getTags());
 
+    }
+
+    private void initHeart() {
+        if (userInfoBean.getIs_collect() == 1) {
+            headBinding.ivHeart.setImageResource(R.mipmap.ic_my_heart);
+        } else {
+            headBinding.ivHeart.setImageResource(R.mipmap.ic_home_page_heart);
+        }
+        headBinding.tvNumber.setText(userInfoBean.getCollect_num() + "");
     }
 
     //初始化个人信息
@@ -152,16 +180,28 @@ public class HomeageActivity extends MvpActivity<HomeageDataView, HomeagePresent
 
     @Override
     public void workCollect(BaseBean bean) {
-        int collectNum=pBean.getData().getWork().get(index).getCollect_num();
+        int collectNum = pBean.getData().getWork().get(index).getCollect_num();
         //点赞
         if (pBean.getData().getWork().get(index).getIs_collect() == 1) {
             pBean.getData().getWork().get(index).setIs_collect(0);
-            pBean.getData().getWork().get(index).setCollect_num(collectNum-1);
+            pBean.getData().getWork().get(index).setCollect_num(collectNum - 1);
         } else {
             pBean.getData().getWork().get(index).setIs_collect(1);
-            pBean.getData().getWork().get(index).setCollect_num(collectNum+1);
+            pBean.getData().getWork().get(index).setCollect_num(collectNum + 1);
         }
         homePageDataAdapter.setNewData(pBean.getData().getWork());
 
+    }
+
+    @Override
+    public void collectuser(BaseBean bean) {
+        if (userInfoBean.getIs_collect() == 1) {
+            userInfoBean.setCollect_num(userInfoBean.getCollect_num() - 1);
+            userInfoBean.setIs_collect(0);
+        } else {
+            userInfoBean.setCollect_num(userInfoBean.getCollect_num() + 1);
+            userInfoBean.setIs_collect(1);
+        }
+        initHeart();
     }
 }

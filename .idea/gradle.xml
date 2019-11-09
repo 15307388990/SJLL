@@ -10,6 +10,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/IMKit" />
             <option value="$PROJECT_DIR$/IMLib" />
+            <option value="$PROJECT_DIR$/LocationLib" />
+            <option value="$PROJECT_DIR$/PushLib" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>

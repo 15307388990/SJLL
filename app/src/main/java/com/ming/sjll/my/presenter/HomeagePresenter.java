@@ -13,15 +13,18 @@ import com.ming.sjll.my.view.HomeageDataView;
 import com.ming.sjll.my.view.PersonalDataView;
 
 public class HomeagePresenter extends MvpPresenter<HomeageDataView> {
+    private String uid;
+
     @Override
     public void attachView(HomeageDataView view, Bundle bundle) {
         super.attachView(view, bundle);
-        getWorksList(bundle.getString("uid"));
+        uid = bundle.getString("uid");
+        getWorksList();
     }
 
-    public void getWorksList(String uid) {
+    public void getWorksList() {
 
-        getNetData(RetrofitManager.get().create(ApiService.class).usercenter("2e9f39acab38ffd042c4baf9f8c75cb7f5cecb26", uid),
+        getNetData(RetrofitManager.get().create(ApiService.class).usercenter(getToken(), uid),
                 new ApiObserver<HomePageBean>() {
                     @Override
                     public void onSuccess(HomePageBean data) {
@@ -34,12 +37,28 @@ public class HomeagePresenter extends MvpPresenter<HomeageDataView> {
                     }
                 });
     }
+
     public void workCollect(int workid) {
-        getNetData(RetrofitManager.get().create(ApiService.class).workCollect("2e9f39acab38ffd042c4baf9f8c75cb7f5cecb26", workid + ""),
+        getNetData(RetrofitManager.get().create(ApiService.class).workCollect(getToken(), workid + ""),
                 new ApiObserver<BaseBean>() {
                     @Override
                     public void onSuccess(BaseBean bean) {
                         getView().workCollect(bean);
+                    }
+
+                    @Override
+                    public void onFailure(int code, String msg) {
+                        getView().showError(msg);
+                    }
+                });
+    }
+
+    public void collectuser() {
+        getNetData(RetrofitManager.get().create(ApiService.class).collectuser(getToken(), uid),
+                new ApiObserver<BaseBean>() {
+                    @Override
+                    public void onSuccess(BaseBean bean) {
+                        getView().collectuser(bean);
                     }
 
                     @Override

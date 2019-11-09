@@ -31,7 +31,9 @@ public abstract class MvpFragment<V extends MvpView, P extends MvpPresenter<V>> 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mPresenter = autoCreatePresenter();
-        mPresenter.attachView((V) this, getArguments());
+        if (mPresenter!=null) {
+            mPresenter.attachView((V) this, getArguments());
+        }
     }
 
     @SuppressWarnings("unchecked")

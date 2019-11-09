@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/ic_f9f9f9_bg"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_editor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="收藏"
+                android:paddingTop="19dp"
+                android:paddingBottom="19dp"
+                android:textSize="18sp"
+                android:textColor="@color/LL_0A3FFF" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#80111111"/>
+            <TextView
+                android:id="@+id/tv_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="举报"
+                android:paddingTop="19dp"
+                android:paddingBottom="19dp"
+                android:textSize="18sp"
+                android:textColor="@color/LL_0A3FFF" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/tv_cancel"
+            android:text="取消"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="48dp"
+            android:paddingTop="19dp"
+            android:paddingBottom="19dp"
+            android:background="@drawable/ic_000000_bg"
+            android:layout_marginRight="8dp"
+            android:textSize="18sp"
+            android:textColor="@color/LL_0A3FFF" />
+    </LinearLayout>
+</layout>

@@ -9,4 +9,5 @@ import com.ming.sjll.my.bean.PersonalDateBean;
 public interface HomeageDataView extends MvpView {
     void ShowData(HomePageBean pBean);
     void workCollect(BaseBean bean);
+    void collectuser(BaseBean bean);
 }

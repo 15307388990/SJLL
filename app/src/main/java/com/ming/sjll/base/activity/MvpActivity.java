@@ -9,6 +9,7 @@ import com.ming.sjll.base.utils.AppUtils;
 import com.ming.sjll.base.utils.SavePreferencesData;
 import com.ming.sjll.base.utils.StatusBarUtil;
 import com.ming.sjll.base.view.MvpView;
+import com.ming.sjll.base.widget.ToastShow;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -45,7 +46,7 @@ public abstract class MvpActivity<V extends MvpView, P extends MvpPresenter<V>>
         }
         // 初始化presenter并绑定view
         mPresenter = autoCreatePresenter();
-        if (mPresenter != null){
+        if (mPresenter != null) {
             mPresenter.attachView((V) this, getIntent().getExtras());
         }
         mSavePreferencesData = new SavePreferencesData(this);
@@ -95,6 +96,7 @@ public abstract class MvpActivity<V extends MvpView, P extends MvpPresenter<V>>
 
     @Override
     public void showError(String msg) {
+        ToastShow.s(msg);
 
     }
 }

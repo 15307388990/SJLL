@@ -131,5 +131,15 @@ public class Constant {
      */
     public static final String USERCENTER = "/api/personal_center/userCenter";
 
+    /**
+     * 收藏用户
+     */
+    public static final String COLLECTUSER = "/api/collect/collectUser";
+
+    /**
+     * 举报用户
+     */
+    public static final String USERREPORT = "/api/user_report/user";
+
 
 }

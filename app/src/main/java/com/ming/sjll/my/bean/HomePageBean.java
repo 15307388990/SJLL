@@ -97,6 +97,16 @@ public class HomePageBean extends BaseBean {
             private List<String> occupation;
             private List<String> tags;
 
+            public int getIs_collect() {
+                return is_collect;
+            }
+
+            public void setIs_collect(int is_collect) {
+                this.is_collect = is_collect;
+            }
+
+            private int is_collect;
+
             public int getId() {
                 return id;
             }
