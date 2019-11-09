@@ -129,11 +129,11 @@
         <include
             android:id="@+id/ll_user"
             layout="@layout/home_page_head_user_item"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <include
-            android:id="@+id/ll_user"
-            layout="@layout/home_page_head_user_item" />
+            android:id="@+id/ll_campany"
+            layout="@layout/home_page_head_company_item" />
     </LinearLayout>
 
 </layout>

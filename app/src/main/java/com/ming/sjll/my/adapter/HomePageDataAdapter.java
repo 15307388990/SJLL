@@ -32,11 +32,19 @@ public class HomePageDataAdapter extends BaseQuickAdapter<HomePageBean.DataBean.
     }
 
     @Override
-    protected void convert(BaseViewHolder baseViewHolder,HomePageBean.DataBean.WorkBean dataBean) {
+    protected void convert(BaseViewHolder baseViewHolder, HomePageBean.DataBean.WorkBean dataBean) {
         baseViewHolder.setText(R.id.tv_title, dataBean.getTitle());
         baseViewHolder.setText(R.id.tv_describe, dataBean.getDescribe());
         baseViewHolder.setText(R.id.tv_day, Tools.getDateformat3(dataBean.getCreated_time(), "dd"));
         baseViewHolder.setText(R.id.tv_describe, Tools.getDateformat3(dataBean.getCreated_time(), "MM") + "月");
+        baseViewHolder.setText(R.id.tv_number,dataBean.getCollect_num()+"");
+        if (dataBean.getIs_collect() == 0) {
+            baseViewHolder.setImageResource(R.id.iv_heard,R.mipmap.ic_home_page_heart);
+        } else {
+            baseViewHolder.setImageResource(R.id.iv_heard,R.mipmap.ic_my_heart);
+        }
+
+
         RecyclerView recyclerView = baseViewHolder.getView(R.id.recyclerview);
         recyclerView.setLayoutManager(new GridLayoutManager(mContext, 3));
         PersonalImageAdapter personalImageAdapter = new PersonalImageAdapter(dataBean.getImgList());

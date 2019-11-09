@@ -56,8 +56,15 @@
                 android:textColor="@color/txt_right"
                 android:textSize="13.44sp"
                 android:visibility="gone" />
-
-
+            <ImageView
+                android:id="@+id/title_bar_IvRight"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@null"
+                android:scaleType="center"
+                android:src="@mipmap/nav_back"
+                android:visibility="gone"/>
 
         </LinearLayout>
 

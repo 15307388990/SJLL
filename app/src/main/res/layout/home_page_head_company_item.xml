@@ -8,6 +8,7 @@
     </data>
 
     <LinearLayout
+        android:id="@+id/ll_campany"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -60,10 +61,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="38dp"
-                tools:text="形尚品牌文化"
-                android:textColor="#ff000000"
                 android:layout_marginRight="15dp"
-                android:textSize="14sp" />
+                android:textColor="#ff000000"
+                android:textSize="14sp"
+                tools:text="形尚品牌文化" />
         </LinearLayout>
 
 
@@ -93,13 +94,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="38dp"
-                tools:text="深圳市形尚文化传播有限公司"
-                android:maxLines="1"
                 android:layout_marginRight="15dp"
                 android:ellipsize="end"
+                android:maxLines="1"
                 android:textColor="#ff000000"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:text="深圳市形尚文化传播有限公司" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -126,13 +128,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="38dp"
-                android:text="修图师  摄影师"
                 android:layout_marginRight="15dp"
-                android:textColor="#ff000000"
-                android:maxLines="1"
                 android:ellipsize="end"
+                android:maxLines="1"
+                android:text="修图师  摄影师"
+                android:textColor="#ff000000"
                 android:textSize="14sp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -159,13 +162,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="38dp"
-                tools:text="深圳市龙华区南国丽人 D 座 503"
-                android:textColor="#ff000000"
                 android:layout_marginRight="15dp"
-                android:maxLines="1"
                 android:ellipsize="end"
-                android:textSize="14sp" />
+                android:maxLines="1"
+                android:textColor="#ff000000"
+                android:textSize="14sp"
+                tools:text="深圳市龙华区南国丽人 D 座 503" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -192,13 +196,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="38dp"
-                android:maxLines="1"
-                android:ellipsize="end"
-                tools:text="我们都是光影的追随者"
                 android:layout_marginRight="15dp"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:textColor="#ff000000"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:text="我们都是光影的追随者" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -225,14 +230,84 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="38dp"
-                android:maxLines="2"
                 android:layout_marginRight="15dp"
                 android:ellipsize="end"
-                tools:text="集设计与时尚于一身，给年轻读者最好的选择与最刺激思维的新概念及资讯"
+                android:maxLines="2"
                 android:textColor="#ff000000"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:text="集设计与时尚于一身，给年轻读者最好的选择与最刺激思维的新概念及资讯" />
         </LinearLayout>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp">
+
+            <TextView
+                android:layout_width="24dp"
+                android:layout_height="8dp"
+                android:layout_alignBottom="@+id/tv_chuchang"
+                android:layout_marginLeft="56dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/ic_angle" />
+
+            <TextView
+                android:id="@+id/tv_chuchang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="公司橱窗"
+                android:textColor="@color/LL_000000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="33dp"
+                android:text="更多"
+                android:textColor="#ff000000"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:src="@mipmap/ic_arrow_h" />
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_marginTop="17dp"
+            android:layout_marginLeft="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="22dp"
+            android:layout_marginLeft="15dp">
+
+            <TextView
+                android:layout_width="24dp"
+                android:layout_height="8dp"
+                android:layout_alignBottom="@+id/tv_zuop"
+                android:layout_marginLeft="56dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/ic_angle" />
+
+            <TextView
+                android:id="@+id/tv_zuop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="公司作品"
+                android:textColor="@color/LL_000000"
+                android:textSize="18sp" />
+        </RelativeLayout>
     </LinearLayout>
 
 </layout>
