@@ -4,17 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.ming.sjll.message.viewmodel.MessageChatViewModel" />
+        <variable
+            name="presenter"
+            type="com.ming.sjll.message.presenter.MessageChatPresenter" />
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="15dp"
-        android:background="#FFFFFF"
+
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="15dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -33,6 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="23dp"
                 android:text="项目\n管理"
+                android:onClick="@{()-> presenter.onClickProjectManager()}"
                 android:textColor="#ff0a3fff"
                 android:textSize="12sp" />
 
@@ -41,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="23dp"
                 android:text="项目\n进程"
+                android:onClick="@{()-> presenter.onClickProjectProgress()}"
                 android:textColor="#ff0a3fff"
                 android:textSize="12sp" />
 
@@ -65,17 +72,15 @@
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/add"
             android:layout_toRightOf="@+id/gap"
+            android:onClick="@{()-> presenter.onClickGroupMemberInfo()}"
             android:gravity="center">
 
             <com.ming.sjll.view.PileAvertView
+                android:id="@+id/pile_view"
                 android:layout_width="wrap_content"
+                bind:pileImages="@{viewModel.memberInfos}"
                 android:layout_height="42dp" />
-            <ImageView
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                android:src="@mipmap/message_group_header_more"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="10dp" />
+
 
         </LinearLayout>
 
@@ -83,6 +88,7 @@
             android:id="@+id/add"
             android:layout_width="42dp"
             android:layout_height="42dp"
+            android:onClick="@{()-> presenter.onClickAddMemberInfo()}"
             android:src="@mipmap/message_group_header_add"
             android:layout_alignParentRight="true"
             android:layout_marginLeft="10dp" />

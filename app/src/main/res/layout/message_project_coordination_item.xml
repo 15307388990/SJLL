@@ -64,6 +64,7 @@
                     tools:text="Riley Catherine" />
 
                 <TextView
+                    android:id="@+id/tv_position"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/header"
@@ -153,6 +154,7 @@
                         android:textColor="#7F7F7F" />
 
                     <TextView
+                      android:id="@+id/brand"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tv_label1"
@@ -173,6 +175,7 @@
                         android:textColor="#7F7F7F" />
 
                     <TextView
+                        android:id="@+id/budget"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tv_brand"
@@ -192,6 +195,7 @@
                         android:textColor="#7F7F7F" />
 
                     <TextView
+                        android:id="@+id/time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tv_budget"
@@ -222,6 +226,7 @@
                     android:gravity="center_vertical">
 
                     <TextView
+                        android:id="@+id/tv_span"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:lines="1"
@@ -230,6 +235,7 @@
                         android:textSize="14sp" />
 
                     <ImageView
+                        android:id="@+id/iv_drop"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@mipmap/coodinate_down" />
@@ -240,12 +246,14 @@
                         android:layout_weight="1" />
 
                     <TextView
+                        android:id="@+id/tv_refuse"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tv_apply"
                         android:layout_toLeftOf="@+id/tv_receive"
                         android:background="@drawable/message_refuse_bg"
                         android:text="拒绝"
+                        android:layout_marginRight="10dp"
                         android:textColor="#ff0a3fff"
                         android:textSize="14sp" />
 
@@ -261,7 +269,7 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/tv_receive_gray"
+                        android:id="@+id/tv_out_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tv_apply"

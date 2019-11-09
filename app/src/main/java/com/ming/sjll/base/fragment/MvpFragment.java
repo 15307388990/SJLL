@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.ming.sjll.base.presenter.MvpPresenter;
 import com.ming.sjll.base.view.MvpView;
+import com.ming.sjll.base.widget.ToastShow;
 
 import java.lang.reflect.ParameterizedType;
 
@@ -59,7 +60,7 @@ public abstract class MvpFragment<V extends MvpView, P extends MvpPresenter<V>> 
 
     @Override
     public void showLoading(String msg) {
-
+        ToastShow.s(msg);
     }
 
     @Override
@@ -69,6 +70,6 @@ public abstract class MvpFragment<V extends MvpView, P extends MvpPresenter<V>> 
 
     @Override
     public void showError(String msg) {
-
+        ToastShow.s(msg);
     }
 }

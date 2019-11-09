@@ -1,25 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="titleViewModel"
             type="com.ming.sjll.base.viewmodel.ToolbarViewModel" />
+
+        <variable
+            name="viewModel"
+            type="com.ming.sjll.message.viewmodel.MessageChatViewModel" />
+        <variable
+            name="presenter"
+            type="com.ming.sjll.message.presenter.MessageChatPresenter" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FFFFFF"
         android:orientation="vertical">
 
         <include
             layout="@layout/title_bar"
             bind:viewModel="@{titleViewModel}" />
 
-       <FrameLayout
-           android:id="@+id/container"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"/>
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/white"
+            android:visibility="@{viewModel.projectVisible}"
+            bind:cardCornerRadius="6dp"
+            bind:cardElevation="20dp">
+
+            <LinearLayout
+                android:id="@+id/project_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp">
+
+                    <com.ming.sjll.purchaser.view.CustomRoundAngleImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        bind:left_bottom_radius="0dp"
+                        bind:left_top_radius="6dp"
+                        bind:right_bottom_radius="0dp"
+                        bind:right_top_radius="6dp"
+                        bind:url="@{viewModel.projectChatViewModel.background_image}" />
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:text="@{viewModel.projectChatViewModel.brief}"
+                        android:textColor="@color/LL_000000"
+                        android:textSize="18sp"
+                        tools:text="Lucas Wakamatsu 新品拍摄" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/ic_upload_pdf_item_bg"
+                        android:text="@{viewModel.projectChatViewModel.showTag}"
+                        android:textColor="#ff0a3fff"
+                        android:textSize="12sp"
+                        android:visibility="@{viewModel.projectChatViewModel.showTagVisible}"
+                        tools:text="科技风" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_publish2"
+                        android:paddingLeft="12dp"
+                        android:paddingTop="2dp"
+                        android:paddingRight="12dp"
+                        android:paddingBottom="2dp"
+                        android:text="@{viewModel.projectChatViewModel.demand}"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        tools:text="影儿" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/ic_publish2"
+                        android:paddingLeft="12dp"
+                        android:paddingTop="2dp"
+                        android:paddingRight="12dp"
+                        android:paddingBottom="2dp"
+                        android:text="@{viewModel.projectChatViewModel.area_name}"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        tools:text="北京" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/ic_publish2"
+                        android:paddingLeft="12dp"
+                        android:paddingTop="2dp"
+                        android:paddingRight="12dp"
+                        android:paddingBottom="2dp"
+                        android:text="@{viewModel.projectChatViewModel.created_time}"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        tools:text="2019.07.24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/ic_publish2"
+                        android:paddingLeft="12dp"
+                        android:paddingTop="2dp"
+                        android:paddingRight="12dp"
+                        android:paddingBottom="2dp"
+                        android:text="@{viewModel.projectChatViewModel.budget}"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        tools:text="¥30,000" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <include
+            android:id="@+id/group_layout"
+            layout="@layout/message_project_group_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            bind:viewModel="@{viewModel}"
+            bind:presenter="@{presenter}"
+            android:visibility="@{viewModel.groupInfoVisible}"
+            android:background="#FFFFFF" />
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
 </layout>

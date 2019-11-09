@@ -10,7 +10,7 @@ import com.ming.sjll.base.viewmodel.ToolbarViewModel;
 import com.ming.sjll.databinding.ActivityUploadPdfBinding;
 import com.ming.sjll.message.presenter.UploadPdfMessagePresenter;
 import com.ming.sjll.message.view.UploadPdfMessageView;
-import com.ming.sjll.message.viewmodel.ActivityUploadMessageViewModel;
+import com.ming.sjll.message.viewmodel.MessageChatViewModel;
 
 public class UploadPdfMessageActivity extends MvpActivity<UploadPdfMessageView, UploadPdfMessagePresenter> implements UploadPdfMessageView{
     private ActivityUploadPdfBinding viewDataBinding;
@@ -20,11 +20,11 @@ public class UploadPdfMessageActivity extends MvpActivity<UploadPdfMessageView, 
         super.onCreate(savedInstanceState);
         viewDataBinding = DataBindingUtil.setContentView(this, R.layout.activity_upload_pdf);
         viewDataBinding.setTitleViewModel(new ToolbarViewModel("方案上传"));
-        viewDataBinding.setViewModel(new ActivityUploadMessageViewModel());
+        viewDataBinding.setViewModel(new MessageChatViewModel());
     }
 
     @Override
-    public void onShowData(ActivityUploadMessageViewModel viewModel) {
+    public void onShowData(MessageChatViewModel viewModel) {
         viewDataBinding.setViewModel(viewModel);
     }
 }

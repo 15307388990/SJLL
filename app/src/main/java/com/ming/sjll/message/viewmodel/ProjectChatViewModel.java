@@ -2,16 +2,14 @@ package com.ming.sjll.message.viewmodel;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
-import android.text.TextUtils;
-import android.view.View;
 
 import com.ming.sjll.BR;
 
 import java.util.List;
 
-public class ActivityUploadMessageViewModel extends BaseObservable {
+public class ProjectChatViewModel extends BaseObservable {
 
-    private int projectVisible = View.GONE;
+
     private String id;
     private String user_id;
     private String background_image;
@@ -32,16 +30,6 @@ public class ActivityUploadMessageViewModel extends BaseObservable {
     private String showTag;
     private int showTagVisible;
     private String area_name;
-
-    @Bindable
-    public int getProjectVisible() {
-        return projectVisible;
-    }
-
-    public void setProjectVisible(int projectVisible) {
-        this.projectVisible = projectVisible;
-        notifyPropertyChanged(com.ming.sjll.BR.projectVisible);
-    }
 
     @Bindable
     public String getId() {
@@ -95,7 +83,7 @@ public class ActivityUploadMessageViewModel extends BaseObservable {
 
     @Bindable
     public String getBudget() {
-        return "￥"+ budget;
+        return budget;
     }
 
     public void setBudget(String budget) {
@@ -203,8 +191,6 @@ public class ActivityUploadMessageViewModel extends BaseObservable {
         notifyPropertyChanged(BR.created_time);
     }
 
-
-
     @Bindable
     public List<String> getTags() {
         return tags;
@@ -215,15 +201,8 @@ public class ActivityUploadMessageViewModel extends BaseObservable {
         notifyPropertyChanged(BR.tags);
     }
 
-
-
     @Bindable
     public String getShowTag() {
-        if (tags == null || tags.isEmpty()){
-            return "";
-        }
-        showTag = tags.get(0);
-
         return showTag;
     }
 
@@ -234,11 +213,6 @@ public class ActivityUploadMessageViewModel extends BaseObservable {
 
     @Bindable
     public int getShowTagVisible() {
-        if (TextUtils.isEmpty(getShowTag())){
-            showTagVisible =  View.GONE;
-        }else {
-            showTagVisible = View.VISIBLE;
-        }
         return showTagVisible;
     }
 

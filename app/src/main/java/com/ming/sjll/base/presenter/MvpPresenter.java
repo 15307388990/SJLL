@@ -108,7 +108,7 @@ public class MvpPresenter<V extends MvpView> extends BaseNetPresenter {
     private Bundle bundle;
 
     public String getToken() {
-        return "";
+        return "2e9f39acab38ffd042c4baf9f8c75cb7f5cecb26";
     }
 
     public Activity getActivity() {

@@ -57,7 +57,7 @@ public class CustomBehavior extends  AppBarLayout.Behavior {
                 return null;
             }
         } catch (NoSuchFieldException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
             // 可能是28及以上版本
             Class<?> headerBehaviorType = superclass.getSuperclass().getSuperclass();
             if (headerBehaviorType != null) {
@@ -87,7 +87,7 @@ public class CustomBehavior extends  AppBarLayout.Behavior {
                 return null;
             }
         } catch (NoSuchFieldException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
             // 可能是28及以上版本
             Class<?> headerBehaviorType = superclass.getSuperclass().getSuperclass();
             if (headerBehaviorType != null) {

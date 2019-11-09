@@ -45,7 +45,9 @@ public abstract class MvpActivity<V extends MvpView, P extends MvpPresenter<V>>
         }
         // 初始化presenter并绑定view
         mPresenter = autoCreatePresenter();
-        mPresenter.attachView((V) this, getIntent().getExtras());
+        if (mPresenter != null){
+            mPresenter.attachView((V) this, getIntent().getExtras());
+        }
         mSavePreferencesData = new SavePreferencesData(this);
         StatusBarUtil.setColor(MvpActivity.this, AppUtils.getColor(R.color.white));
         StatusBarUtil.setDarkMode(this);

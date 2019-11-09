@@ -69,6 +69,10 @@ public class ImageLoaderUtil {
         display(imageView, path, getDefOption());
     }
 
+    public static void display(ImageView imageView, int path) {
+        display(imageView, path, getDefOption());
+    }
+
     /**
      * 显示GIF第一帧。
      *
@@ -170,6 +174,11 @@ public class ImageLoaderUtil {
      * @param options   配置
      */
     public static void display(ImageView imageView, String path, RequestOptions options) {
+        Glide.with(imageView)
+                .applyDefaultRequestOptions(options)
+                .load(path).into(imageView);
+    }
+    public static void display(ImageView imageView, int path, RequestOptions options) {
         Glide.with(imageView)
                 .applyDefaultRequestOptions(options)
                 .load(path).into(imageView);

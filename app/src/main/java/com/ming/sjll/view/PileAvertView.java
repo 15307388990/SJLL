@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 
 import com.ming.sjll.R;
+import com.ming.sjll.base.utils.ImageLoaderUtil;
 import com.ming.sjll.databinding.ItemGroupRoundAvertBinding;
 import com.ming.sjll.databinding.LayoutGroupPileAvertBinding;
 
@@ -66,10 +67,15 @@ public class PileAvertView extends LinearLayout {
         binding.pileView.removeAllViews();
         for (int i = 0; i < visibleList.size(); i++) {
             ItemGroupRoundAvertBinding dataBinding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.item_group_round_avert, binding.pileView, false);
-            dataBinding.setViewModel(imageList.get(i));
+
+            if (visibleList.size() - 1 == i){//最后一条使用更多的图片
+                ImageLoaderUtil.display(dataBinding.circleView,R.mipmap.message_group_header_more);
+            }else {
+                ImageLoaderUtil.display(dataBinding.circleView,imageList.get(i));
+            }
+
             binding.pileView.addView(dataBinding.getRoot());
         }
     }
-
 
 }

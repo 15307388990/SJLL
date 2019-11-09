@@ -45,7 +45,11 @@ public class MessageFragment extends MvpFragment<MessageView, MessagePresenter> 
         super.onCreateView(savedInstanceState);
         dataBinding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.fragemt_message, null, false);
         setContentView(dataBinding.getRoot());
-        String token = "3gL2bzjTLj3xaGja6AHYVdxFchWfWSNTJRNe25CtgPxpClDqMyo3QaS9Lb2ZL3rjTmvxn6B+jM6b2fTACkwjsw==";
+        //用户为1的token
+//        String token = "3gL2bzjTLj3xaGja6AHYVdxFchWfWSNTJRNe25CtgPxpClDqMyo3QaS9Lb2ZL3rjTmvxn6B+jM6b2fTACkwjsw==";
+        //用户为2的token
+//        String token = "U23hHCVLOSRceg5sTQSuntxFchWfWSNTJRNe25CtgPxpClDqMyo3Qe0WfwiWSGnghU2ETlAYQOeb2fTACkwjsw==";
+        String token = "Td3T8eaJoASkF2BqTbMu95m+w3jh+AC1wRGdAPKt+J9YsIN9CnigKPrA1JGY+IIEx5zPLq38wMU+u+/rN5a7xA==";
         RongIMUtils.INSTANCE.connect(token);
 
         initIndicator();

@@ -8,7 +8,7 @@ import com.ming.sjll.BR;
 public class MessageNotifyViewModel extends BaseObservable {
     private String count;
     private String content;
-    private String url;
+    private int url;
 
     @Bindable
     public String getCount() {
@@ -31,11 +31,11 @@ public class MessageNotifyViewModel extends BaseObservable {
     }
 
     @Bindable
-    public String getUrl() {
+    public int getUrl() {
         return url;
     }
 
-    public void setUrl(String url) {
+    public void setUrl(int url) {
         this.url = url;
         notifyPropertyChanged(BR.url);
     }

@@ -41,6 +41,7 @@
             android:paddingBottom="60dp">
 
             <TextView
+                android:id="@+id/tv_search"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -53,6 +54,7 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/tv_wechat"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -65,6 +67,7 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/tv_moment"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -77,6 +80,7 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/tv_colleague"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"

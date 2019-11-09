@@ -102,7 +102,11 @@
                     android:scheme="rong" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".my.activity.ComplainActivity" />
+        <activity android:name=".message.activity.ManagerMemberInfoActivity" />
+        <activity android:name=".message.activity.MessageProjectConfirmJoinActivity" />
+        <activity android:name=".message.activity.MessageProjectCoordinationActivity" />
+        <activity android:name=".message.activity.MessageCompanyApplyActivity" />
 
     </application>
 

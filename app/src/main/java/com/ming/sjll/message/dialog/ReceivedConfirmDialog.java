@@ -2,9 +2,11 @@ package com.ming.sjll.message.dialog;
 
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
+import android.view.View;
 
 import com.ming.sjll.R;
 import com.ming.sjll.base.dialog.BaseDialog;
+import com.ming.sjll.databinding.DialogReceiveConfirmBinding;
 
 public class ReceivedConfirmDialog extends BaseDialog {
 
@@ -25,7 +27,24 @@ public class ReceivedConfirmDialog extends BaseDialog {
 
     @Override
     public void initView(ViewDataBinding dataBinding) {
+        DialogReceiveConfirmBinding binding = (DialogReceiveConfirmBinding) dataBinding;
+        binding.setContent(getArguments().getString(CONTENT));
 
+        binding.tvNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
+
+        binding.tvYes.setOnClickListener(confirmListener);
+    }
+
+    View.OnClickListener confirmListener;
+
+    public ReceivedConfirmDialog setConfirmListener(View.OnClickListener confirmListener) {
+        this.confirmListener = confirmListener;
+        return this;
     }
 
     @Override

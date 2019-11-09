@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.ming.sjll.message.viewmodel.ActivityUploadMessageViewModel" />
+            type="com.ming.sjll.message.viewmodel.MessageChatViewModel" />
 
         <variable
             name="titleViewModel"

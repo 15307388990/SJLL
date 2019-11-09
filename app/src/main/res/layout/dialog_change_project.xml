@@ -38,16 +38,23 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_below="@+id/iv_close" />
-
+        <View
+            android:id="@+id/gap"
+            android:layout_below="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#C7CCDE"/>
         <android.support.v4.view.ViewPager
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="395dp"
-            android:layout_below="@+id/indicator" />
+            android:layout_below="@+id/gap" />
 
         <TextView
             android:layout_width="345dp"
-
+            android:id="@+id/tv_add"
             android:layout_height="47dp"
             android:layout_below="@+id/view_pager"
             android:layout_centerHorizontal="true"
