@@ -48,7 +48,7 @@
                     <com.ming.sjll.purchaser.view.CustomRoundAngleImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        custom:url="@{viewModel.background_image}"
+                        custom:url="@{viewModel.projectChatViewModel.background_image}"
                         custom:left_bottom_radius="0dp"
                         custom:left_top_radius="6dp"
                         custom:right_bottom_radius="0dp"
@@ -78,7 +78,7 @@
                         android:ellipsize="end"
                         android:lines="1"
                         tools:text="Lucas Wakamatsu 新品拍摄"
-                        android:text="@{viewModel.brief}"
+                        android:text="@{viewModel.projectChatViewModel.brief}"
                         android:textColor="@color/LL_000000"
                         android:textSize="18sp" />
 
@@ -86,10 +86,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
-                        android:visibility="@{viewModel.showTagVisible}"
+                        android:visibility="@{viewModel.projectChatViewModel.showTagVisible}"
                         android:background="@drawable/ic_upload_pdf_item_bg"
                         tools:text="科技风"
-                        android:text="@{viewModel.showTag}"
+                        android:text="@{viewModel.projectChatViewModel.showTag}"
                         android:textColor="#ff0a3fff"
                         android:textSize="12sp" />
 
@@ -112,7 +112,7 @@
                         android:paddingRight="12dp"
                         android:paddingBottom="2dp"
                         tools:text="影儿"
-                        android:text="@{viewModel.demand}"
+                        android:text="@{viewModel.projectChatViewModel.demand}"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
 
@@ -126,7 +126,7 @@
                         android:paddingRight="12dp"
                         android:paddingBottom="2dp"
                         tools:text="北京"
-                        android:text="@{viewModel.area_name}"
+                        android:text="@{viewModel.projectChatViewModel.area_name}"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
 
@@ -140,7 +140,7 @@
                         android:paddingRight="12dp"
                         android:paddingBottom="2dp"
                         tools:text="2019.07.24"
-                        android:text="@{viewModel.created_time}"
+                        android:text="@{viewModel.projectChatViewModel.created_time}"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
 
@@ -154,7 +154,7 @@
                         android:paddingRight="12dp"
                         android:paddingBottom="2dp"
                         tools:text="¥30,000"
-                        android:text="@{viewModel.budget}"
+                        android:text="@{viewModel.projectChatViewModel.budget}"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
                 </LinearLayout>
