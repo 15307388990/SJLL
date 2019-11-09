@@ -57,7 +57,9 @@
         <activity
             android:name=".loginreg.acitivity.InitPasswordAcitivity"
             android:windowSoftInputMode="stateHidden" /><!--初始化密码-->
-
+        <activity
+            android:name=".my.activity.HomeageActivity"
+            android:windowSoftInputMode="stateHidden" /><!--主页-->
 
 
         <!--   聊天界面-->

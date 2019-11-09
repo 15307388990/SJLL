@@ -5,6 +5,7 @@ import com.ming.sjll.loginreg.bean.LoginBean;
 import com.ming.sjll.loginreg.bean.RegistereBean;
 import com.ming.sjll.message.viewmodel.ProjectChatViewModel;
 import com.ming.sjll.my.bean.CompanyBean;
+import com.ming.sjll.my.bean.HomePageBean;
 import com.ming.sjll.my.bean.PersonalDateBean;
 import com.ming.sjll.purchaser.bean.AreaBean;
 import com.ming.sjll.purchaser.bean.OccupationBean;
@@ -150,5 +151,10 @@ public interface ApiService {
     @FormUrlEncoded
     @POST(Constant.DELWORK)
     Observable<BaseBean> delWork(@Field("token") String token, @Field("work_id") String work_id);
+
+    //个人主页
+    @FormUrlEncoded
+    @POST(Constant.USERCENTER)
+    Observable<HomePageBean> usercenter(@Field("token") String token, @Field("uid") String uid);
 
 }

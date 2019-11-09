@@ -8,6 +8,10 @@ public class Constant {
      * 图片上传
      */
     public static final String UPLOAD = "/api/common/upload";
+    /**
+     * 多图片上传
+     */
+    public static final String UPLOADIMG = "/api/common/uploadImg";
 
     /**
      * 获取城市
@@ -122,7 +126,10 @@ public class Constant {
      */
     public static final String DELWORK = "/api/personal_center/delWork";
 
-
+    /**
+     * 个人主页
+     */
+    public static final String USERCENTER = "/api/personal_center/userCenter";
 
 
 }

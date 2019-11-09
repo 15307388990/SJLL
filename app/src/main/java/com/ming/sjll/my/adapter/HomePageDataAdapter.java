@@ -2,7 +2,6 @@ package com.ming.sjll.my.adapter;
 
 import android.app.Activity;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -15,6 +14,7 @@ import com.luck.picture.lib.entity.LocalMedia;
 import com.ming.sjll.R;
 import com.ming.sjll.api.Constant;
 import com.ming.sjll.base.utils.Tools;
+import com.ming.sjll.my.bean.HomePageBean;
 import com.ming.sjll.my.bean.PersonalDateBean;
 
 import java.util.ArrayList;
@@ -25,30 +25,38 @@ import java.util.List;
  * @author luoming
  * created at 2019-10-27 16:08
  */
-public class PersonalDataAdapter extends BaseQuickAdapter<PersonalDateBean.DataBeanX.DataBean, BaseViewHolder> {
+public class HomePageDataAdapter extends BaseQuickAdapter<HomePageBean.DataBean.WorkBean, BaseViewHolder> {
 
-    public PersonalDataAdapter(@Nullable List<PersonalDateBean.DataBeanX.DataBean> data) {
-        super(R.layout.personal_data_item, data);
+    public HomePageDataAdapter(@Nullable List<HomePageBean.DataBean.WorkBean> data) {
+        super(R.layout.home_page_data_item, data);
     }
 
     @Override
-    protected void convert(BaseViewHolder baseViewHolder, PersonalDateBean.DataBeanX.DataBean dataBean) {
+    protected void convert(BaseViewHolder baseViewHolder, HomePageBean.DataBean.WorkBean dataBean) {
         baseViewHolder.setText(R.id.tv_title, dataBean.getTitle());
         baseViewHolder.setText(R.id.tv_describe, dataBean.getDescribe());
         baseViewHolder.setText(R.id.tv_day, Tools.getDateformat3(dataBean.getCreated_time(), "dd"));
         baseViewHolder.setText(R.id.tv_describe, Tools.getDateformat3(dataBean.getCreated_time(), "MM") + "月");
+        baseViewHolder.setText(R.id.tv_number,dataBean.getCollect_num()+"");
+        if (dataBean.getIs_collect() == 0) {
+            baseViewHolder.setImageResource(R.id.iv_heard,R.mipmap.ic_home_page_heart);
+        } else {
+            baseViewHolder.setImageResource(R.id.iv_heard,R.mipmap.ic_my_heart);
+        }
+
+
         RecyclerView recyclerView = baseViewHolder.getView(R.id.recyclerview);
         recyclerView.setLayoutManager(new GridLayoutManager(mContext, 3));
-        PersonalImageAdapter personalImageAdapter= new PersonalImageAdapter(dataBean.getImgList());
-        List<LocalMedia> selectList=new ArrayList<>();
-        for (String img :dataBean.getImgList()){
-            LocalMedia localMedia=new LocalMedia(Constant.BASE_API+img,0,1,"image/jpeg");
+        PersonalImageAdapter personalImageAdapter = new PersonalImageAdapter(dataBean.getImgList());
+        List<LocalMedia> selectList = new ArrayList<>();
+        for (String img : dataBean.getImgList()) {
+            LocalMedia localMedia = new LocalMedia(Constant.BASE_API + img, 0, 1, "image/jpeg");
             selectList.add(localMedia);
         }
         personalImageAdapter.setOnItemChildClickListener(new OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                if (view.getId()==R.id.iv_img){
+                if (view.getId() == R.id.iv_img) {
                     PictureSelector.create((Activity) mContext).themeStyle(R.style.picture_default_style).openExternalPreview(position, selectList);
                 }
             }
@@ -56,7 +64,7 @@ public class PersonalDataAdapter extends BaseQuickAdapter<PersonalDateBean.DataB
         recyclerView.setAdapter(personalImageAdapter);
         FlowTagLayout flowTagLayout = baseViewHolder.getView(R.id.flowTagLayout);
         flowTagLayout.addTags(dataBean.getTagsList());
-        baseViewHolder.addOnClickListener(R.id.iv_menu);
+        baseViewHolder.addOnClickListener(R.id.ll_heart);
 
     }
 

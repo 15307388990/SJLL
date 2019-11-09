@@ -5,7 +5,7 @@
     <color name="white">#FFFFFF</color>
     <!-- 薄荷色 -->
     <color name="whitesmoke">#DFDFDF</color>
-
+    <color name="transparent">#00000000</color>
     <color name="bg_titleBar">#fff</color>
     <color name="LL_6277FF">#6277FF</color>
     <color name="LL_D8D8D8">#D8D8D8</color>

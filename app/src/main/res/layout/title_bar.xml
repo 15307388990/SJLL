@@ -56,87 +56,15 @@
                 android:textColor="@color/txt_right"
                 android:textSize="13.44sp"
                 android:visibility="gone" />
-
-            <RelativeLayout
-                android:id="@+id/title_bar_RlRight_01"
+            <ImageView
+                android:id="@+id/title_bar_IvRight"
                 android:layout_width="48dp"
                 android:layout_height="match_parent"
-                android:visibility="gone">
-
-                <ImageView
-                    android:id="@+id/title_bar_IvRight01"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:contentDescription="@null"
-                    android:padding="6dp"
-                    android:scaleType="center" />
-
-                <TextView
-                    android:id="@+id/title_bar_TvRightUnRead01"
-                    android:layout_width="wrap_content"
-                    android:layout_height="18dp"
-                    android:layout_alignRight="@id/title_bar_IvRight01"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginRight="6dp"
-                    android:background="@drawable/bg_shape_o_red_small"
-                    android:gravity="center"
-                    android:text="99"
-                    android:textColor="@android:color/white"
-                    android:textSize="5.5dp"
-                    android:visibility="gone" />
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/title_bar_RlRight_02"
-                android:layout_width="58dp"
-                android:layout_height="match_parent"
-                android:visibility="gone">
-
-                <ImageView
-                    android:id="@+id/title_bar_IvRight02"
-                    android:layout_width="15dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:contentDescription="@null"
-                    android:padding="6dp"
-                    android:scaleType="center" />
-
-                <TextView
-                    android:id="@+id/title_bar_TvRightUnRead02"
-                    android:layout_width="wrap_content"
-                    android:layout_height="15dp"
-                    android:layout_alignRight="@+id/title_bar_IvRight02"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginRight="5dp"
-                    android:background="@drawable/bg_shape_c17_red_unread"
-                    android:gravity="center"
-                    android:minWidth="15dp"
-                    android:paddingLeft="5dp"
-                    android:paddingTop="1dp"
-                    android:paddingRight="5dp"
-                    android:paddingBottom="1dp"
-                    android:text="9"
-                    android:textColor="@android:color/white"
-                    android:textSize="8.64sp"
-                    android:visibility="gone" />
-
-                <TextView
-                    android:id="@+id/title_bar_TvRightUnReadPoint02"
-                    android:layout_width="40dp"
-                    android:layout_height="8dp"
-                    android:layout_alignRight="@+id/title_bar_IvRight02"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginRight="6dp"
-                    android:background="@drawable/bg_shape_o_red_small"
-                    android:gravity="center"
-                    android:textColor="@android:color/white"
-                    android:textSize="10.56sp"
-                    android:visibility="gone" />
-
-            </RelativeLayout>
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@null"
+                android:scaleType="center"
+                android:src="@mipmap/nav_back"
+                android:visibility="gone"/>
 
         </LinearLayout>
 

@@ -41,6 +41,7 @@ public class ShowAdapter extends BaseQuickAdapter<ShowWorkBean.DataBean, BaseVie
             baseViewHolder.setImageDrawable(R.id.iv_like, mContext.getResources().getDrawable(R.mipmap.ic_show_y));
         }
         baseViewHolder.addOnClickListener(R.id.iv_like);
+         baseViewHolder.addOnClickListener(R.id.iv_head);
     }
 
 }

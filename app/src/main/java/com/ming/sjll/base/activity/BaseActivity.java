@@ -12,7 +12,6 @@ import android.widget.LinearLayout;
 
 import com.ming.sjll.R;
 import com.ming.sjll.base.cache.ACache;
-import com.ming.sjll.base.widget.TitleBar;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -25,7 +24,6 @@ public class BaseActivity extends BasePermissionAty {
     public final String TAG = this.getClass().getSimpleName();
     private Context mContext;
     private LinearLayout mViewContainer;
-    public TitleBar mTitleBar;
     private Unbinder mUnbinder;
     /**
      * 记录所有活动的Activity

@@ -6,8 +6,8 @@
     android:orientation="vertical">
 
 
-    <com.ming.sjll.base.widget.TitleBar
-        android:id="@+id/titleBar"
-        android:layout_width="match_parent"
-        android:layout_height="50dp" />
+<!--    <com.ming.sjll.base.widget.TitleBar-->
+<!--        android:id="@+id/titleBar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp" />-->
 </LinearLayout>
