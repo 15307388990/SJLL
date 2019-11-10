@@ -3,29 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="212dp"
     android:layout_height="wrap_content"
-    android:background="@drawable/message_custom_bg_left"
+    android:background="@drawable/message_visitcard_bg"
     android:orientation="vertical"
     android:paddingLeft="15dp"
     android:paddingTop="10dp"
     android:paddingRight="15dp"
     android:paddingBottom="10dp">
 
-    <TextView
-        android:id="@+id/tv_apply"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:lines="2"
-        android:textColor="#ff000000"
-        android:textSize="14sp"
-        android:layout_marginBottom="20dp"
-        tools:text="对方申请加入 Lucas Waka-matsu 新品摄影" />
+
+    <com.ming.sjll.view.CircleImageView
+        android:id="@+id/header"
+        android:layout_width="60dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="60dp" />
 
     <TextView
-        android:layout_below="@+id/tv_apply"
+        android:layout_toRightOf="@+id/header"
+        android:id="@+id/product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="已接受"
+        android:layout_centerVertical="true"
+        android:gravity="left"
+        android:lines="2"
+        android:ellipsize="end"
+        android:textStyle="bold"
         android:textColor="#ff000000"
         android:textSize="14sp"
-        />
+        tools:text="Abby Katheryn 的作品" />
 </RelativeLayout>

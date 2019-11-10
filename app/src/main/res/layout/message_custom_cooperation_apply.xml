@@ -17,15 +17,31 @@
         android:lines="2"
         android:textColor="#ff000000"
         android:textSize="14sp"
-        android:layout_marginBottom="20dp"
+
         tools:text="对方申请加入 Lucas Waka-matsu 新品摄影" />
 
     <TextView
-        android:layout_below="@+id/tv_apply"
+        android:id="@+id/tv_refuse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="已接受"
-        android:textColor="#ff000000"
-        android:textSize="14sp"
-        />
+        android:layout_below="@+id/tv_apply"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/tv_receive"
+        android:background="@drawable/message_refuse_bg"
+        android:text="拒绝"
+        android:textColor="#ff0a3fff"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_receive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_apply"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/message_receive_bg"
+        android:text="接受"
+        android:textColor="#ffffffff"
+        android:textSize="14sp" />
 </RelativeLayout>

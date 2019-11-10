@@ -17,6 +17,10 @@ import com.ming.sjll.message.dialog.ChangeProjectDialog;
 import com.ming.sjll.message.dialog.InviteMemberShareDialog;
 import com.ming.sjll.message.dialog.ReceivedConfirmDialog;
 import com.ming.sjll.message.fragment.MessageConversationFragment;
+import com.ming.sjll.message.message.CooperationApplyMessageContent;
+import com.ming.sjll.message.message.CooperationMessageContent;
+import com.ming.sjll.message.message.ShareUserMessageContent;
+import com.ming.sjll.message.message.ShareWorkMessageContent;
 import com.ming.sjll.message.presenter.MessageChatPresenter;
 import com.ming.sjll.message.presenter.UploadPdfMessagePresenter;
 import com.ming.sjll.message.utils.RongIMUtils;
@@ -35,6 +39,8 @@ public class MessageChatActivity extends MvpActivity<MessageChatView, MessageCha
 
     private ActivityMessageChatBinding viewDataBinding;
     private MessageChatViewModel messageChatViewModel;
+    private Conversation.ConversationType conversationType;
+    private String targetId;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,10 +53,10 @@ public class MessageChatActivity extends MvpActivity<MessageChatView, MessageCha
             Intent intent = getIntent();
             Uri dataUri = intent.getData();
             if (dataUri != null) {
-                String mtargetId = dataUri.getQueryParameter("targetId");
+                targetId = dataUri.getQueryParameter("targetId");
                 String title = dataUri.getQueryParameter("title");
                 String path = dataUri.getPath();
-
+                conversationType = Conversation.ConversationType.valueOf(path);
                 if (TextUtils.equals(Conversation.ConversationType.PRIVATE.getName().toLowerCase(Locale.US), path)) {
                     messageChatViewModel.setGroupInfoVisible(View.GONE);
                     messageChatViewModel.setProjectVisible(View.GONE);
@@ -62,7 +68,7 @@ public class MessageChatActivity extends MvpActivity<MessageChatView, MessageCha
                 //设置标题
                 viewDataBinding.setTitleViewModel(new ToolbarViewModel(title));
 
-                ConversationFragment conversationListFragment = createConversationFragment(mtargetId);
+                ConversationFragment conversationListFragment = createConversationFragment(targetId);
                 getSupportFragmentManager().beginTransaction()
                         .add(R.id.container, conversationListFragment)
                         .commit();
@@ -75,9 +81,8 @@ public class MessageChatActivity extends MvpActivity<MessageChatView, MessageCha
     public ConversationFragment createConversationFragment(String mtargetId) {
         ConversationFragment fragement = new MessageConversationFragment();
         try {
-            Conversation.ConversationType mConversationType = Conversation.ConversationType.APP_PUBLIC_SERVICE;
             Uri uri = Uri.parse("rong://" + getApplicationInfo().packageName).buildUpon()
-                    .appendPath("conversation").appendPath(mConversationType.getName().toLowerCase())
+                    .appendPath("conversation").appendPath(conversationType.getName().toLowerCase(Locale.US))
                     .appendQueryParameter("targetId", mtargetId).build();
             fragement.setUri(uri);
         } catch (Exception e) {
@@ -103,7 +108,8 @@ public class MessageChatActivity extends MvpActivity<MessageChatView, MessageCha
     }
 
     @Override
-    public void confirmCooperation() {
+    public void sendCooperation() {
+        //有相关的信息，需要透传下来
         if (mPresenter.hasProject()) {
             confirmCooperationDialog();
         } else { //如果当前没有项目id，弹框选择项目，然后再弹框
@@ -111,19 +117,27 @@ public class MessageChatActivity extends MvpActivity<MessageChatView, MessageCha
         }
     }
 
-    private void confirmCooperationDialog() {
-        String projectName;
-        String projectId;
-        String userName;
-        //如果当前项目id，就弹框
-        ReceivedConfirmDialog.newInstance(mPresenter.getConfirmCooperationContent()).setConfirmListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //发送合作信息,自定义消息
-                RongIMUtils.INSTANCE.sendCooperation();
+    @Override
+    public void sendCooperationApply() {
+        String demand = "";
+        String applyId = "";
+        String projectId = "";
+        RongIMUtils.INSTANCE.sendCooperationApply(conversationType, targetId, CooperationApplyMessageContent.obtain("", projectId, demand, applyId));
+    }
 
-            }
-        }).show(this);
+    private void confirmCooperationDialog() {
+        String demand = "";
+        String applyId = "";
+        String projectId = "";
+        //如果当前项目id，就弹框
+        ReceivedConfirmDialog.newInstance(mPresenter.getConfirmCooperationContent())
+                .setConfirmListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //发送合作信息,自定义消息
+                        RongIMUtils.INSTANCE.sendCooperation(conversationType, targetId, CooperationMessageContent.obtain("", projectId, demand, applyId));
+                    }
+                }).show(this);
     }
 
     @Override
@@ -148,8 +162,26 @@ public class MessageChatActivity extends MvpActivity<MessageChatView, MessageCha
     }
 
     @Override
-    public void onAddMemberInfo() {
-        InviteMemberShareDialog.newInstance().show(this);
+    public void shareUser() {
+        InviteMemberShareDialog.newInstance().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String userId = "";
+                String userName = "";
+                String headImage = "";
+                String occupation = "";
+                RongIMUtils.INSTANCE.sendShareUser(conversationType, targetId, ShareUserMessageContent.obtain("", userId, userName, headImage, occupation));
+            }
+        }).show(this);
+    }
+
+    @Override
+    public void shareWork() {
+        String userId = "";
+        String userName = "";
+        String headImage = "";
+        String work_id = "";
+        RongIMUtils.INSTANCE.sendShareWork(conversationType, targetId, ShareWorkMessageContent.obtain("", userId, userName, headImage, work_id));
     }
 
 

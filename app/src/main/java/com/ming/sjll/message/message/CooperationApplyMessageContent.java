@@ -19,54 +19,29 @@ import io.rong.push.common.RLog;
  * demand：需求标题
  * apply_id 申请id
  */
-@MessageTag(value = "KP:aCooperation", flag = MessageTag.ISCOUNTED | MessageTag.ISPERSISTED)
-public class CooperationMessageContent extends MessageContent {
+@MessageTag(value = "KP:bCooperation", flag = MessageTag.ISCOUNTED | MessageTag.ISPERSISTED)
+public class CooperationApplyMessageContent extends MessageContent {
 
     private String content;
     private String project_id;
     private String demand;
     private String apply_id;
 
-    public void setContent(String content) {
-        this.content = content;
-    }
 
-    public String getProject_id() {
-        return project_id;
-    }
-
-    public void setProject_id(String project_id) {
-        this.project_id = project_id;
-    }
-
-    public String getDemand() {
-        return demand;
-    }
-
-    public void setDemand(String demand) {
-        this.demand = demand;
-    }
-
-    public String getApply_id() {
-        return apply_id;
-    }
-
-    public void setApply_id(String apply_id) {
-        this.apply_id = apply_id;
-    }
-
-    private CooperationMessageContent (String content, String project_id, String demand, String apply_id) {
+    private CooperationApplyMessageContent (String content,String project_id,String demand,String apply_id) {
         this.content = content;
         this.project_id = project_id;
         this.demand = demand;
         this.apply_id = apply_id;
     }
 
-    public static CooperationMessageContent obtain(String content,String project_id,String demand,String apply_id) {
-        return new CooperationMessageContent(content,project_id,demand,apply_id);
+    public static CooperationApplyMessageContent obtain(String content,String project_id,String demand,String apply_id) {
+        return new CooperationApplyMessageContent(content,project_id,demand,apply_id);
     }
 
-    public CooperationMessageContent(Parcel in) {
+
+
+    public CooperationApplyMessageContent(Parcel in) {
         content = ParcelUtils.readFromParcel(in);//该类为工具类，消息属性
         project_id = ParcelUtils.readFromParcel(in);
         demand = ParcelUtils.readFromParcel(in);
@@ -94,7 +69,7 @@ public class CooperationMessageContent extends MessageContent {
         ParcelUtils.writeToParcel(dest, apply_id);
     }
 
-    public CooperationMessageContent(byte[] data) {
+    public CooperationApplyMessageContent(byte[] data) {
         String jsonStr = null;
         try {
             jsonStr = new String(data, "UTF-8");

@@ -61,7 +61,7 @@ public class MessageChatPresenter extends MvpPresenter<MessageChatView> {
     }
     public void onClickAddMemberInfo(){
         //弹框
-        getView().onAddMemberInfo();
+        getView().shareUser();
 
     }
 

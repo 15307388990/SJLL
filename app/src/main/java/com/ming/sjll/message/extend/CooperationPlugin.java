@@ -26,7 +26,7 @@ public class CooperationPlugin implements IPluginModule {
     @Override
     public void onClick(Fragment fragment, RongExtension rongExtension) {
         if (fragment.getActivity() instanceof MessageChatView){
-            ((MessageChatView) fragment.getActivity()).confirmCooperation();
+            ((MessageChatView) fragment.getActivity()).sendCooperation();
         }
     }
 

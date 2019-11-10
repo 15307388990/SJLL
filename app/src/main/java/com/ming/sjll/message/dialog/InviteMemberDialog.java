@@ -7,7 +7,6 @@ import android.view.View;
 import com.ming.sjll.R;
 import com.ming.sjll.base.dialog.BaseDialog;
 import com.ming.sjll.databinding.DialogInviteMemberBinding;
-import com.ming.sjll.message.utils.RongIMUtils;
 
 public class InviteMemberDialog extends BaseDialog {
 
@@ -40,13 +39,20 @@ public class InviteMemberDialog extends BaseDialog {
             @Override
             public void onClick(View v) {
                 //发送邀请
-                RongIMUtils.INSTANCE.sendInviteMember();
+                if (onClickListener != null){
+                    onClickListener.onClick(v);
+                }
                 dismiss();
             }
         });
-
     }
 
+    private View.OnClickListener onClickListener;
+
+    public InviteMemberDialog setOnClickListener(View.OnClickListener onClickListener) {
+        this.onClickListener = onClickListener;
+        return this;
+    }
 
     @Override
     public boolean isBottom() {

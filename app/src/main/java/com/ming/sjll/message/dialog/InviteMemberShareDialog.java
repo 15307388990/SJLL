@@ -56,9 +56,15 @@ public class InviteMemberShareDialog extends BaseDialog {
         binding.tvColleague.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InviteMemberDialog.newInstance().show(getActivity());
+                InviteMemberDialog.newInstance().setOnClickListener(onClickListener).show(getActivity());
             }
         });
+    }
+    private View.OnClickListener onClickListener;
+
+    public InviteMemberShareDialog setOnClickListener(View.OnClickListener onClickListener) {
+        this.onClickListener = onClickListener;
+        return this;
     }
 
 
