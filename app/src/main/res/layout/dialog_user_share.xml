@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_round_bottom_white_bg"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="分享到"
+            android:textColor="#ff000000"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="9dp"
+            android:padding="15dp"
+            android:src="@mipmap/icon_dialog_close" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_close"
+            android:orientation="horizontal"
+            android:paddingTop="30dp"
+            android:paddingBottom="60dp">
+
+            <TextView
+                android:id="@+id/tv_search"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/ic_meges_share"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="分享到消息"
+                android:textColor="#ff000000"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_wechat"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/dialog_invite_share_friends"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="微信好友"
+                android:textColor="#ff000000"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_moment"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/dialog_invite_share_moment"
+                android:drawablePadding="10dp"
+                android:gravity="center"
+                android:text="朋友圈"
+                android:textColor="#ff000000"
+                android:textSize="12sp" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

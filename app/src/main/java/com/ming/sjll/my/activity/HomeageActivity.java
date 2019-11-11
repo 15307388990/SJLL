@@ -22,6 +22,7 @@ import com.ming.sjll.my.adapter.HomePageDataAdapter;
 import com.ming.sjll.my.bean.HomePageBean;
 import com.ming.sjll.my.dialog.EditorDialog;
 import com.ming.sjll.my.dialog.HomePageDialog;
+import com.ming.sjll.my.dialog.UserShareDialog;
 import com.ming.sjll.my.presenter.ComplainPresenter;
 import com.ming.sjll.my.presenter.HomeagePresenter;
 import com.ming.sjll.my.view.HomeageDataView;
@@ -95,6 +96,12 @@ public class HomeageActivity extends MvpActivity<HomeageDataView, HomeagePresent
         });
         headBinding = HomePageHeadItemBinding.inflate(getLayoutInflater());
         homePageDataAdapter.addHeaderView(headBinding.getRoot());
+        headBinding.ivShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserShareDialog.newInstance().show(HomeageActivity.this);
+            }
+        });
         //头部信息
         initHead();
         //收藏
@@ -117,7 +124,6 @@ public class HomeageActivity extends MvpActivity<HomeageDataView, HomeagePresent
             }
             initUer();
         }
-        binding.recyclerview.setScrollingTouchSlop(0);
 
 
     }

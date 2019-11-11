@@ -141,5 +141,10 @@ public class Constant {
      */
     public static final String USERREPORT = "/api/user_report/user";
 
+    /**
+     * 项目管理
+     */
+    public static final String PROJECTMANAGE = "/api/project/projectManage";
+
 
 }

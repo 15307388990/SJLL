@@ -9,6 +9,7 @@ import com.ming.sjll.my.bean.HomePageBean;
 import com.ming.sjll.my.bean.PersonalDateBean;
 import com.ming.sjll.purchaser.bean.AreaBean;
 import com.ming.sjll.purchaser.bean.OccupationBean;
+import com.ming.sjll.purchaser.bean.ProjectManagementBean;
 import com.ming.sjll.show.bean.ShowWorkBean;
 import com.ming.sjll.supplier.bean.ArticleListBean;
 import com.ming.sjll.supplier.bean.CikunmBean;
@@ -168,5 +169,9 @@ public interface ApiService {
     @POST(Constant.USERREPORT)
     Observable<BaseBean> userPreport(@Field("token") String token, @Field("report_uid") String uid, @Field("content") String content, @Field("img[]") String img[]);
 
+    //项目管理
+    @FormUrlEncoded
+    @POST(Constant.PROJECTMANAGE)
+    Observable<ProjectManagementBean> projectManage(@Field("token") String token, @Field("type") String type);
 }
 

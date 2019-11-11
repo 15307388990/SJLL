@@ -60,6 +60,7 @@
         <activity
             android:name=".my.activity.HomeageActivity"
             android:windowSoftInputMode="stateHidden" /><!--主页-->
+        <activity android:name=".purchaser.activity.ProjectManagementAcitivity" /><!--项目管理-->
 
 
         <!--   聊天界面-->
