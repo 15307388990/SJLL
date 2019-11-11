@@ -11,10 +11,14 @@ public interface MessageChatView extends MvpView {
 
     void uploadPdf();
 
-    void confirmCooperation();
+    void sendCooperation();
+
+    void sendCooperationApply();
 
     void complain();
 
-    void onAddMemberInfo();
+    void shareUser();
+
+    void shareWork();
 
 }

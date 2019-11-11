@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/message"
     android:layout_width="212dp"
     android:layout_height="wrap_content"
-    android:background="@drawable/message_visitcard_bg"
+    android:background="@drawable/message_custom_bg_left"
     android:orientation="vertical"
     android:paddingLeft="15dp"
     android:paddingTop="10dp"
     android:paddingRight="15dp"
     android:paddingBottom="10dp">
 
-
-    <com.ming.sjll.view.CircleImageView
-        android:id="@+id/header"
-        android:layout_width="60dp"
-        android:layout_marginRight="10dp"
-
-        android:layout_height="60dp" />
-
     <TextView
-        android:layout_toRightOf="@+id/header"
-        android:id="@+id/product"
+        android:id="@+id/tv_apply"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:gravity="left"
+        android:layout_marginBottom="10dp"
         android:lines="2"
-        android:ellipsize="end"
+        android:textColor="#0A3FFF"
+        android:textSize="14sp"
+        tools:text="对方申请加入 Lucas Waka-matsu 新品摄影" />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_apply"
         android:textColor="#ff000000"
         android:textSize="14sp"
-        tools:text="Abby Katheryn 的作品" />
+        tools:text="已接受" />
 </RelativeLayout>

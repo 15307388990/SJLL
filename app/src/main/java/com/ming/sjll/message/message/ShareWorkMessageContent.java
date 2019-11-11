@@ -19,35 +19,83 @@ import io.rong.push.common.RLog;
  * headImg：分享的用户头像
  * work_id：作品id
  */
-@MessageTag(value = "KP:shareUser", flag = MessageTag.ISCOUNTED | MessageTag.ISPERSISTED)
-public class ShareProductMessageContent extends MessageContent {
+@MessageTag(value = "KP:shareWorks", flag = MessageTag.ISCOUNTED | MessageTag.ISPERSISTED)
+public class ShareWorkMessageContent extends MessageContent {
 
     private String content;
     private String userId;
     private String userName;
     private String headImg;
-    private String occupation;
     private String work_id;
 
-    public ShareProductMessageContent(Parcel in) {
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getHeadImg() {
+        return headImg;
+    }
+
+    public void setHeadImg(String headImg) {
+        this.headImg = headImg;
+    }
+
+    public String getWork_id() {
+        return work_id;
+    }
+
+    public void setWork_id(String work_id) {
+        this.work_id = work_id;
+    }
+
+    private ShareWorkMessageContent (String content, String userId, String userName, String headImg, String work_id) {
+        this.content = content;
+        this.userId = userId;
+        this.userName = userName;
+        this.headImg = headImg;
+        this.work_id = work_id;
+    }
+
+    public static ShareWorkMessageContent obtain(String content,String userId,String userName,String headImg,String work_id) {
+        return new ShareWorkMessageContent(content,userId,userName,headImg,work_id);
+    }
+
+
+
+    public ShareWorkMessageContent(Parcel in) {
         content = ParcelUtils.readFromParcel(in);//该类为工具类，消息属性
         userId = ParcelUtils.readFromParcel(in);
         userName = ParcelUtils.readFromParcel(in);
         headImg = ParcelUtils.readFromParcel(in);
-        occupation = ParcelUtils.readFromParcel(in);
         work_id = ParcelUtils.readFromParcel(in);
     }
 
-    public static final Creator<ShareProductMessageContent> CREATOR = new Creator<ShareProductMessageContent>() {
+    public static final Creator<ShareWorkMessageContent> CREATOR = new Creator<ShareWorkMessageContent>() {
 
         @Override
-        public ShareProductMessageContent createFromParcel(Parcel source) {
-            return new ShareProductMessageContent(source);
+        public ShareWorkMessageContent createFromParcel(Parcel source) {
+            return new ShareWorkMessageContent(source);
         }
 
         @Override
-        public ShareProductMessageContent[] newArray(int size) {
-            return new ShareProductMessageContent[size];
+        public ShareWorkMessageContent[] newArray(int size) {
+            return new ShareWorkMessageContent[size];
         }
     };
 
@@ -57,11 +105,10 @@ public class ShareProductMessageContent extends MessageContent {
         ParcelUtils.writeToParcel(dest, userId);
         ParcelUtils.writeToParcel(dest, userName);
         ParcelUtils.writeToParcel(dest, headImg);
-        ParcelUtils.writeToParcel(dest, occupation);
         ParcelUtils.writeToParcel(dest, work_id);
     }
 
-    public ShareProductMessageContent(byte[] data) {
+    public ShareWorkMessageContent(byte[] data) {
         String jsonStr = null;
         try {
             jsonStr = new String(data, "UTF-8");
@@ -82,9 +129,7 @@ public class ShareProductMessageContent extends MessageContent {
             if (jsonObj.has("headImg")) {
                 headImg = jsonObj.optString("headImg");
             }
-            if (jsonObj.has("occupation")) {
-                occupation = jsonObj.optString("occupation");
-            }
+
             if (jsonObj.has("work_id")) {
                 work_id = jsonObj.optString("work_id");
             }
@@ -110,10 +155,7 @@ public class ShareProductMessageContent extends MessageContent {
             if (headImg != null) {
                 jsonObj.put("headImg", headImg);
             }
-            if (occupation != null) {
 
-                jsonObj.put("occupation", occupation);
-            }
             if (work_id != null) {
                 jsonObj.put("work_id", work_id);
             }
