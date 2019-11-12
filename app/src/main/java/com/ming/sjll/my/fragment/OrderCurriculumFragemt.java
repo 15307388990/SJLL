@@ -80,6 +80,5 @@ public class OrderCurriculumFragemt extends MvpFragment<CurriculumView, OrderCur
     public void ShowData(CurriculumBean pBean) {
         recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerview.setAdapter(new OrderCurriculumAdapter(pBean.getData().getData()));
-
     }
 }

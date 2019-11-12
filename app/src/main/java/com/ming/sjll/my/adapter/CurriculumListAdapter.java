@@ -1,11 +1,13 @@
 package com.ming.sjll.my.adapter;
 
+import android.app.Activity;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.luck.picture.lib.PictureSelector;
 import com.ming.sjll.R;
 import com.ming.sjll.api.Constant;
 import com.ming.sjll.base.utils.ImageHelper;
@@ -34,6 +36,12 @@ public class CurriculumListAdapter extends BaseQuickAdapter<CurriculumBean.DataB
         ImageHelper.displayBackground((ImageView) baseViewHolder.getView(R.id.iv_img), Constant.BASE_API + dataBean.getCover_img(), R.drawable.ic_launcher_background);
         baseViewHolder.setText(R.id.tv_price, "￥" + dataBean.getPrice());
         baseViewHolder.addOnClickListener(R.id.iv_play);
+        baseViewHolder.getView(R.id.iv_play).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PictureSelector.create((Activity) mContext).externalPictureVideo(Constant.BASE_API + dataBean.getUrl());
+            }
+        });
 
 
     }

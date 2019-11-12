@@ -10,6 +10,7 @@ import android.widget.RadioButton;
 import com.ming.sjll.R;
 import com.ming.sjll.base.fragment.MvpFragment;
 import com.ming.sjll.base.widget.ToastShow;
+import com.ming.sjll.my.adapter.AdsListAdapter;
 import com.ming.sjll.my.bean.AdsBean;
 import com.ming.sjll.my.presenter.OrderAdsPresenter;
 import com.ming.sjll.my.presenter.OrderBusinessPresenter;
@@ -114,10 +115,9 @@ public class OrderAdsFragemt extends MvpFragment<AdsView, OrderAdsPresenter> imp
     }
 
 
-
     @Override
     public void ShowData(AdsBean pBean) {
-//        recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
-//        recyclerview.setAdapter(new ProjectManagementAdapter(bean.getData().getData()));
+        recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerview.setAdapter(new AdsListAdapter(pBean.getData().getData()));
     }
 }
