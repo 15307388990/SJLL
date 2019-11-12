@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="21dp"
+                    android:layout_height="1dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#FFC7CCDE" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="四大理由开通企业入驻"
+                    android:textColor="#ff000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="21dp"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="#FFC7CCDE" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@mipmap/ic_companyin_none" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:text="无中介费"
+                        android:textColor="#ff000000"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@mipmap/ic_companyin_chuizhi" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:text="领域垂直"
+                        android:textColor="#ff000000"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@mipmap/ic_companyin_neibu" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:text="内部管理"
+                        android:textColor="#ff000000"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@mipmap/ic_companyin_fangbian" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:text="无中介费"
+                        android:textColor="#ff000000"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="40dp">
+
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="8dp"
+                    android:layout_alignBottom="@+id/tv_fuwu"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/ic_angle" />
+
+                <TextView
+                    android:id="@+id/tv_fuwu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="入驻条件"
+                    android:textColor="@color/LL_000000"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginRight="15dp"
+                android:lineSpacingExtra="5dp"
+                android:text="·  注册个体需为公司性质，需上传营业执照\n
+· 个人页面中作品数量不低于 10 幅，并保证为自我原创\n
+· 完成企业界面中包括但不限于企业名称、人员、商品售价等信息\n
+·  企业无不良征信记录，无不良交易记录"
+                android:textColor="#ff000000"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="47dp">
+
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="8dp"
+                    android:layout_alignBottom="@+id/tv_baozhengjin"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/ic_angle" />
+
+                <TextView
+                    android:id="@+id/tv_baozhengjin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="保证金"
+                    android:textColor="@color/LL_000000"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginRight="15dp"
+                android:lineSpacingExtra="5dp"
+                android:text="· 为保证平台交易的双方权益，需缴纳 3000 元为交易保障金，即退即还
+\n· 在提现时请注意保证金额度，如低于 3000 元将被移除对应模块"
+                android:textColor="#ff000000"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/cb_xuanze_btn" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="同意《加入视觉行动的条件说明和承诺》"
+                    android:textColor="#ff000000"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/btn_blue_bg"
+                android:gravity="center"
+                android:paddingTop="11dp"
+                android:paddingBottom="11dp"
+                android:text="申请入驻"
+                android:textColor="#ffffffff"
+                android:textSize="18sp"
+
+                />
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
