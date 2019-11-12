@@ -3,6 +3,8 @@ package com.ming.sjll.api;
 import com.ming.sjll.base.bean.BaseBean;
 import com.ming.sjll.loginreg.bean.LoginBean;
 import com.ming.sjll.loginreg.bean.RegistereBean;
+import com.ming.sjll.message.viewmodel.MessageNotifyViewModel;
+import com.ming.sjll.message.viewmodel.MessageProjectCoordinationViewModel;
 import com.ming.sjll.message.viewmodel.ProjectChatViewModel;
 import com.ming.sjll.my.bean.CompanyBean;
 import com.ming.sjll.my.bean.HomePageBean;
@@ -168,5 +170,19 @@ public interface ApiService {
     @POST(Constant.USERREPORT)
     Observable<BaseBean> userPreport(@Field("token") String token, @Field("report_uid") String uid, @Field("content") String content, @Field("img[]") String img[]);
 
+    //通知(未读)
+    @FormUrlEncoded
+    @POST(Constant.UNREADMSG)
+    Observable<MessageNotifyViewModel> unReadmsg(@Field("token") String token);
+
+
+    //项目统筹列表
+    @FormUrlEncoded
+    @POST(Constant.PROJECTAPPLY)
+    Observable<MessageProjectCoordinationViewModel> projectApply(@Field("token") String token, @Field("page") String page, @Field("pageSize") String pageSize);
+     //项目统筹列表
+    @FormUrlEncoded
+    @POST(Constant.APPLYPASS)
+    Observable<Object> applyPass(@Field("token") String token, @Field("apply_id") String apply_id, @Field("status") String status);
 }
 

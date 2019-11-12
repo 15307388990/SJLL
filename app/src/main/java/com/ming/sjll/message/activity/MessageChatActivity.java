@@ -31,8 +31,13 @@ import com.ming.sjll.my.activity.ComplainActivity;
 
 import java.util.Locale;
 
+import io.rong.common.RLog;
+import io.rong.imkit.RongIM;
 import io.rong.imkit.fragment.ConversationFragment;
+import io.rong.imlib.IRongCallback;
 import io.rong.imlib.model.Conversation;
+import io.rong.imlib.model.Message;
+import io.rong.message.FileMessage;
 
 
 public class MessageChatActivity extends MvpActivity<MessageChatView, MessageChatPresenter> implements MessageChatView {
@@ -52,10 +57,32 @@ public class MessageChatActivity extends MvpActivity<MessageChatView, MessageCha
         try {
             Intent intent = getIntent();
             Uri dataUri = intent.getData();
+            String title;
+            String path;
             if (dataUri != null) {
                 targetId = dataUri.getQueryParameter("targetId");
-                String title = dataUri.getQueryParameter("title");
-                String path = dataUri.getPath();
+                title = dataUri.getQueryParameter("title");
+                path = dataUri.getPath();
+
+                //页面离开的时候缓存当前的用户和标题，为了给上传pdf使用，因为pdf是从微信里面进行应用选择打开的，这里接收的时候是在mainActivity进行接收
+                mSavePreferencesData.putStringData("targetId", targetId);
+                mSavePreferencesData.putStringData("title", title);
+                mSavePreferencesData.putStringData("path", path);
+            } else {
+                targetId = mSavePreferencesData.getStringData("targetId");
+                title = mSavePreferencesData.getStringData("title");
+                path = mSavePreferencesData.getStringData("path");
+
+                //发送pdf信息
+                boolean fromWechat = intent.getBooleanExtra("fromWechat", false);
+                if (fromWechat){
+                    sendPdfMessage(dataUri);
+                }
+            }
+
+
+            if (dataUri != null) {
+
                 conversationType = Conversation.ConversationType.valueOf(path);
                 if (TextUtils.equals(Conversation.ConversationType.PRIVATE.getName().toLowerCase(Locale.US), path)) {
                     messageChatViewModel.setGroupInfoVisible(View.GONE);
@@ -92,6 +119,7 @@ public class MessageChatActivity extends MvpActivity<MessageChatView, MessageCha
 
     }
 
+
     @Override
     public void onShowData(ProjectChatViewModel viewModel) {
         messageChatViewModel.setProjectVisible(View.VISIBLE);
@@ -99,6 +127,52 @@ public class MessageChatActivity extends MvpActivity<MessageChatView, MessageCha
         viewDataBinding.setViewModel(messageChatViewModel);
     }
 
+    /**
+     *  public void run() {
+     *             Iterator var1 = this.selectedFileInfos.iterator();
+     *
+     *             while(var1.hasNext()) {
+     *                 FileInfo fileInfo = (FileInfo)var1.next();
+     *                 Uri filePath = Uri.parse("file://" + fileInfo.getFilePath());
+     *                 FileMessage fileMessage = FileMessage.obtain(filePath);
+     *                 if (fileMessage != null) {
+     *                     fileMessage.setType(fileInfo.getSuffix());
+     *                     Message message = Message.obtain(this.targetId, this.conversationType, fileMessage);
+     *                     RongIM.getInstance().sendMediaMessage(message, (String)null, (String)null, (ISendMediaMessageCallback)null);
+     *
+     *                     try {
+     *                         Thread.sleep(400L);
+     *                     } catch (InterruptedException var7) {
+     *                         RLog.e("FileInputProvider", "sendMediaMessage e:" + var7.toString());
+     *                         Thread.currentThread().interrupt();
+     *                     }
+     *                 }
+     *             }
+     *
+     *         }
+     * @param pdfUri
+     */
+    public void sendPdfMessage(Uri pdfUri){
+        FileMessage fileMessage = FileMessage.obtain(pdfUri);
+        if (fileMessage != null) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    fileMessage.setType("pdf");
+                    Message message = Message.obtain(targetId, conversationType, fileMessage);
+                    RongIM.getInstance().sendMediaMessage(message, (String) null, (String) null, (IRongCallback.ISendMediaMessageCallback) null);
+
+                    try {
+                        Thread.sleep(400L);
+                    } catch (InterruptedException var7) {
+                        RLog.e("FileInputProvider", "sendMediaMessage e:" + var7.toString());
+                        Thread.currentThread().interrupt();
+                    }
+                }
+            }).start();
+        }
+
+    }
 
     @Override
     public void uploadPdf() {

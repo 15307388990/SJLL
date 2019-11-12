@@ -9,6 +9,39 @@ public class MessageNotifyViewModel extends BaseObservable {
     private String count;
     private String content;
     private int url;
+    private int projectApply;//项目统筹未读条数
+    private int projectInvite;//项目参与确认未读条数
+    private int companyApply;//公司申请未读条数
+
+    @Bindable
+    public int getProjectApply() {
+        return projectApply;
+    }
+
+    public void setProjectApply(int projectApply) {
+        this.projectApply = projectApply;
+        notifyPropertyChanged(BR.projectApply);
+    }
+
+    @Bindable
+    public int getProjectInvite() {
+        return projectInvite;
+    }
+
+    public void setProjectInvite(int projectInvite) {
+        this.projectInvite = projectInvite;
+        notifyPropertyChanged(BR.projectInvite);
+    }
+
+    @Bindable
+    public int getCompanyApply() {
+        return companyApply;
+    }
+
+    public void setCompanyApply(int companyApply) {
+        this.companyApply = companyApply;
+        notifyPropertyChanged(BR.companyApply);
+    }
 
     @Bindable
     public String getCount() {

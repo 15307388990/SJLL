@@ -5,14 +5,15 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.ming.sjll.base.activity.MvpActivity;
 import com.ming.sjll.base.fragment.MvpFragment;
+import com.ming.sjll.message.activity.MessageChatActivity;
 import com.ming.sjll.message.fragment.MessageFragment;
-import com.ming.sjll.my.dialog.EditorDataDialog;
 import com.ming.sjll.my.fragment.MyFragemt;
 import com.ming.sjll.purchaser.fragment.ProjectFragemt;
 import com.ming.sjll.show.fragment.ShowFragemt;
@@ -47,6 +48,30 @@ public class MainActivity extends MvpActivity<MainView, MainPresenter> {
         setContentView(R.layout.activity_main);
         initView();
 
+        openPdfChatActivity(getIntent());
+
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        openPdfChatActivity(intent);
+    }
+
+    /**
+     * 微信打开APP，发送pdf文件信息
+     */
+    private void openPdfChatActivity(Intent intent) {
+        try {
+            if (TextUtils.equals(intent.getAction(), Intent.ACTION_VIEW) && intent.getType().equals("application/pdf")) {
+                //记录上次的用户id
+                Intent newIntent = new Intent(this, MessageChatActivity.class);
+                newIntent.putExtra("fromWechat",true);
+                newIntent.setData(intent.getData());
+                startActivity(newIntent);
+            }
+        } catch (Exception e) {
+        }
     }
 
     private void initView() {

@@ -141,5 +141,17 @@ public class Constant {
      */
     public static final String USERREPORT = "/api/user_report/user";
 
+    /**
+     * 通知(未读)
+     */
+    public static final String UNREADMSG = "/api/Inform/unreadMsg";
 
+    /**
+     * 项目统筹列表
+     */
+    public static final String PROJECTAPPLY = "/api/Inform/projectApply";
+    /**
+     * 项目统筹申请(是否同意)
+     */
+    public static final String APPLYPASS = "/api/user_operation/applyPass";
 }
