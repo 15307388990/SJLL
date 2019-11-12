@@ -146,5 +146,21 @@ public class Constant {
      */
     public static final String PROJECTMANAGE = "/api/project/projectManage";
 
+    /**
+     * 我的订单*业务
+     */
+    public static final String GETBUSINESS = "/api/order/getBusiness";
+
+    /**
+     * 我的订单*课程
+     */
+
+    public static final String CURRICULUM = "/api/order/curriculum";
+
+    /**
+     * 我的订单*投广
+     */
+    public static final String GETADS = "/api/order/getAds";
+
 
 }

@@ -62,6 +62,7 @@
             android:windowSoftInputMode="stateHidden" /><!--主页-->
         <activity android:name=".purchaser.activity.ProjectManagementAcitivity" /><!--项目管理-->
         <activity android:name=".my.activity.ApplicationInAcitivity" /><!--申请入驻-->
+        <activity android:name=".my.activity.MyorderAcitivity" /><!--我的订单-->
 
 
 

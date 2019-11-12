@@ -9,6 +9,7 @@ import com.ming.sjll.R;
 import com.ming.sjll.base.fragment.MvpFragment;
 import com.ming.sjll.base.utils.Tools;
 import com.ming.sjll.my.activity.ApplicationInAcitivity;
+import com.ming.sjll.my.activity.MyorderAcitivity;
 import com.ming.sjll.my.bean.CompanyBean;
 import com.ming.sjll.my.presenter.MyPresenter;
 import com.ming.sjll.my.view.MyView;
@@ -27,6 +28,8 @@ public class PersonalWorkFragemt extends MvpFragment<MyView, MyPresenter> implem
 
     @BindView(R.id.ll_join)
     LinearLayout llJoin;
+    @BindView(R.id.ll_order)
+    LinearLayout llOrder;
 
     public static PersonalWorkFragemt newInstance() {
         return new PersonalWorkFragemt();
@@ -46,10 +49,18 @@ public class PersonalWorkFragemt extends MvpFragment<MyView, MyPresenter> implem
     }
 
     private void initOnclick() {
+        //加入视觉行动
         llJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Tools.jump(getActivity(), ApplicationInAcitivity.class, false);
+            }
+        });
+        //我的订单
+        llOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Tools.jump(getActivity(), MyorderAcitivity.class, false);
             }
         });
     }

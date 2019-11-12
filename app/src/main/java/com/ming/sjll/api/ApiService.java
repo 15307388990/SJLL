@@ -4,7 +4,9 @@ import com.ming.sjll.base.bean.BaseBean;
 import com.ming.sjll.loginreg.bean.LoginBean;
 import com.ming.sjll.loginreg.bean.RegistereBean;
 import com.ming.sjll.message.viewmodel.ProjectChatViewModel;
+import com.ming.sjll.my.bean.AdsBean;
 import com.ming.sjll.my.bean.CompanyBean;
+import com.ming.sjll.my.bean.CurriculumBean;
 import com.ming.sjll.my.bean.HomePageBean;
 import com.ming.sjll.my.bean.PersonalDateBean;
 import com.ming.sjll.purchaser.bean.AreaBean;
@@ -173,5 +175,23 @@ public interface ApiService {
     @FormUrlEncoded
     @POST(Constant.PROJECTMANAGE)
     Observable<ProjectManagementBean> projectManage(@Field("token") String token, @Field("type") String type);
+
+
+    //我的订单*业务
+    @FormUrlEncoded
+    @POST(Constant.GETBUSINESS)
+    Observable<ProjectManagementBean> getBusiness(@Field("token") String token, @Field("status") String status);
+
+    //我的订单*课程
+    @FormUrlEncoded
+    @POST(Constant.CURRICULUM)
+    Observable<CurriculumBean> getCurriculum(@Field("token") String token);
+
+    //我的订单*投广
+    @FormUrlEncoded
+    @POST(Constant.GETADS)
+    Observable<AdsBean> getAds(@Field("token") String token, @Field("status") String status);
+
+
 }
 
