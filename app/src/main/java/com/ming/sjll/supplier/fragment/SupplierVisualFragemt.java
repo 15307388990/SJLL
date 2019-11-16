@@ -6,20 +6,27 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.ming.sjll.R;
 import com.ming.sjll.api.Constant;
 import com.ming.sjll.base.fragment.MvpFragment;
 import com.ming.sjll.base.utils.ImageHelper;
+import com.ming.sjll.base.utils.Tools;
+import com.ming.sjll.my.bean.ColumnListBean;
+import com.ming.sjll.purchaser.adapter.Generaldapter;
+import com.ming.sjll.purchaser.bean.OccupationBean;
 import com.ming.sjll.purchaser.fragment.HotArticleFragemt;
+import com.ming.sjll.purchaser.fragment.HotAuthorFragemt;
 import com.ming.sjll.purchaser.view.CustomRoundAngleImageView;
-import com.ming.sjll.supplier.adapter.Visualdapter;
-import com.ming.sjll.supplier.bean.ArticleListBean;
+import com.ming.sjll.supplier.activity.ColumnDetailsActivity;
+import com.ming.sjll.supplier.adapter.ColumnListdapter;
 import com.ming.sjll.supplier.bean.TopArticleBean;
 import com.ming.sjll.supplier.presenter.SupplierVisualPresenter;
 import com.ming.sjll.supplier.view.SupplierVisualView;
@@ -40,7 +47,7 @@ public class SupplierVisualFragemt extends MvpFragment<SupplierVisualView, Suppl
     @BindView(R.id.recyclerview)
     RecyclerView recyclerview;
 
-    private Visualdapter visualdapter;
+    private ColumnListdapter visualdapter;
     private View headView;
 
     private List<Fragment> fragmentList;
@@ -60,7 +67,6 @@ public class SupplierVisualFragemt extends MvpFragment<SupplierVisualView, Suppl
         super.onViewCreated(view, savedInstanceState);
         recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
         fragmentList = new ArrayList<>();
-        mPresenter.showDate();
     }
 
     @Override
@@ -88,9 +94,18 @@ public class SupplierVisualFragemt extends MvpFragment<SupplierVisualView, Suppl
         super.onDestroyView();
     }
 
+
     @Override
-    public void setArticleList(ArticleListBean bean) {
-        visualdapter = new Visualdapter(bean.getData().getData());
+    public void setColumnList(ColumnListBean bean) {
+        visualdapter = new ColumnListdapter(bean.getData().getData());
+        visualdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Bundle bundle = new Bundle();
+                bundle.putString("column_id", bean.getData().getData().get(position).getCloumn_id() + "");
+                Tools.jump(getActivity(), ColumnDetailsActivity.class, bundle,false);
+            }
+        });
         mPresenter.getTopArtic();
 
     }
@@ -99,7 +114,7 @@ public class SupplierVisualFragemt extends MvpFragment<SupplierVisualView, Suppl
     public void setTopArticle(TopArticleBean bean) {
         headView = LinearLayout.inflate(getActivity(), R.layout.fragemt_visual_top_itm, null);
         CustomRoundAngleImageView imageView = headView.findViewById(R.id.iv_img);
-        ImageHelper.displayBackground(imageView, Constant.BASE_API + bean.getData().getCover_img(), R.drawable.ic_launcher_background);
+        ImageHelper.displayBackground(imageView, Constant.BASE_API + bean.getData().getBg_img(), R.drawable.ic_launcher_background);
         TextView tv_title = headView.findViewById(R.id.tv_title);
         tv_title.setText(bean.getData().getTitle());
         TextView tv_yuanchuang = headView.findViewById(R.id.tv_yuanchuang);
@@ -108,14 +123,35 @@ public class SupplierVisualFragemt extends MvpFragment<SupplierVisualView, Suppl
         } else {
             tv_yuanchuang.setVisibility(View.GONE);
         }
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("column_id", bean.getData().getCloumn_id()+"");
+                Tools.jump(getActivity(), ColumnDetailsActivity.class, bundle,false);
+            }
+        });
+
         ViewPager viewPager = headView.findViewById(R.id.viewpager);
         fragmentList.add(HotArticleFragemt.newInstance());
-        fragmentList.add(HotArticleFragemt.newInstance());
+        fragmentList.add(HotAuthorFragemt.newInstance());
         viewPager.setAdapter(new Adapter(getChildFragmentManager()));
+
+        mPresenter.getspOccupation();
+
+
+    }
+
+    @Override
+    public void getspOccupation(OccupationBean bean) {
+        LinearLayout ll_zhuanlan = headView.findViewById(R.id.ll_zhuanlan);
+        ll_zhuanlan.setVisibility(View.VISIBLE);
+        RecyclerView zhuanlanrecyclerView = headView.findViewById(R.id.recyclerview);
+        zhuanlanrecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
+        zhuanlanrecyclerView.setAdapter(new Generaldapter(bean.getData()));
 
         visualdapter.setHeaderView(headView);
         recyclerview.setAdapter(visualdapter);
-
     }
 
     class Adapter extends FragmentStatePagerAdapter {

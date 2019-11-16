@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_buy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/btn_blue_bg"
+            android:paddingLeft="55dp"
+            android:layout_marginTop="20dp"
+            android:paddingTop="8dp"
+            android:paddingRight="55dp"
+            android:paddingBottom="8dp"
+            android:text="购买课程"
+            android:textColor="#ffffffff"
+            android:textSize="18sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp">
+
+            <TextView
+                android:layout_width="24dp"
+                android:layout_height="8dp"
+                android:layout_alignBottom="@+id/tv_zhaor"
+                android:layout_marginLeft="56dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/ic_angle" />
+
+            <TextView
+                android:id="@+id/tv_zhaor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="37dp"
+                android:text="相关推荐"
+                android:textColor="@color/LL_000000"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_marginTop="17dp"
+            android:layout_marginLeft="15dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</layout>

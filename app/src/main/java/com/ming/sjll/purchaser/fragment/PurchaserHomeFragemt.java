@@ -96,7 +96,7 @@ public class PurchaserHomeFragemt extends MvpFragment<PurchaserHomeView, Purchas
     public void ShowDate(HomeColumBean homeColumBean) {
         recyclerview.setLayoutManager(new GridLayoutManager(getActivity(), 4));
         SupplierHomeAdapter supplierHomeAdapter = new SupplierHomeAdapter(homeColumBean.getData());
-        recyclerview.setAdapter(supplierHomeAdapter);
+            recyclerview.setAdapter(supplierHomeAdapter);
         supplierHomeAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
@@ -130,8 +130,6 @@ public class PurchaserHomeFragemt extends MvpFragment<PurchaserHomeView, Purchas
         rvJiewu.setLayoutManager(new GridLayoutManager(getActivity(), 4));
         JieWuAdapter jieWuAdapter=new JieWuAdapter(bean.getData().getThings());
         rvJiewu.setAdapter(jieWuAdapter);
-
-
 
     }
 }

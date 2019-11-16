@@ -31,7 +31,7 @@ public class PurchaserVisualPresenter extends MvpPresenter<PurchaserVisualView> 
 
     //获取置顶文章
     public void getTopArtic() {
-        getNetData(RetrofitManager.get().create(ApiService.class).getTopArtic(),
+        getNetData(RetrofitManager.get().create(ApiService.class).getTopArtic("0"),
                 new ApiObserver<TopArticleBean>() {
                     @Override
                     public void onSuccess(TopArticleBean bean) {

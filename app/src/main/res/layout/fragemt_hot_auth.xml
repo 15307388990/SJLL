@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="265dp"
+            android:layout_height="227dp"
+            android:layout_marginLeft="15dp"
+            android:background="@color/white"
+            app:cardCornerRadius="6dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp">
+
+                    <TextView
+                        android:layout_width="24dp"
+                        android:layout_height="8dp"
+                        android:layout_alignBottom="@+id/tv_title"
+                        android:layout_marginLeft="-14dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_toRightOf="@+id/tv_title"
+                        android:background="@drawable/ic_angle" />
+
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="17dp"
+                        android:text="72 小时热门内容"
+                        android:textColor="@color/LL_000000"
+                        android:textSize="18sp" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <com.ming.sjll.purchaser.view.CustomRoundAngleImageView
+                        android:id="@+id/iv_img"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="15dp"
+                        android:background="@color/white"
+                        android:scaleType="fitXY"
+                        android:src="@color/LL_000000"
+                        app:radius="6dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="教你如何跟得上摄影师的快门"
+                            android:textColor="#CC000000"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_professional"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="模特"
+                            android:textColor="#4D000000"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_layout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <com.ming.sjll.purchaser.view.CustomRoundAngleImageView
+                        android:id="@+id/iv_img2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="15dp"
+                        android:background="@color/white"
+                        android:scaleType="fitXY"
+                        android:src="@color/LL_000000"
+                        app:radius="6dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_name2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="教你如何跟得上摄影师的快门"
+                            android:textColor="#CC000000"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tv_professional2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="模特"
+                            android:textColor="#4D000000"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+</layout>

@@ -5,6 +5,8 @@ import com.ming.sjll.loginreg.bean.LoginBean;
 import com.ming.sjll.loginreg.bean.RegistereBean;
 import com.ming.sjll.message.viewmodel.ProjectChatViewModel;
 import com.ming.sjll.my.bean.AdsBean;
+import com.ming.sjll.my.bean.ColumnDetailsBean;
+import com.ming.sjll.my.bean.ColumnListBean;
 import com.ming.sjll.my.bean.CompanyBean;
 import com.ming.sjll.my.bean.CurriculumBean;
 import com.ming.sjll.my.bean.HomePageBean;
@@ -74,8 +76,9 @@ public interface ApiService {
     Observable<HomeAdsBean> getHomeAds();
 
     //置顶文章
+    @FormUrlEncoded
     @POST(Constant.TOPARTICLE)
-    Observable<TopArticleBean> getTopArtic();
+    Observable<TopArticleBean> getTopArtic(@Field("type") String type);
 
     //热门文章
     @POST(Constant.HOTARTICLE)
@@ -191,6 +194,27 @@ public interface ApiService {
     @FormUrlEncoded
     @POST(Constant.GETADS)
     Observable<AdsBean> getAds(@Field("token") String token, @Field("status") String status);
+
+    //获取专栏职业
+    @FormUrlEncoded
+    @POST(Constant.SPQCCUPATION)
+    Observable<OccupationBean> getspOccupation(@Field("token") String token);
+
+    //获取专栏列表
+    @FormUrlEncoded
+    @POST(Constant.COLUMNLIST)
+    Observable<ColumnListBean> columnList(@Field("token") String token);
+
+    //获取专栏详情
+    @FormUrlEncoded
+    @POST(Constant.GETCOLUMNINFO)
+    Observable<ColumnDetailsBean> getColumnInfo(@Field("token") String token, @Field("column_id") String column_id);
+
+    //收藏课程(专栏)
+    @FormUrlEncoded
+    @POST(Constant.COLLECTCOLUMN)
+    Observable<BaseBean> collectColumn(@Field("token") String token, @Field("column_id") String column_id);
+
 
 
 }

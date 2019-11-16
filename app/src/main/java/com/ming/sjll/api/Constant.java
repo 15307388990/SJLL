@@ -74,6 +74,12 @@ public class Constant {
     /**
      * 文章列表
      */
+    public static final String COLUMNLIST = "/api/special_column/columnList";
+
+
+    /**
+     * 找人找物
+     */
     public static final String GETCOLUMCHILD = "api/home/getColunmChild";
 
     /**
@@ -161,6 +167,21 @@ public class Constant {
      * 我的订单*投广
      */
     public static final String GETADS = "/api/order/getAds";
+
+    /**
+     * 获取专栏职业
+     */
+    public static final String SPQCCUPATION = "/api/special_column/getOccupation";
+
+    /**
+     * 获取专栏详情
+     */
+    public static final String GETCOLUMNINFO = "/api/special_column/getColumnInfo";
+
+    /**
+     * 收藏课程(专栏)
+     */
+    public static final String COLLECTCOLUMN = "/api/collect/collectColumn";
 
 
 }

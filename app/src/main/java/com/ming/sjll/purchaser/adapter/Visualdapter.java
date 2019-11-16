@@ -1,4 +1,4 @@
-package com.ming.sjll.supplier.adapter;
+package com.ming.sjll.purchaser.adapter;
 
 import android.support.annotation.Nullable;
 import android.widget.ImageView;

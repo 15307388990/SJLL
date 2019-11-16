@@ -7,6 +7,7 @@ import android.view.View;
 import com.ming.sjll.R;
 import com.ming.sjll.base.dialog.BaseDialog;
 import com.ming.sjll.databinding.DialogInviteShareBinding;
+import com.ming.sjll.databinding.DialogUserShareBinding;
 import com.ming.sjll.message.dialog.InviteMemberDialog;
 /**
  * @author luoming
@@ -32,7 +33,7 @@ public class UserShareDialog extends BaseDialog {
 
     @Override
     public void initView(ViewDataBinding dataBinding) {
-        DialogInviteShareBinding binding = (DialogInviteShareBinding) dataBinding;
+        DialogUserShareBinding binding = (DialogUserShareBinding) dataBinding;
 
         binding.ivClose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,12 +58,6 @@ public class UserShareDialog extends BaseDialog {
             @Override
             public void onClick(View v) {
 
-            }
-        });
-        binding.tvColleague.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                InviteMemberDialog.newInstance().show(getActivity());
             }
         });
     }
