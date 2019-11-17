@@ -13,6 +13,7 @@
         android:layout_marginLeft="15dp"
         android:scaleType="fitXY"
         android:src="@color/LL_000000"
+        android:background="@color/white"
         app:radius="6dp" />
 
     <LinearLayout

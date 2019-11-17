@@ -98,7 +98,7 @@ public class MessageChatActivity extends MvpActivity<MessageChatView, MessageCha
                 ConversationFragment conversationListFragment = createConversationFragment(targetId);
                 getSupportFragmentManager().beginTransaction()
                         .add(R.id.container, conversationListFragment)
-                        .commit();
+                        .commitAllowingStateLoss();
             }
         } catch (Exception e) {
             e.printStackTrace();

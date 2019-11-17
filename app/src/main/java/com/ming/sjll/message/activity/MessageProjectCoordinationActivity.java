@@ -1,10 +1,14 @@
 package com.ming.sjll.message.activity;
 
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -29,20 +33,20 @@ public class MessageProjectCoordinationActivity extends MvpActivity<MessageProje
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewDataBinding = DataBindingUtil.setContentView(this, R.layout.message_chat_notify_fragment);
+        viewDataBinding = DataBindingUtil.setContentView(this, R.layout.activity_manager_info);
         viewDataBinding.setTitleViewModel(new ToolbarViewModel("项目统筹"));
         viewDataBinding.rcMember.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
-    public void onShowData(List<MessageProjectCoordinationViewModel.DataEntity> data) {
+    public void onShowData(List<MessageProjectCoordinationViewModel.DataBeanX.DataEntity> data) {
         adapter = new MemberInfoApter(data);
         viewDataBinding.rcMember.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+        adapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                MessageProjectCoordinationViewModel.DataEntity item = (MessageProjectCoordinationViewModel.DataEntity) adapter.getItem(position);
+            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+                MessageProjectCoordinationViewModel.DataBeanX.DataEntity item = (MessageProjectCoordinationViewModel.DataBeanX.DataEntity) adapter.getItem(position);
                 if (view.getId() == R.id.tv_span) {
                     //修改状态，刷新数据
                     item.toggeleExpand();
@@ -55,43 +59,46 @@ public class MessageProjectCoordinationActivity extends MvpActivity<MessageProje
                 }
             }
         });
-    }
-
-    @Override
-    public void onOperatonSuccess() {
 
     }
 
-    public class MemberInfoApter extends BaseQuickAdapter<MessageProjectCoordinationViewModel.DataEntity, BaseViewHolder> {
 
-        public MemberInfoApter(@Nullable List<MessageProjectCoordinationViewModel.DataEntity> data) {
+
+    public class MemberInfoApter extends BaseQuickAdapter<MessageProjectCoordinationViewModel.DataBeanX.DataEntity, BaseViewHolder> {
+
+        public MemberInfoApter(@Nullable List<MessageProjectCoordinationViewModel.DataBeanX.DataEntity> data) {
             super(R.layout.message_project_coordination_item, data);
         }
 
         @Override
-        protected void convert(BaseViewHolder baseViewHolder, MessageProjectCoordinationViewModel.DataEntity dataBean) {
-            baseViewHolder.setText(R.id.tv_operation, dataBean.getDemand());
+        protected void convert(BaseViewHolder baseViewHolder, MessageProjectCoordinationViewModel.DataBeanX.DataEntity dataBean) {
+
             if (dataBean.getOccupation() != null && !dataBean.getOccupation().isEmpty()) {
                 String s = dataBean.getOccupation().get(0);
                 baseViewHolder.setText(R.id.tv_position, s);
             }
 
-            baseViewHolder.setText(R.id.tv_invite, dataBean.getName());
+            baseViewHolder.setText(R.id.tv_operation, dataBean.getDemand());
+            baseViewHolder.setText(R.id.tv_name, dataBean.getName());
 
             baseViewHolder.setText(R.id.brand, dataBean.getBrand());
-            baseViewHolder.setText(R.id.budget, dataBean.getBudget());
+            baseViewHolder.setText(R.id.budget, "¥"+dataBean.getBudget());
             baseViewHolder.setText(R.id.time, dataBean.getStart_time() + "-" + dataBean.getEnd_time());
+
+
+            ImageLoaderUtil.display(baseViewHolder.getView(R.id.header),dataBean.getDefault_avatar());
 
 
             boolean isDropDown = dataBean.isExpand();//是否是展开状态
             if (isDropDown) {
                 baseViewHolder.setText(R.id.tv_span, "收起需求");
-                baseViewHolder.setVisible(R.id.ll_content, true);
-                ImageLoaderUtil.display(baseViewHolder.getView(R.id.iv_drop), R.mipmap.coodinate_up);
+                baseViewHolder.setGone(R.id.ll_content, true);
+                baseViewHolder.setImageResource(R.id.iv_drop,R.mipmap.coodinate_up);
+
             } else {
                 baseViewHolder.setText(R.id.tv_span, "展开需求");
-                ImageLoaderUtil.display(baseViewHolder.getView(R.id.iv_drop), R.mipmap.coodinate_down);
-                baseViewHolder.setVisible(R.id.ll_content, false);
+                baseViewHolder.setImageResource(R.id.iv_drop,R.mipmap.coodinate_down);
+                baseViewHolder.setGone(R.id.ll_content, false);
             }
 
 //            状态 0- 申请中 1-已同意 2-已拒绝 3-已过期
@@ -108,7 +115,17 @@ public class MessageProjectCoordinationActivity extends MvpActivity<MessageProje
                 } else if (TextUtils.equals(dataBean.getStatus(), "3")) {
                     baseViewHolder.setText(R.id.tv_out_date, "已过期");
                 }
+
+                baseViewHolder.setText(R.id.tv_operation, dataBean.getDemand());
+                baseViewHolder.setTextColor(R.id.tv_operation, Color.parseColor("#000000"));
             } else {
+
+                String prefix = "申请加入";
+                SpannableString ss = new SpannableString(prefix + dataBean.getDemand());
+                ForegroundColorSpan colorSpan = new ForegroundColorSpan(Color.parseColor("#0A3FFF"));
+                ss.setSpan(colorSpan, 0, prefix.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                baseViewHolder.setText(R.id.tv_operation, ss);
+
                 baseViewHolder.setVisible(R.id.tv_refuse, true);
                 baseViewHolder.setVisible(R.id.tv_receive, true);
                 baseViewHolder.setVisible(R.id.tv_out_date, false);
@@ -118,8 +135,5 @@ public class MessageProjectCoordinationActivity extends MvpActivity<MessageProje
             baseViewHolder.addOnClickListener(R.id.tv_refuse);
             baseViewHolder.addOnClickListener(R.id.tv_receive);
         }
-
     }
-
-
 }

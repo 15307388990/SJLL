@@ -9,7 +9,6 @@ import java.util.List;
 public interface MessageProjectCoordinationView extends MvpView {
 
 
-    void onShowData(List<MessageProjectCoordinationViewModel.DataEntity> data);
+    void onShowData(List<MessageProjectCoordinationViewModel.DataBeanX.DataEntity> data);
 
-    void onOperatonSuccess();
 }

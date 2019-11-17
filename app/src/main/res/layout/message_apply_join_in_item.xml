@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="vertical">
 
@@ -100,6 +100,7 @@
                         android:layout_toLeftOf="@+id/tv_receive"
                         android:background="@drawable/message_refuse_bg"
                         android:text="忽略"
+                        android:layout_marginRight="10dp"
                         android:textColor="#ff0a3fff"
                         android:textSize="14sp" />
 
@@ -113,7 +114,16 @@
                         android:text="通过"
                         android:textColor="#ffffffff"
                         android:textSize="14sp" />
-
+                    <TextView
+                        android:id="@+id/tv_out_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_apply"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/message_outdate_bg"
+                        android:textColor="#ff8c92a7"
+                        android:textSize="14sp"
+                        tools:text="已过期" />
 
                 </LinearLayout>
 

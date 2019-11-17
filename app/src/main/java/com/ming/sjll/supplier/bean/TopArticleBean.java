@@ -39,6 +39,24 @@ public class TopArticleBean extends BaseBean {
         private String cover_img;
         private int is_original;
         private String link;
+        private int cloumn_id;
+        private String bg_img;
+
+        public int getCloumn_id() {
+            return cloumn_id;
+        }
+
+        public void setCloumn_id(int cloumn_id) {
+            this.cloumn_id = cloumn_id;
+        }
+
+        public String getBg_img() {
+            return bg_img;
+        }
+
+        public void setBg_img(String bg_img) {
+            this.bg_img = bg_img;
+        }
 
         public int getId() {
             return id;

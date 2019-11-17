@@ -3,14 +3,27 @@ package com.ming.sjll.api;
 import com.ming.sjll.base.bean.BaseBean;
 import com.ming.sjll.loginreg.bean.LoginBean;
 import com.ming.sjll.loginreg.bean.RegistereBean;
-import com.ming.sjll.message.viewmodel.MessageNotifyViewModel;
+import com.ming.sjll.message.viewmodel.ApplyPassBean;
+import com.ming.sjll.message.viewmodel.CompanyApplyBean;
+import com.ming.sjll.message.viewmodel.CompanyPassBean;
+import com.ming.sjll.message.viewmodel.CooperationBean;
+import com.ming.sjll.message.viewmodel.GetChatProjectBean;
+import com.ming.sjll.message.viewmodel.InvitePassBean;
+import com.ming.sjll.message.viewmodel.MessageNotifyBean;
 import com.ming.sjll.message.viewmodel.MessageProjectCoordinationViewModel;
 import com.ming.sjll.message.viewmodel.ProjectChatViewModel;
+import com.ming.sjll.message.viewmodel.ProjectInviteBean;
+import com.ming.sjll.message.viewmodel.SetChatProjectBean;
+import com.ming.sjll.my.bean.AdsBean;
+import com.ming.sjll.my.bean.ColumnDetailsBean;
+import com.ming.sjll.my.bean.ColumnListBean;
 import com.ming.sjll.my.bean.CompanyBean;
+import com.ming.sjll.my.bean.CurriculumBean;
 import com.ming.sjll.my.bean.HomePageBean;
 import com.ming.sjll.my.bean.PersonalDateBean;
 import com.ming.sjll.purchaser.bean.AreaBean;
 import com.ming.sjll.purchaser.bean.OccupationBean;
+import com.ming.sjll.purchaser.bean.ProjectManagementBean;
 import com.ming.sjll.show.bean.ShowWorkBean;
 import com.ming.sjll.supplier.bean.ArticleListBean;
 import com.ming.sjll.supplier.bean.CikunmBean;
@@ -73,8 +86,9 @@ public interface ApiService {
     Observable<HomeAdsBean> getHomeAds();
 
     //置顶文章
+    @FormUrlEncoded
     @POST(Constant.TOPARTICLE)
-    Observable<TopArticleBean> getTopArtic();
+    Observable<TopArticleBean> getTopArtic(@Field("type") String type);
 
     //热门文章
     @POST(Constant.HOTARTICLE)
@@ -170,19 +184,104 @@ public interface ApiService {
     @POST(Constant.USERREPORT)
     Observable<BaseBean> userPreport(@Field("token") String token, @Field("report_uid") String uid, @Field("content") String content, @Field("img[]") String img[]);
 
+
+    //我的订单*业务
+    @FormUrlEncoded
+    @POST(Constant.GETBUSINESS)
+    Observable<ProjectManagementBean> getBusiness(@Field("token") String token, @Field("status") String status);
+
+    //我的订单*课程
+    @FormUrlEncoded
+    @POST(Constant.CURRICULUM)
+    Observable<CurriculumBean> getCurriculum(@Field("token") String token);
+
+    //我的订单*投广
+    @FormUrlEncoded
+    @POST(Constant.GETADS)
+    Observable<AdsBean> getAds(@Field("token") String token, @Field("status") String status);
+
+    //获取专栏职业
+    @FormUrlEncoded
+    @POST(Constant.SPQCCUPATION)
+    Observable<OccupationBean> getspOccupation(@Field("token") String token);
+
+    //获取专栏列表
+    @FormUrlEncoded
+    @POST(Constant.COLUMNLIST)
+    Observable<ColumnListBean> columnList(@Field("token") String token);
+
+    //获取专栏详情
+    @FormUrlEncoded
+    @POST(Constant.GETCOLUMNINFO)
+    Observable<ColumnDetailsBean> getColumnInfo(@Field("token") String token, @Field("column_id") String column_id);
+
+    //收藏课程(专栏)
+    @FormUrlEncoded
+    @POST(Constant.COLLECTCOLUMN)
+    Observable<BaseBean> collectColumn(@Field("token") String token, @Field("column_id") String column_id);
+
+    //项目管理
+    @FormUrlEncoded
+    @POST(Constant.PROJECTMANAGE)
+    Observable<ProjectManagementBean> projectManage(@Field("token") String token, @Field("type") String type);
+
+
     //通知(未读)
     @FormUrlEncoded
     @POST(Constant.UNREADMSG)
-    Observable<MessageNotifyViewModel> unReadmsg(@Field("token") String token);
+    Observable<MessageNotifyBean> unReadmsg(@Field("token") String token);
 
 
     //项目统筹列表
     @FormUrlEncoded
     @POST(Constant.PROJECTAPPLY)
     Observable<MessageProjectCoordinationViewModel> projectApply(@Field("token") String token, @Field("page") String page, @Field("pageSize") String pageSize);
-     //项目统筹列表
+
+    //项目参与确认列表
+    @FormUrlEncoded
+    @POST(Constant.PROJECTINVITE)
+    Observable<ProjectInviteBean> projectInvite(@Field("token") String token, @Field("page") String page, @Field("pageSize") String pageSize);
+
+    //公司申请列表
+    @FormUrlEncoded
+    @POST(Constant.COMPANYAPPLY)
+    Observable<CompanyApplyBean> companyApply(@Field("token") String token, @Field("page") String page, @Field("pageSize") String pageSize);
+
+
+    //项目统筹申请(是否同意)
     @FormUrlEncoded
     @POST(Constant.APPLYPASS)
-    Observable<Object> applyPass(@Field("token") String token, @Field("apply_id") String apply_id, @Field("status") String status);
+    Observable<ApplyPassBean> applyPass(@Field("token") String token, @Field("apply_id") String apply_id, @Field("status") String status);
+
+
+    //项目参与确认(是否同意)
+    @FormUrlEncoded
+    @POST(Constant.INVITEPASS)
+    Observable<InvitePassBean> invitePass(@Field("token") String token, @Field("apply_id") String apply_id, @Field("status") String status);
+
+    //公司申请(是否同意)
+    @FormUrlEncoded
+    @POST(Constant.COMPANYPASS)
+    Observable<CompanyPassBean> companyPass(@Field("token") String token, @Field("apply_id") String apply_id, @Field("status") String status);
+
+
+    //公司申请(是否同意)
+    @FormUrlEncoded
+    @POST(Constant.SETCHATPROJECT)
+    Observable<SetChatProjectBean> setChatProject(@Field("token") String token, @Field("userId") String userId, @Field("project_id") String project_id);
+
+
+    //获取单聊正在谈的项目
+    @FormUrlEncoded
+    @POST(Constant.GETCHATPROJECT)
+    Observable<GetChatProjectBean> getChatProject(@Field("token") String token, @Field("userId") String userId);
+
+
+    //确认合作发送的请求
+    @FormUrlEncoded
+    @POST(Constant.COOPERATION)
+    Observable<CooperationBean> cooperation(@Field("token") String token, @Field("userId") String userId, @Field("project_id") String project_id);
+
+
 }
 

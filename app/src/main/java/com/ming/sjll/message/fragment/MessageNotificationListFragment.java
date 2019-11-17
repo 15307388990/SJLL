@@ -15,13 +15,11 @@ import com.ming.sjll.base.utils.ImageLoaderUtil;
 import com.ming.sjll.base.utils.Tools;
 import com.ming.sjll.databinding.MessageChatNotifyFragmentBinding;
 import com.ming.sjll.message.activity.MessageCompanyApplyActivity;
-import com.ming.sjll.message.activity.MessageProjectConfirmJoinActivity;
 import com.ming.sjll.message.activity.MessageProjectCoordinationActivity;
+import com.ming.sjll.message.activity.MessageProjectInviteActivity;
 import com.ming.sjll.message.presenter.MessageNotificationListPresenter;
 import com.ming.sjll.message.view.MessageNotificationListView;
-import com.ming.sjll.message.viewmodel.MessageNotifyViewModel;
-
-import org.jetbrains.annotations.NotNull;
+import com.ming.sjll.message.viewmodel.MessageNotifyBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +44,7 @@ public class MessageNotificationListFragment extends MvpFragment<MessageNotifica
         setContentView(dataBinding.getRoot());
 
         dataBinding.rcNotification.setLayoutManager(new LinearLayoutManager(getContext()));
-        ArrayList<MessageNotifyViewModel> data = getMessageNotifyViewModels(new MessageNotifyViewModel());
+        ArrayList<MessageNotifyBean> data = new ArrayList<>();
         adapter = new MessageNotifyAdapter(data);
         dataBinding.rcNotification.setAdapter(adapter);
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
@@ -55,7 +53,7 @@ public class MessageNotificationListFragment extends MvpFragment<MessageNotifica
                 if (position == 0) {
                     Tools.jump(getActivity(), MessageProjectCoordinationActivity.class, false);
                 } else if (position == 1) {
-                    Tools.jump(getActivity(), MessageProjectConfirmJoinActivity.class, false);
+                    Tools.jump(getActivity(), MessageProjectInviteActivity.class, false);
                 } else if (position == 2) {
                     Tools.jump(getActivity(), MessageCompanyApplyActivity.class, false);
                 }
@@ -63,55 +61,25 @@ public class MessageNotificationListFragment extends MvpFragment<MessageNotifica
         });
     }
 
-    @NotNull
-    private ArrayList<MessageNotifyViewModel> getMessageNotifyViewModels(MessageNotifyViewModel dataViewModel) {
-        ArrayList<MessageNotifyViewModel> data = new ArrayList<>();
-        MessageNotifyViewModel viewModel = new MessageNotifyViewModel();
-        viewModel.setContent("项目统筹");
-        viewModel.setCount(dataViewModel.getProjectApply() + "");
-        viewModel.setUrl(R.mipmap.message_notify_1);
-
-
-        MessageNotifyViewModel viewModel1 = new MessageNotifyViewModel();
-        viewModel1.setContent("项目参与确认");
-        viewModel1.setCount(dataViewModel.getProjectInvite() + "");
-        viewModel1.setUrl(R.mipmap.message_notify_2);
-
-
-        MessageNotifyViewModel viewModel2 = new MessageNotifyViewModel();
-        viewModel2.setContent("公司申请");
-        viewModel2.setCount(dataViewModel.getCompanyApply() + "");
-        viewModel2.setUrl(R.mipmap.message_notify_3);
-
-
-        data.add(viewModel);
-        data.add(viewModel1);
-        data.add(viewModel2);
-        return data;
-    }
-
     @Override
-    public void onShowData(MessageNotifyViewModel viewModel) {
-        adapter.setNewData(getMessageNotifyViewModels(viewModel));
+    public void onShowData(ArrayList<MessageNotifyBean> viewModel) {
+        adapter.setNewData(viewModel);
     }
 
+    public class MessageNotifyAdapter extends BaseQuickAdapter<MessageNotifyBean, BaseViewHolder> {
 
-    public class MessageNotifyAdapter extends BaseQuickAdapter<MessageNotifyViewModel, BaseViewHolder> {
-
-        public MessageNotifyAdapter(@Nullable List<MessageNotifyViewModel> data) {
+        public MessageNotifyAdapter(@Nullable List<MessageNotifyBean> data) {
             super(R.layout.message_chat_notify_item, data);
         }
 
-
         @Override
-        protected void convert(BaseViewHolder baseViewHolder, MessageNotifyViewModel dataBean) {
+        protected void convert(BaseViewHolder baseViewHolder, MessageNotifyBean dataBean) {
             baseViewHolder.setText(R.id.name, dataBean.getContent());
+
             ImageLoaderUtil.display(baseViewHolder.getView(R.id.header), dataBean.getUrl());
             baseViewHolder.setText(R.id.un_read, dataBean.getCount());
-            baseViewHolder.setGone(R.id.un_read, TextUtils.isEmpty(dataBean.getCount()) || TextUtils.equals("0", dataBean.getCount()));
-
+            baseViewHolder.setGone(R.id.un_read, !TextUtils.isEmpty(dataBean.getCount()) && !TextUtils.equals("0", dataBean.getCount()));
         }
-
     }
 
 }

@@ -38,7 +38,11 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
+/**
+ * @author luoming
+ *created at 2019-11-10 13:32
+ * 项目发布
+*/
 public class PublishProjectAcitivity extends MvpActivity<PublishProjectView, PublishProjectPresenter> implements PublishProjectView {
     @BindView(R.id.title_bar_IvLeft)
     ImageView titleBarIvLeft;

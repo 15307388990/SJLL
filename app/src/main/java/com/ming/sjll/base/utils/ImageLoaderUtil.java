@@ -18,10 +18,10 @@ import com.bumptech.glide.request.FutureTarget;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
+import com.ming.sjll.api.Constant;
 
 import java.io.File;
 import java.util.concurrent.ExecutionException;
-
 
 
 /**
@@ -66,6 +66,10 @@ public class ImageLoaderUtil {
      * @param path      图片路径
      */
     public static void display(ImageView imageView, String path) {
+
+        if (!path.startsWith(Constant.BASE_API)) {
+            path = Constant.BASE_API + path;
+        }
         display(imageView, path, getDefOption());
     }
 
@@ -178,6 +182,7 @@ public class ImageLoaderUtil {
                 .applyDefaultRequestOptions(options)
                 .load(path).into(imageView);
     }
+
     public static void display(ImageView imageView, int path, RequestOptions options) {
         Glide.with(imageView)
                 .applyDefaultRequestOptions(options)

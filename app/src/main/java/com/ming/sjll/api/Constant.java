@@ -74,6 +74,12 @@ public class Constant {
     /**
      * 文章列表
      */
+    public static final String COLUMNLIST = "/api/special_column/columnList";
+
+
+    /**
+     * 找人找物
+     */
     public static final String GETCOLUMCHILD = "api/home/getColunmChild";
 
     /**
@@ -141,6 +147,44 @@ public class Constant {
      */
     public static final String USERREPORT = "/api/user_report/user";
 
+
+    /**
+     * 项目管理
+     */
+    public static final String PROJECTMANAGE = "/api/project/projectManage";
+
+    /**
+     * 我的订单*业务
+     */
+    public static final String GETBUSINESS = "/api/order/getBusiness";
+
+    /**
+     * 我的订单*课程
+     */
+
+    public static final String CURRICULUM = "/api/order/curriculum";
+
+    /**
+     * 我的订单*投广
+     */
+    public static final String GETADS = "/api/order/getAds";
+
+    /**
+     * 获取专栏职业
+     */
+    public static final String SPQCCUPATION = "/api/special_column/getOccupation";
+
+    /**
+     * 获取专栏详情
+     */
+    public static final String GETCOLUMNINFO = "/api/special_column/getColumnInfo";
+
+    /**
+     * 收藏课程(专栏)
+     */
+    public static final String COLLECTCOLUMN = "/api/collect/collectColumn";
+
+
     /**
      * 通知(未读)
      */
@@ -150,8 +194,47 @@ public class Constant {
      * 项目统筹列表
      */
     public static final String PROJECTAPPLY = "/api/Inform/projectApply";
+
+    /**
+     * 项目参与确认列表
+     */
+    public static final String PROJECTINVITE = "/api/Inform/projectInvite";
+
+
+    /**
+     * 公司申请列表
+     */
+    public static final String COMPANYAPPLY = "/api/Inform/companyApply";
+
+
     /**
      * 项目统筹申请(是否同意)
      */
     public static final String APPLYPASS = "/api/user_operation/applyPass";
+
+
+    /**
+     * 项目参与确认(是否同意)
+     */
+    public static final String INVITEPASS = "/api/user_operation/invitePass";
+
+    /**
+     * 公司申请(是否同意)
+     */
+    public static final String COMPANYPASS = "/api/user_operation/companyPass";
+
+    /**
+     * 设置单聊正在谈的项目
+     */
+    public static final String SETCHATPROJECT = "/api/rc/setChatProject";
+    /**
+     * 获取单聊正在谈的项目
+     */
+    public static final String GETCHATPROJECT = "/api/rc/getChatProject";
+    /**
+     * 确认合作发送的请求
+     */
+    public static final String COOPERATION = "/api/rc/cooperation";
+
+
 }

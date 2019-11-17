@@ -16,10 +16,10 @@ import com.ming.sjll.R;
 import com.ming.sjll.api.Constant;
 import com.ming.sjll.base.fragment.MvpFragment;
 import com.ming.sjll.base.utils.ImageHelper;
+import com.ming.sjll.purchaser.adapter.Visualdapter;
 import com.ming.sjll.purchaser.presenter.PurchaserVisualPresenter;
 import com.ming.sjll.purchaser.view.CustomRoundAngleImageView;
 import com.ming.sjll.purchaser.view.PurchaserVisualView;
-import com.ming.sjll.supplier.adapter.Visualdapter;
 import com.ming.sjll.supplier.bean.ArticleListBean;
 import com.ming.sjll.supplier.bean.TopArticleBean;
 
@@ -109,7 +109,7 @@ public class PurchaserVisualFragemt extends MvpFragment<PurchaserVisualView, Pur
         }
         ViewPager viewPager = headView.findViewById(R.id.viewpager);
         fragmentList.add(HotArticleFragemt.newInstance());
-        fragmentList.add(HotArticleFragemt.newInstance());
+        fragmentList.add(HotAuthorFragemt.newInstance());
         viewPager.setAdapter(new Adapter(getChildFragmentManager()));
 
         visualdapter.setHeaderView(headView);

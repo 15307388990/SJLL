@@ -13,6 +13,7 @@ import com.ming.sjll.api.Constant;
 import com.ming.sjll.base.fragment.MvpFragment;
 import com.ming.sjll.base.utils.ImageHelper;
 import com.ming.sjll.base.utils.Tools;
+import com.ming.sjll.purchaser.activity.ProjectManagementAcitivity;
 import com.ming.sjll.purchaser.activity.PublishProjectAcitivity;
 import com.ming.sjll.purchaser.presenter.PurchaserHomePresenter;
 import com.ming.sjll.purchaser.view.CustomRoundAngleImageView;
@@ -95,12 +96,14 @@ public class PurchaserHomeFragemt extends MvpFragment<PurchaserHomeView, Purchas
     public void ShowDate(HomeColumBean homeColumBean) {
         recyclerview.setLayoutManager(new GridLayoutManager(getActivity(), 4));
         SupplierHomeAdapter supplierHomeAdapter = new SupplierHomeAdapter(homeColumBean.getData());
-        recyclerview.setAdapter(supplierHomeAdapter);
+            recyclerview.setAdapter(supplierHomeAdapter);
         supplierHomeAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 if (homeColumBean.getData().get(position).getTitle().equals("发布项目")){
                     Tools.jump(getActivity(), PublishProjectAcitivity.class,false);
+                }else if (homeColumBean.getData().get(position).getTitle().equals("项目管理")){
+                    Tools.jump(getActivity(), ProjectManagementAcitivity.class,false);
                 }
             }
         });
@@ -127,8 +130,6 @@ public class PurchaserHomeFragemt extends MvpFragment<PurchaserHomeView, Purchas
         rvJiewu.setLayoutManager(new GridLayoutManager(getActivity(), 4));
         JieWuAdapter jieWuAdapter=new JieWuAdapter(bean.getData().getThings());
         rvJiewu.setAdapter(jieWuAdapter);
-
-
 
     }
 }

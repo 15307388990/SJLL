@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="vertical">
 
@@ -36,7 +36,7 @@
                     android:id="@+id/tv_operation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="申请加入Lucas Wakamatsu 新品拍摄"
+                    tools:text="申请加入Lucas Wakamatsu 新品拍摄"
                     android:textColor="#0A3FFF"
                     android:textSize="14sp" />
 

@@ -5,6 +5,7 @@ import com.ming.sjll.base.exp.RetrofitManager;
 import com.ming.sjll.base.http.ApiObserver;
 import com.ming.sjll.base.presenter.MvpPresenter;
 import com.ming.sjll.message.view.MessageProjectCoordinationView;
+import com.ming.sjll.message.viewmodel.ApplyPassBean;
 import com.ming.sjll.message.viewmodel.MessageProjectCoordinationViewModel;
 
 public class MessageProjectCoordinationPresenter extends MvpPresenter<MessageProjectCoordinationView> {
@@ -23,7 +24,7 @@ public class MessageProjectCoordinationPresenter extends MvpPresenter<MessagePro
                 new ApiObserver<MessageProjectCoordinationViewModel>() {
                     @Override
                     public void onSuccess(MessageProjectCoordinationViewModel bean) {
-                        getView().onShowData(bean.data);
+                        getView().onShowData(bean.getData().getData());
                     }
 
                     @Override
@@ -36,9 +37,9 @@ public class MessageProjectCoordinationPresenter extends MvpPresenter<MessagePro
     public void applyPass(String applyId, boolean isReceive) {
         String status = isReceive ? "1" : "0";
         getNetData(RetrofitManager.get().create(ApiService.class).applyPass(getToken(), applyId + "", status + ""),
-                new ApiObserver<Object>() {
+                new ApiObserver<ApplyPassBean>() {
                     @Override
-                    public void onSuccess(Object bean) {
+                    public void onSuccess(ApplyPassBean bean) {
                         getData();
                     }
 
