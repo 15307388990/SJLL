@@ -71,7 +71,8 @@
         <activity android:name=".my.activity.ApplicationInAcitivity" /><!--申请入驻-->
         <activity android:name=".my.activity.MyorderAcitivity" /><!--我的订单-->
         <activity android:name=".supplier.activity.ColumnDetailsActivity" /><!--专栏详情-->
-
+        <activity android:name=".my.activity.SetActivity" /><!--设置-->
+        <activity android:name=".my.activity.ResetPasswordAcitivity" /><!--重置密码-->
 
 
         <!--   聊天界面-->

@@ -44,12 +44,23 @@ public class ComplainActivity extends MvpActivity<ComplaninView, ComplainPresent
     private ActivityComplainBinding viewDataBinding;
     private List<String> imgs;
     private ImageAdapter imageAdapter;
+    public static int TOREPORT = 1;
+    public static int CUSTOMERSERVICE = 2;
+    private int type;//类型
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewDataBinding = DataBindingUtil.setContentView(this, R.layout.activity_complain);
-        viewDataBinding.setTitleViewModel(new ToolbarViewModel("提交举报证据"));
+        type = getIntent().getIntExtra("type", TOREPORT);
+        if (type == TOREPORT) {
+            viewDataBinding.setTitleViewModel(new ToolbarViewModel("提交举报证据"));
+        } else {
+            viewDataBinding.setTitleViewModel(new ToolbarViewModel("客服中心"));
+            viewDataBinding.tvTitle.setText("请留言描述您的问题");
+        }
+
         initList();
 
 
@@ -77,7 +88,11 @@ public class ComplainActivity extends MvpActivity<ComplaninView, ComplainPresent
             @Override
             public void onClick(View v) {
                 String[] strings = new String[imgs.size()];
-                mPresenter.userPreport(viewDataBinding.etEdit.getText().toString().trim(), imgs.toArray(strings));
+                if (type == TOREPORT) {
+                    mPresenter.userPreport(viewDataBinding.etEdit.getText().toString().trim(), imgs.toArray(strings));
+                } else {
+                    mPresenter.userLeaveMsg(viewDataBinding.etEdit.getText().toString().trim(), imgs.toArray(strings));
+                }
             }
         });
         imageAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {

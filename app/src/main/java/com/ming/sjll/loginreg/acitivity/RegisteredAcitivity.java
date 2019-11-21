@@ -58,13 +58,12 @@ public class RegisteredAcitivity extends MvpActivity<RegisteredView, RegisteredP
         tvBtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              if (etPhone.getText().toString().trim().length()>10&&etCode.getText().toString().trim().length()>3)
-              {
-                  Intent intent=new Intent(RegisteredAcitivity.this,InitPasswordAcitivity.class);
-                  intent.putExtra("phone",etPhone.getText().toString().trim());
-                  intent.putExtra("code",etCode.getText().toString().trim());
-                  startActivity(intent);
-              }
+                if (etPhone.getText().toString().trim().length() > 10 && etCode.getText().toString().trim().length() > 3) {
+                    Intent intent = new Intent(RegisteredAcitivity.this, InitPasswordAcitivity.class);
+                    intent.putExtra("phone", etPhone.getText().toString().trim());
+                    intent.putExtra("code", etCode.getText().toString().trim());
+                    startActivity(intent);
+                }
 
             }
         });
@@ -96,6 +95,11 @@ public class RegisteredAcitivity extends MvpActivity<RegisteredView, RegisteredP
     public void returnCode(BaseBean baseBean) {
         MyCountTimer myCountTimer = new MyCountTimer(RegisteredAcitivity.this, tvBtn1, "重新发送", R.color.LL_bdc5e4, R.color.LL_bdc5e4);
         myCountTimer.start();
+    }
+
+    @Override
+    public void successful(BaseBean baseBean) {
+        finish();
     }
 
 }

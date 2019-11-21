@@ -88,6 +88,13 @@ public class SupplierTalentFragemt extends MvpFragment<TalentView, TalentPresent
     @Override
     public void maybeLike(MaybeLikBean bean) {
         recyclerview2.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerview2.setAdapter(new XinquAdapter(bean.getData()));
+        XinquAdapter xinquAdapter = new XinquAdapter(bean.getData(), new XinquAdapter.AddFocus() {
+            @Override
+            public void addFocus(String focus_user_id) {
+                mPresenter.addFocus(focus_user_id);
+
+            }
+        });
+        recyclerview2.setAdapter(xinquAdapter);
     }
 }

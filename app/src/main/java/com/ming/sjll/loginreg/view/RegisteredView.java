@@ -7,6 +7,7 @@ import com.ming.sjll.loginreg.bean.RegistereBean;
 
 public interface RegisteredView extends MvpView {
     void returnCode(BaseBean baseBean);
+    void successful(BaseBean baseBean);
 
 
 }

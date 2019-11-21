@@ -33,7 +33,6 @@ public class ComplainPresenter extends MvpPresenter<ComplaninView> {
     }
 
     public void userPreport(String content, String[] imgs) {
-
         getNetData(RetrofitManager.get().create(ApiService.class).userPreport(getToken(), report_uid, content, imgs),
                 new ApiObserver<BaseBean>() {
                     @Override
@@ -49,6 +48,24 @@ public class ComplainPresenter extends MvpPresenter<ComplaninView> {
                     }
                 });
     }
+
+    public void userLeaveMsg(String content, String[] imgs) {
+        getNetData(RetrofitManager.get().create(ApiService.class).userLeaveMsg(getToken(), content, imgs),
+                new ApiObserver<BaseBean>() {
+                    @Override
+                    public void onSuccess(BaseBean data) {
+                        getView().showLoading(data.getMsg());
+
+                    }
+
+                    @Override
+                    public void onFailure(int code, String msg) {
+                        getView().showError(msg);
+
+                    }
+                });
+    }
+
     //上传图片
     public void uploadFiles(List<File> selectList) {
         OkGo.<String>post(Constant.BASE_API + Constant.UPLOADIMG)//

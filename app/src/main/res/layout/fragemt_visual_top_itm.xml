@@ -83,11 +83,6 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="1dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="21dp"
-            android:background="#ffc7ccde" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerview"

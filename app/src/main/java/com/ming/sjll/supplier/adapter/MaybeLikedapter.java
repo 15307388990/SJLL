@@ -2,6 +2,7 @@ package com.ming.sjll.supplier.adapter;
 
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -34,8 +35,17 @@ public class MaybeLikedapter extends BaseQuickAdapter<MaybeLikBean.DataBean.List
             name.append(" 平台签约");
         }
         baseViewHolder.setText(R.id.tv_name, name);
-        baseViewHolder.setText(R.id.tv_text, dataBean.getCollect_num()+"粉丝");
-
+        baseViewHolder.setText(R.id.tv_text, dataBean.getCollect_num() + "粉丝");
+        TextView textView = baseViewHolder.getView(R.id.tv_guanzhu);
+        if (dataBean.getIs_approve() == 1) {
+            textView.setText("已关注");
+            textView.setBackgroundResource(R.drawable.ic_publish2);
+        } else {
+            textView.setText("关注");
+            textView.setBackgroundResource(R.drawable.ic_introduction2);
+        }
+        baseViewHolder.addOnClickListener(R.id.tv_guanzhu);
+        baseViewHolder.addOnClickListener(R.id.iv_img);
     }
 
 }

@@ -21,6 +21,7 @@ import com.ming.sjll.my.bean.CompanyBean;
 import com.ming.sjll.my.bean.CurriculumBean;
 import com.ming.sjll.my.bean.HomePageBean;
 import com.ming.sjll.my.bean.PersonalDateBean;
+import com.ming.sjll.my.bean.VersionBean;
 import com.ming.sjll.purchaser.bean.AreaBean;
 import com.ming.sjll.purchaser.bean.OccupationBean;
 import com.ming.sjll.purchaser.bean.ProjectManagementBean;
@@ -184,6 +185,11 @@ public interface ApiService {
     @POST(Constant.USERREPORT)
     Observable<BaseBean> userPreport(@Field("token") String token, @Field("report_uid") String uid, @Field("content") String content, @Field("img[]") String img[]);
 
+    //项目管理
+    @FormUrlEncoded
+    @POST(Constant.PROJECTMANAGE)
+    Observable<ProjectManagementBean> projectManage(@Field("token") String token, @Field("type") String type);
+
 
     //我的订单*业务
     @FormUrlEncoded
@@ -220,10 +226,25 @@ public interface ApiService {
     @POST(Constant.COLLECTCOLUMN)
     Observable<BaseBean> collectColumn(@Field("token") String token, @Field("column_id") String column_id);
 
-    //项目管理
+    //客服中心,用户留言
     @FormUrlEncoded
-    @POST(Constant.PROJECTMANAGE)
-    Observable<ProjectManagementBean> projectManage(@Field("token") String token, @Field("type") String type);
+    @POST(Constant.USERLEAVEMSG)
+    Observable<BaseBean> userLeaveMsg(@Field("token") String token, @Field("content") String content, @Field("img[]") String img[]);
+
+    //APP更新
+    @POST(Constant.GETVERSION)
+    Observable<VersionBean> userLeaveMsg();
+
+    //发送验证码(重置密码)
+    @FormUrlEncoded
+    @POST(Constant.SAVECODE)
+    Observable<BaseBean> saveCode(@Field("token") String token);
+
+    //重置密码
+    @FormUrlEncoded
+    @POST(Constant.SAVEPWD)
+    Observable<BaseBean> savePwd(@Field("token") String token, @Field("password") String password, @Field("repassword") String repassword,
+                                 @Field("code") String code);
 
 
     //通知(未读)
@@ -282,6 +303,10 @@ public interface ApiService {
     @POST(Constant.COOPERATION)
     Observable<CooperationBean> cooperation(@Field("token") String token, @Field("userId") String userId, @Field("project_id") String project_id);
 
+    //添加关注
+    @FormUrlEncoded
+    @POST(Constant.ADDFOCUS)
+    Observable<BaseBean> addFocus(@Field("token") String token, @Field("focus_user_id") String focus_user_id);
 
 }
 

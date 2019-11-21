@@ -1,6 +1,9 @@
 package com.ming.sjll.supplier.adapter;
 
+import android.app.Activity;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -8,6 +11,8 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.ming.sjll.R;
 import com.ming.sjll.api.Constant;
 import com.ming.sjll.base.utils.ImageHelper;
+import com.ming.sjll.base.utils.Tools;
+import com.ming.sjll.my.activity.HomeageActivity;
 import com.ming.sjll.supplier.bean.TalentPushBean;
 
 import java.util.List;
@@ -52,7 +57,16 @@ public class Talentdapter extends BaseQuickAdapter<TalentPushBean.DataBean, Base
         text.append("/h");
         baseViewHolder.setText(R.id.tv_text, text);
         // text.append(dataBean.get)
+        baseViewHolder.addOnClickListener(R.id.iv_img);
 
+        baseViewHolder.getView(R.id.iv_img).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("uid", dataBean.getUid() + "");
+                Tools.jump((Activity) mContext, HomeageActivity.class, bundle, false);
+            }
+        });
     }
 
 }

@@ -6,9 +6,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.ming.sjll.R;
 import com.ming.sjll.base.fragment.MvpFragment;
+import com.ming.sjll.base.utils.Tools;
 import com.ming.sjll.base.widget.ToastShow;
+import com.ming.sjll.my.activity.HomeageActivity;
 import com.ming.sjll.supplier.adapter.Talentdapter;
 import com.ming.sjll.supplier.adapter.XinquAdapter;
 import com.ming.sjll.supplier.bean.MaybeLikBean;
@@ -82,12 +85,22 @@ public class PuchaserTalentFragemt extends MvpFragment<TalentView, TalentPresent
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerview.setLayoutManager(linearLayoutManager);
-        recyclerview.setAdapter(new Talentdapter(bean.getData()));
+        Talentdapter talentdapter = new Talentdapter(bean.getData());
+        recyclerview.setAdapter(talentdapter);
+
+
+
     }
 
     @Override
     public void maybeLike(MaybeLikBean bean) {
         recyclerview2.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerview2.setAdapter(new XinquAdapter(bean.getData()));
+        XinquAdapter xinquAdapter = new XinquAdapter(bean.getData(), new XinquAdapter.AddFocus() {
+            @Override
+            public void addFocus(String focus_user_id) {
+                mPresenter.addFocus(focus_user_id);
+            }
+        });
+        recyclerview2.setAdapter(xinquAdapter);
     }
 }

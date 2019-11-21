@@ -9,7 +9,9 @@ import com.ming.sjll.R;
 import com.ming.sjll.base.fragment.MvpFragment;
 import com.ming.sjll.base.utils.Tools;
 import com.ming.sjll.my.activity.ApplicationInAcitivity;
+import com.ming.sjll.my.activity.ComplainActivity;
 import com.ming.sjll.my.activity.MyorderAcitivity;
+import com.ming.sjll.my.activity.SetActivity;
 import com.ming.sjll.my.bean.CompanyBean;
 import com.ming.sjll.my.presenter.MyPresenter;
 import com.ming.sjll.my.view.MyView;
@@ -30,6 +32,10 @@ public class PersonalWorkFragemt extends MvpFragment<MyView, MyPresenter> implem
     LinearLayout llJoin;
     @BindView(R.id.ll_order)
     LinearLayout llOrder;
+    @BindView(R.id.ll_complain)
+    LinearLayout llComplain;
+    @BindView(R.id.ll_set)
+    LinearLayout llSet;
 
     public static PersonalWorkFragemt newInstance() {
         return new PersonalWorkFragemt();
@@ -61,6 +67,23 @@ public class PersonalWorkFragemt extends MvpFragment<MyView, MyPresenter> implem
             @Override
             public void onClick(View v) {
                 Tools.jump(getActivity(), MyorderAcitivity.class, false);
+            }
+        });
+        //客服中心
+        llComplain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("type", ComplainActivity.CUSTOMERSERVICE);
+                Tools.jump(getActivity(), ComplainActivity.class, bundle, false);
+            }
+        });
+        //设置
+        llSet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Tools.jump(getActivity(), SetActivity.class, false);
             }
         });
     }

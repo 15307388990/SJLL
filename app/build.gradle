@@ -102,6 +102,8 @@ dependencies {
 
 
     implementation 'com.yanzhenjie.recyclerview:support:1.3.2'
+    //动态权限
+    implementation 'com.yanzhenjie.permission:support:2.0.1'
 }
 
 repositories {

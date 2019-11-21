@@ -1,6 +1,7 @@
 package com.ming.sjll.supplier.presenter;
 
 import com.ming.sjll.api.ApiService;
+import com.ming.sjll.base.bean.BaseBean;
 import com.ming.sjll.base.exp.RetrofitManager;
 import com.ming.sjll.base.http.ApiObserver;
 import com.ming.sjll.base.presenter.MvpPresenter;
@@ -12,7 +13,7 @@ import com.ming.sjll.supplier.view.TalentView;
 
 public class TalentPresenter extends MvpPresenter<TalentView> {
     public void talentPush(String type) {
-        getNetData(RetrofitManager.get().create(ApiService.class).talentPush("2e9f39acab38ffd042c4baf9f8c75cb7f5cecb26"),
+        getNetData(RetrofitManager.get().create(ApiService.class).talentPush(getToken()),
                 new ApiObserver<TalentPushBean>() {
                     @Override
                     public void onSuccess(TalentPushBean bean) {
@@ -28,11 +29,27 @@ public class TalentPresenter extends MvpPresenter<TalentView> {
     }
 
     public void maybeLikBean(String type) {
-        getNetData(RetrofitManager.get().create(ApiService.class).maybeLike("2e9f39acab38ffd042c4baf9f8c75cb7f5cecb26", type),
+        getNetData(RetrofitManager.get().create(ApiService.class).maybeLike(getToken(), type),
                 new ApiObserver<MaybeLikBean>() {
                     @Override
                     public void onSuccess(MaybeLikBean bean) {
                         getView().maybeLike(bean);
+                    }
+
+                    @Override
+                    public void onFailure(int code, String msg) {
+                        getView().showError(msg);
+                    }
+                });
+
+    }
+
+    public void addFocus(String focus_user_id) {
+        getNetData(RetrofitManager.get().create(ApiService.class).addFocus(getToken(), focus_user_id),
+                new ApiObserver<BaseBean>() {
+                    @Override
+                    public void onSuccess(BaseBean bean) {
+                        getView().showLoading(bean.getMsg());
                     }
 
                     @Override

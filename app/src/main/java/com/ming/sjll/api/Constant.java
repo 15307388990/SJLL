@@ -184,6 +184,27 @@ public class Constant {
      */
     public static final String COLLECTCOLUMN = "/api/collect/collectColumn";
 
+    /**
+     * 客服中心
+     */
+    public static final String USERLEAVEMSG = "/api/personal_center/userLeaveMsg";
+
+    /**
+     * APP更新
+     */
+    public static final String GETVERSION = "/api/common/getVersion";
+
+    /**
+     *发送验证码(重置密码)
+     */
+    public static final String SAVECODE = "/api/personal_center/saveCode";
+
+    /**
+     *重置密码
+     */
+    public static final String SAVEPWD = "/api/personal_center/savePwd";
+
+
 
     /**
      * 通知(未读)
@@ -235,6 +256,11 @@ public class Constant {
      * 确认合作发送的请求
      */
     public static final String COOPERATION = "/api/rc/cooperation";
+
+    /**
+     * 添加关注
+     */
+    public static final String ADDFOCUS = "/api/show/addFocus";
 
 
 }
