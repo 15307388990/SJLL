@@ -261,6 +261,23 @@ public class Constant {
      * 添加关注
      */
     public static final String ADDFOCUS = "/api/show/addFocus";
+    /**
+     * 收藏 项目
+     */
+    public static final String PROJECTLIST = "/api/collect/projectList";
+    /**
+     * 收藏 人员
+     */
+    public static final String USERLIST = "/api/collect/userList";
+    /**
+     * 收藏 物品
+     */
+    public static final String GOODSLIST = "/api/collect/goodsList";
+    /**
+     * 收藏 课程
+     */
+    public static final String COURSELIST = "/api/collect/courseList";
+
 
 
 }

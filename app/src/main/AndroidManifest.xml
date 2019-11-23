@@ -73,6 +73,7 @@
         <activity android:name=".supplier.activity.ColumnDetailsActivity" /><!--专栏详情-->
         <activity android:name=".my.activity.SetActivity" /><!--设置-->
         <activity android:name=".my.activity.ResetPasswordAcitivity" /><!--重置密码-->
+        <activity android:name=".my.activity.CollectionAcitivity" /><!--收藏-->
 
 
         <!--   聊天界面-->

@@ -15,6 +15,8 @@ import com.ming.sjll.message.viewmodel.ProjectChatViewModel;
 import com.ming.sjll.message.viewmodel.ProjectInviteBean;
 import com.ming.sjll.message.viewmodel.SetChatProjectBean;
 import com.ming.sjll.my.bean.AdsBean;
+import com.ming.sjll.my.bean.ColletionGoodsBean;
+import com.ming.sjll.my.bean.ColletionPersenterBean;
 import com.ming.sjll.my.bean.ColumnDetailsBean;
 import com.ming.sjll.my.bean.ColumnListBean;
 import com.ming.sjll.my.bean.CompanyBean;
@@ -307,6 +309,26 @@ public interface ApiService {
     @FormUrlEncoded
     @POST(Constant.ADDFOCUS)
     Observable<BaseBean> addFocus(@Field("token") String token, @Field("focus_user_id") String focus_user_id);
+
+    //收藏 人员
+    @FormUrlEncoded
+    @POST(Constant.USERLIST)
+    Observable<ColletionPersenterBean> userList(@Field("token") String token);
+
+    //收藏 物品
+    @FormUrlEncoded
+    @POST(Constant.GOODSLIST)
+    Observable<ColletionGoodsBean> goodsList(@Field("token") String token);
+
+    //收藏 项目
+    @FormUrlEncoded
+    @POST(Constant.PROJECTLIST)
+    Observable<ComprehenBean> projectList(@Field("token") String token);
+
+    //收藏 课程
+    @FormUrlEncoded
+    @POST(Constant.COURSELIST)
+    Observable<ColumnListBean> courseList(@Field("token") String token);
 
 }
 

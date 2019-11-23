@@ -18,6 +18,8 @@ import com.ming.sjll.R;
 import com.ming.sjll.api.Constant;
 import com.ming.sjll.base.fragment.MvpFragment;
 import com.ming.sjll.base.utils.ImageHelper;
+import com.ming.sjll.base.utils.Tools;
+import com.ming.sjll.my.activity.CollectionAcitivity;
 import com.ming.sjll.my.bean.CompanyBean;
 import com.ming.sjll.my.presenter.MyPresenter;
 import com.ming.sjll.my.view.MyView;
@@ -184,6 +186,12 @@ public class MyFragemt extends MvpFragment<MyView, MyPresenter> implements MyVie
             @Override
             public void onClick(View v) {
                 viewpager.setCurrentItem(1);
+            }
+        });
+        tvCollection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Tools.jump(getActivity(), CollectionAcitivity.class, false);
             }
         });
     }
